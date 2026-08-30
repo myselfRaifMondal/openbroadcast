@@ -42,7 +42,10 @@ export default async function ChannelPage(props: PageProps<'/channel/[id]'>) {
           <h1 className="text-[22px] font-semibold tracking-tight">{channel.name}</h1>
           <p className="mt-1 text-[13px] text-muted">
             {channel.countryFlag} {channel.countryName} ·{' '}
-            {channel.categories
+            {(channel.categories.length > 0
+              ? channel.categories
+              : [channel.primaryCategory]
+            )
               .map((c) => CATEGORY_LABELS[c] ?? c)
               .join(' · ')}
           </p>
