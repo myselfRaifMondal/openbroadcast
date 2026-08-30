@@ -118,7 +118,8 @@ INCLUDE_NSFW=1 npm run filter:open   # also keep adult channels
 
 Open mode skips the licensing policy entirely and lists **every** channel
 iptv-org carries a browser-playable stream for — currently **9,316 channels
-across 177 countries**, including the sports, movie, entertainment, and pay-TV
+across 177 countries** before
+pruning dead streams, including the sports, movie, entertainment, and pay-TV
 brands the public build excludes. It still drops dead channels, channels with
 no playable stream, and (unless `INCLUDE_NSFW=1`) adult channels.
 
@@ -134,6 +135,38 @@ deployed to a public URL. To go back:
 ```bash
 npm run filter:channels && npm run build
 ```
+
+### Pruning dead streams
+
+```bash
+npm run check:streams            # probe and report only
+npm run check:streams -- --prune # also drop unreachable channels
+```
+
+The filter only checks that a stream URL exists — never that it answers, and
+iptv-org endpoints rot continuously. This probes every stream and classifies
+each channel:
+
+- **live** — the manifest came back with `#EXTM3U`.
+- **geo-blocked** — HTTP 403/451. The stream is healthy, the broadcaster just
+  fences it to its own country. **Never pruned**: it plays from in-country or
+  over a VPN. Public broadcasters do this far more than commercial channels.
+- **dead** — 404, DNS/connection failure, timeout, or a response that is not an
+  HLS manifest.
+
+Probing runs in two passes. The first is fast (10s timeout, 64 concurrent);
+everything that fails is then retried alone at 20s and 40-way concurrency,
+because a slow stream under load looks identical to a dead one. On the run
+below that retry recovered **296 of 1,964** apparent failures (15%) — pruning
+on a single pass would have deleted working channels.
+
+Last run on the open catalogue: **7,108 live, 540 geo-blocked, 1,668 pruned**
+(9,316 → 7,648 channels across 174 countries). Results are written to
+`data/stream-health.json`, and `--prune` records the summary on the dataset as
+`streamHealth`.
+
+Health is a snapshot, not a property of the catalogue — re-run it periodically
+and re-prune.
 
 ### Finding new candidates
 

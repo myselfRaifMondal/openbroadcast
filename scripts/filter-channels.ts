@@ -130,6 +130,13 @@ export interface ApprovedDataset {
     rejected: number;
   };
   rejectionReasons: Record<string, number>;
+  /** Present once check-streams has pruned unreachable channels. */
+  streamHealth?: {
+    checkedAt: string;
+    live: number;
+    geoBlocked: number;
+    pruned: number;
+  };
   channels: ApprovedChannel[];
 }
 

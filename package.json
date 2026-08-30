@@ -9,7 +9,8 @@
     "lint": "eslint",
     "filter:channels": "tsx scripts/filter-channels.ts",
     "audit:candidates": "tsx scripts/audit-candidates.ts",
-    "filter:open": "POLICY_MODE=open tsx scripts/filter-channels.ts"
+    "filter:open": "POLICY_MODE=open tsx scripts/filter-channels.ts",
+    "check:streams": "tsx scripts/check-streams.ts"
   },
   "dependencies": {
     "hls.js": "^1.7.1",

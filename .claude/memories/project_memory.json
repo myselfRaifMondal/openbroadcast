@@ -3,42 +3,72 @@
   "manual_memories": [],
   "realtime_memories": [
     {
+      "type": "project",
+      "content": "OpenBroadcast (~/Documents/Projects/GitHub/openbroadcast): Next.js 16 App Router + TypeScript + Tailwind v4 + hls.js live-TV player over the iptv-org open dataset. Statically prerenders every channel page from a committed data/channels.approved.json snapshot; never calls iptv-org at request time. Deployed on Vercel Hobby at openbroadcast.vercel.app (project prj_QvYbgDmBaZd4ktme2R5TENoFpE8u). Local git only, 5 commits, no remote configured.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "decision",
+      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts (781 channels / 104 countries): four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, 9,316 channels / 177 countries, no licensing or category filtering; INCLUDE_NSFW=1 additionally keeps adult channels.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "preference",
+      "content": "User wants the full unfiltered catalogue INCLUDING sports and pay-TV — stated 2026-08-30: it is a private media player for personal use, 'don't need to be shy'. They reaffirmed this after I raised the licensing concern, so treat open mode as their standing decision; do not re-litigate it. They had earlier specified the strict public-only filter, so keep both modes working rather than deleting the curated policy.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "decision",
+      "content": "Open mode must stay honest and unpublished. Channels with no allow-rule match get basis 'unverified-open-mode' labelled 'No verified licensing basis' rather than inheriting a public-broadcaster justification; header shows an OPEN MODE badge; /policy leads with a banner saying the policy is not being applied. The public Vercel URL still serves the curated 781 — an open-mode build was deliberately NOT deployed to a public address. To host it, enable Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby); the MCP Vercel connector 404s on this project so it cannot be set from the tool.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "reference",
+      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full), audit:candidates [minChannels] (lists owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (probes every stream, writes data/stream-health.json, prunes only genuinely dead and never geo-blocked).",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "project",
+      "content": "Stream health measured 2026-08-30 on the 9,316-channel open catalogue: 73.4% live, 5.5% geo-blocked (403/451 — healthy but country-fenced), 21.1% dead. Curated public/gov channels geo-block far more (15.7% vs 4.4%) because public broadcasters fence to their own country. Dead count is inflated by 990 bare timeouts at a 10s cutoff under 64-way concurrency; re-probe before pruning. iptv-org endpoints rot continuously, so this is a snapshot, not a property of the catalogue.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
+      "type": "feedback",
+      "content": "Verify player changes against a real stream before claiming they work — Playwright against a running build, reading video.readyState/currentTime/videoWidth, not just an HTTP 200. Why: a channel page returns 200 while the stream is geo-blocked or dead, so status codes prove nothing about playback. Confirmed working probes: ABC News AU, TVR 1, Red Bull TV. Known geo-fenced: Rai 1, TyC Sports.",
+      "added_at": "2026-08-30T15:06:10.451081",
+      "source": "consolidated"
+    },
+    {
       "type": "claude_response",
-      "content": "**Done. All acceptance criteria met.**\n\n✅ **Filter** — `npm run filter:channels` → `data/channels.approved.json`\n```\nSource: 40834 channels, 16984 streams\nApproved 568 of 40834 channels.\n   21573  no ",
-      "added_at": "2026-08-30T14:33:04.071960",
+      "content": "Memories consolidated: 10 → 7. Dropped the verbatim conversation transcript (my own response openings, the task-notification echo, the clarification exchange) and kept what changes how I'd work next s",
+      "added_at": "2026-08-30T15:06:58.555695",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "I want add the remaining channels into the allowlist.",
-      "added_at": "2026-08-30T14:33:04.071974",
+      "content": "remove the dead channels from the list",
+      "added_at": "2026-08-30T15:06:58.555721",
       "source": "realtime_capture"
     },
     {
       "type": "claude_response",
-      "content": "**Allowlist expanded and live.** 568 → **781 channels**, 83 → **104 countries**.\n\n```\nApproved 781 of 40834 channels.\n```\n\n**Added (~70 owner strings + 9 patterns), all reviewed public-service/state/c",
-      "added_at": "2026-08-30T14:40:58.832413",
+      "content": "Retry pass is now built into `check:streams` itself, so this two-stage probe is reproducible rather than a scratch script. Waiting on the running re-probe of the 1,964 to give the prune an accurate li",
+      "added_at": "2026-08-30T15:10:23.465456",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "Add where are the sports channels?",
-      "added_at": "2026-08-30T14:40:58.832430",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "What would you like to clarify?\n\nContext for whatever you're weighing:\n\n- **Currently excluded:** 2,006 channels on `sports` category, plus more caught by the brand denylist (ESPN, Sky, beIN, DAZN, ML",
-      "added_at": "2026-08-30T14:42:07.989698",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "I want you to add the channels which are excluded, as it's going to be a private media player for me, so don't need to be shy for the same.",
-      "added_at": "2026-08-30T14:42:07.989716",
+      "content": "<task-notification> <task-id>b6c8cqub2</task-id> <tool-use-id>toolu_01EeGiriH6mPuPb8B57P1dqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-raifsalauddinmondal-Documents-Projects-GitHub/d5d",
+      "added_at": "2026-08-30T15:10:23.465486",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T14:42:07.989718"
+  "updated_at": "2026-08-30T15:10:23.465488"
 }
