@@ -9,8 +9,8 @@ dataset. It does **not** mirror that dataset. A build-time filter admits a
 channel only when a named, checkable rule says it is public-service,
 government, or civic, and every channel page states which rule applied.
 
-**Current snapshot: 781 channels across 104 countries, filtered from 40,834
-source entries.**
+**Current snapshot: 623 channels across 91 countries, filtered from 40,834
+source entries and pruned to those whose streams still respond.**
 
 OpenBroadcast hosts no video. Playback is a direct browser connection to the
 broadcaster's own HLS endpoint.
@@ -79,6 +79,7 @@ its page.
 | denied category: comedy | 341 |
 | denied category: animation | 258 |
 | denied category: travel | 181 |
+| stream unreachable (two-pass probe) | 158 |
 | denied category: outdoor | 134 |
 | denied category: classic | 113 |
 | denied category: family | 100 |
@@ -130,10 +131,16 @@ the policy below it is not being applied.
 
 This is for a private, local catalogue. Nothing about a stream being reachable
 means it is licensed for redistribution, so an open-mode build should not be
-deployed to a public URL. To go back:
+deployed to a public URL, and the open snapshot is **not** the one committed
+here — `data/channels.approved.json` in this repo is always the curated build.
+Keep a local open catalogue at `data/channels.open.local.json` (gitignored) and
+swap it in when you want it:
 
 ```bash
-npm run filter:channels && npm run build
+npm run filter:open && npm run check:streams -- --prune   # build it
+cp data/channels.approved.json data/channels.open.local.json  # keep it
+cp data/channels.open.local.json data/channels.approved.json  # swap it back in
+npm run filter:channels                                    # return to curated
 ```
 
 ### Pruning dead streams

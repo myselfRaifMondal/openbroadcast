@@ -42,3 +42,6 @@ next-env.d.ts
 
 # playwright mcp artifacts
 .playwright-mcp/
+
+# local-only open-mode catalogue (regenerate with: npm run filter:open)
+data/channels.open.local.json

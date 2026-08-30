@@ -10,7 +10,7 @@
     },
     {
       "type": "decision",
-      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts (781 channels / 104 countries): four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, 9,316 channels / 177 countries, no licensing or category filtering; INCLUDE_NSFW=1 additionally keeps adult channels.",
+      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts (781 channels / 104 countries): four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, 9,316 channels / 177 countries, no licensing or category filtering; INCLUDE_NSFW=1 additionally keeps adult channels. Current data/channels.approved.json holds the open catalogue, pruned to 7,648 live-or-geo-blocked channels.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -28,13 +28,13 @@
     },
     {
       "type": "reference",
-      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full), audit:candidates [minChannels] (lists owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (probes every stream, writes data/stream-health.json, prunes only genuinely dead and never geo-blocked).",
+      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full catalogue), audit:candidates [minChannels] (owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (two-pass stream probe, writes data/stream-health.json, records a streamHealth summary on the dataset, prunes only genuinely dead and never geo-blocked).",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
     {
       "type": "project",
-      "content": "Stream health measured 2026-08-30 on the 9,316-channel open catalogue: 73.4% live, 5.5% geo-blocked (403/451 — healthy but country-fenced), 21.1% dead. Curated public/gov channels geo-block far more (15.7% vs 4.4%) because public broadcasters fence to their own country. Dead count is inflated by 990 bare timeouts at a 10s cutoff under 64-way concurrency; re-probe before pruning. iptv-org endpoints rot continuously, so this is a snapshot, not a property of the catalogue.",
+      "content": "Stream health / dead-channel pruning (measured 2026-08-30, open catalogue). Two-pass probe: 10s timeout at 64-way, then every failure retried at 20s/40-way — the retry recovered 296 of 1,964 apparent failures (15%), so NEVER prune on a single pass. Final: 7,108 live, 540 geo-blocked, 1,668 dead pruned (9,316 -> 7,648 channels, 174 countries, 266 sports). Geo-blocked (403/451) are deliberately NOT pruned — healthy streams the broadcaster fences to its own country; they play in-country or over VPN, and the curated public/government set geo-blocks hardest (15.7% vs 4.4% commercial). Health is a snapshot: iptv-org endpoints rot continuously, so re-run and re-prune periodically. Open follow-up offered but not built: surface health in the UI (sort/grey dead) so the catalogue self-corrects between probes.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -46,29 +46,17 @@
     },
     {
       "type": "claude_response",
-      "content": "Memories consolidated: 10 → 7. Dropped the verbatim conversation transcript (my own response openings, the task-notification echo, the clarification exchange) and kept what changes how I'd work next s",
-      "added_at": "2026-08-30T15:06:58.555695",
+      "content": "Memories consolidated: 11 → 7. Dropped the four new transcript captures (my own reply openings, the task-notification echo, the one-line request) and folded their substance into the existing entries —",
+      "added_at": "2026-08-30T15:13:31.034397",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "remove the dead channels from the list",
-      "added_at": "2026-08-30T15:06:58.555721",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "Retry pass is now built into `check:streams` itself, so this two-stage probe is reproducible rather than a scratch script. Waiting on the running re-probe of the 1,964 to give the prune an accurate li",
-      "added_at": "2026-08-30T15:10:23.465456",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "<task-notification> <task-id>b6c8cqub2</task-id> <tool-use-id>toolu_01EeGiriH6mPuPb8B57P1dqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-raifsalauddinmondal-Documents-Projects-GitHub/d5d",
-      "added_at": "2026-08-30T15:10:23.465486",
+      "content": "If everything's done, then push the code.",
+      "added_at": "2026-08-30T15:13:31.034431",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T15:10:23.465488"
+  "updated_at": "2026-08-30T15:13:31.034433"
 }
