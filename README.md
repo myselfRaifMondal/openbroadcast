@@ -9,7 +9,7 @@ dataset. It does **not** mirror that dataset. A build-time filter admits a
 channel only when a named, checkable rule says it is public-service,
 government, or civic, and every channel page states which rule applied.
 
-**Current snapshot: 568 channels across 83 countries, filtered from 40,834
+**Current snapshot: 781 channels across 104 countries, filtered from 40,834
 source entries.**
 
 OpenBroadcast hosts no video. Playback is a direct browser connection to the
@@ -64,15 +64,15 @@ its page.
 
 | Reason | Channels |
 | --- | --- |
-| no verifiable public/free-to-air licensing basis | 21,573 |
+| no verifiable public/free-to-air licensing basis | 20,811 |
 | denied category: entertainment | 3,804 |
 | denied brand / commercial group | 2,555 |
 | denied category: sports | 2,006 |
 | denied category: music | 1,807 |
+| no browser-playable stream | 1,664 |
 | denied category: movies | 1,586 |
 | iptv-org blocklist | 1,420 |
 | closed or replaced | 1,262 |
-| no browser-playable stream | 1,115 |
 | denied category: shop | 696 |
 | denied category: series | 676 |
 | denied category: lifestyle | 411 |
@@ -108,6 +108,19 @@ committed snapshot.
 Re-run it whenever you want a fresher snapshot, then commit the diff. Review
 the diff: a jump in approvals usually means a new owner string slipped past
 review rather than a genuinely new public broadcaster.
+
+### Finding new candidates
+
+```bash
+npm run audit:candidates [minChannels]
+```
+
+Lists every owner whose channels clear all the hard exclusions and have a
+playable stream, but match no inclusion rule — the review queue for the
+allowlist. Nothing is admitted automatically: an owner earns a place in
+`PUBLIC_BROADCASTER_OWNERS` only after a human confirms it is a public-service,
+state, or civic broadcaster. Channels with no owner listed upstream at all
+(~3,500 of them) stay excluded, since there is nothing to verify.
 
 ### Changing the policy
 

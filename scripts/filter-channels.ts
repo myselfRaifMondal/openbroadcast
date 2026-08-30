@@ -123,7 +123,7 @@ export interface ApprovedDataset {
   channels: ApprovedChannel[];
 }
 
-const POLICY_VERSION = '1.0.0';
+const POLICY_VERSION = '1.1.0';
 
 async function getJson<T>(name: string): Promise<T> {
   const res = await fetch(`${API}/${name}.json`);

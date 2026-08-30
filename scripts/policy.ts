@@ -169,6 +169,77 @@ export const PUBLIC_BROADCASTER_OWNERS: string[] = [
   'Zimbabwe Broadcasting Corporation',
   'Bahrain Radio and Television Corporation',
   'Israeli Public Broadcasting Corporation',
+
+  // --- Europe (added in policy 1.1.0) ---
+  'Rai',
+  'Televiziunea Română',
+  'Societatea Română de Televiziune',
+  'Radio Televizija Srbije',
+  'Hrvatska Radiotelevizija',
+  'RTV Slovenia',
+  'Radiotelevizija Republike Srpske',
+  'Radiotelevizija Federacije BiH',
+  'Javno preduzeće Radio televizija Zenica d.o.o. Zenica',
+  'Radio Televizija Novi Pazar d.o.o.',
+  'Teleradio-Moldova',
+  'BNT',
+  'S4C Authority',
+  'Westdeutscher Rundfunk Köln',
+  "Radio i Televisio d'Andorra",
+  'Radio Televisión Madrid',
+  'The National News Agency of Ukraine',
+
+  // --- Asia-Pacific (added in policy 1.1.0) ---
+  'Vietnam Television',
+  'Ho Chi Minh City Television Station',
+  'RTHK',
+  'Taiwan Broadcasting System',
+  'Public Service Media',
+  'Distance Learning Foundation',
+  'National Broadcasting Services of Thailand',
+  'National News Bureau of Thailand',
+  'Public Relations Department of the Office of the Prime Minister',
+  'Educational Broadcasting Cambodia',
+  'Korea National Open University',
+  'Mediacorp',
+  'IRIB',
+  'Islamic Republic of Iran Broadcasting',
+
+  // --- Middle East (added in policy 1.1.0) ---
+  'Saudi Broadcasting Authority',
+  'Saudi Broadcasting Authority (SBA)',
+  'Public Television and Radio Broadcasting Company',
+  'Azerbaijan Television and Radio Broadcasting Closed Joint-stock Company',
+  'Israeli Broadcasting Corporation',
+  'Israel Broadcasting Corporation',
+  'Palestinian Broadcasting Corporation',
+  'RTV Syria',
+  'Dubai Media Incorporated',
+  'Presidency of Religious Affairs of Republic of Turkiye',
+  'Middle East Broadcasting Network',
+
+  // --- China (state broadcasters, free-to-air) ---
+  'China Central Television',
+  'China Media Group',
+  'Shanghai Media Group',
+  'Hunan Broadcasting System',
+
+  // --- Africa & Caribbean (added in policy 1.1.0) ---
+  'Radiodiffusion télévision ivoirienne',
+  'Radiodiffusion télévision sénégalaise',
+  'Rwanda Broadcasting Agency',
+  'Broadcasting Corporation of The Bahamas',
+  'St. Vincent and The Grenadines Broadcasting Corporation Ltd.',
+  'Caribbean Broadcasting Corporation',
+
+  // --- Latin America (added in policy 1.1.0) ---
+  'Sistema Mexiquense de Medios Publicos',
+  'Sistema Mexiquesnse de Medios Publicos', // misspelling as it appears upstream
+  'Sistema Jalisciense de Radio y Televisión',
+  'Capital Sistema de Comunicación Pública de Bogotá',
+  'Comunica EP',
+  'Sistema Bolivariano de Comunicación e Información',
+  'Sistema Nacional de Televisión',
 ];
 
 /**
@@ -180,13 +251,26 @@ export const GOVERNMENT_OWNER_PATTERNS: RegExp[] = [
   /^.+ government$/i,
   /^ministry of .+/i,
   /^.+ ministry of .+/i,
-  /^(the )?(united states |u\.s\. )?(house|senate|congress|parliament|national assembly)\b/i,
+  // Legislatures. Deliberately narrow: an unqualified /house/ also matches
+  // church and media names, so each chamber form is spelled out.
+  /^(the )?(united states |u\.s\. )?house of (representatives|commons|lords|assembly)\b/i,
+  /^(the )?(united states |u\.s\. )?(senate|congress)\b/i,
+  /^(the )?(national |federal |european )?parliament\b/i,
+  /^(the )?(national|legislative|general) assembly\b/i,
   /^(city|county|town|borough|municipality|province|state) of .+/i,
   /^department of .+/i,
   /^national state television and radio company of .+/i,
   /^national broadcasting corporation of .+/i,
   /^national television and radio company of .+/i,
   /\bpublic broadcast(ing|er)\b/i,
+  /^federal government of .+/i,
+  /^state government of .+/i,
+  /\bcity council$/i,
+  /^omroep .+/i,
+  /\bradio ?-? ?television station$/i,
+  /\bpublic (television|telecommunications|media)\b/i,
+  /^(the )?university of .+/i,
+  /\buniversity$/i,
   /\bcommunity college district$/i,
 ];
 
