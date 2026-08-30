@@ -218,7 +218,10 @@ npm run build             # static prerender of every channel page
 - **Tailwind CSS v4**
 - Static JSON as the only data store — no database, no runtime API
 
-Deployed on Vercel's free Hobby tier.
+Deployed on Vercel's free Hobby tier. The repo is connected to the Vercel
+project, so a push to `main` deploys to production and any other branch gets a
+preview URL. Because the deployed site is public, `main` must always track the
+curated snapshot — see **Open mode** below.
 
 ## Project layout
 
