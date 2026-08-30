@@ -18,7 +18,16 @@ import {
   PUBLIC_BROADCASTER_OWNERS,
   matchesDeniedBrand,
   type LicensingBasis,
+  type PolicyMode,
 } from './policy';
+
+/**
+ * POLICY_MODE=open builds a personal catalogue: every channel with a playable
+ * stream, no licensing or category filtering. INCLUDE_NSFW=1 additionally
+ * keeps adult channels, which open mode still drops by default.
+ */
+const MODE: PolicyMode = process.env.POLICY_MODE === 'open' ? 'open' : 'public';
+const INCLUDE_NSFW = process.env.INCLUDE_NSFW === '1';
 
 const API = 'https://iptv-org.github.io/api';
 const OUT_DIR = path.join(process.cwd(), 'data');
@@ -112,6 +121,7 @@ export interface ApprovedChannel {
 
 export interface ApprovedDataset {
   generatedAt: string;
+  mode: PolicyMode;
   policyVersion: string;
   source: string;
   counts: {
@@ -166,6 +176,9 @@ function findLicensingBasis(
 }
 
 async function main() {
+  console.log(
+    `Mode: ${MODE}${MODE === 'open' ? ' — no licensing filtering, personal use only' : ''}`,
+  );
   console.log('Fetching iptv-org indexes…');
   const [channels, streams, feeds, countries, logos, blocklist] =
     await Promise.all([
@@ -220,7 +233,7 @@ async function main() {
       reject('iptv-org blocklist');
       continue;
     }
-    if (channel.is_nsfw) {
+    if (channel.is_nsfw && !INCLUDE_NSFW) {
       reject('NSFW');
       continue;
     }
@@ -229,25 +242,38 @@ async function main() {
       continue;
     }
 
-    const denied = channel.categories.filter((c) => DENIED_CATEGORIES.includes(c));
-    if (denied.length > 0) {
-      reject(`denied category: ${denied[0]}`);
-      continue;
-    }
+    if (MODE === 'public') {
+      const denied = channel.categories.filter((c) =>
+        DENIED_CATEGORIES.includes(c),
+      );
+      if (denied.length > 0) {
+        reject(`denied category: ${denied[0]}`);
+        continue;
+      }
 
-    const brandHit = matchesDeniedBrand(
-      channel.name,
-      channel.network,
-      ...channel.alt_names,
-      ...channel.owners,
-    );
-    if (brandHit) {
-      reject('denied brand / commercial group');
-      continue;
+      const brandHit = matchesDeniedBrand(
+        channel.name,
+        channel.network,
+        ...channel.alt_names,
+        ...channel.owners,
+      );
+      if (brandHit) {
+        reject('denied brand / commercial group');
+        continue;
+      }
     }
 
     // --- explicit allowlist ----------------------------------------------
-    const licensing = findLicensingBasis(channel);
+    // In open mode a channel without a basis is still listed, but it is
+    // labelled unverified rather than given a basis it has not earned.
+    const licensing =
+      findLicensingBasis(channel) ??
+      (MODE === 'open'
+        ? {
+            basis: 'unverified-open-mode' as LicensingBasis,
+            evidence: 'Not checked — open mode lists the full iptv-org catalogue',
+          }
+        : null);
     if (!licensing) {
       reject('no verifiable public/free-to-air licensing basis');
       continue;
@@ -310,6 +336,7 @@ async function main() {
 
   const dataset: ApprovedDataset = {
     generatedAt: new Date().toISOString(),
+    mode: MODE,
     policyVersion: POLICY_VERSION,
     source: 'https://iptv-org.github.io/api',
     counts: {
@@ -324,7 +351,9 @@ async function main() {
   await mkdir(OUT_DIR, { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(dataset, null, 2) + '\n', 'utf8');
 
-  console.log(`\nApproved ${approved.length} of ${channels.length} channels.`);
+  console.log(
+    `\n${MODE === 'open' ? 'Listed' : 'Approved'} ${approved.length} of ${channels.length} channels.`,
+  );
   console.log('Top rejection reasons:');
   Object.entries(rejectionReasons)
     .sort((a, b) => b[1] - a[1])

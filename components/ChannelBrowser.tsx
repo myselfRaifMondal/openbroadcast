@@ -1,14 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
-import type { ApprovedChannel } from '@/lib/channels';
+import { useEffect, useMemo, useState } from 'react';
+import type { BrowseChannel } from '@/lib/channels';
 import { ChannelLogo } from './ChannelLogo';
 
 type GroupBy = 'country' | 'category';
 
+/** How many cards to render before the reader asks for more. */
+const PAGE_SIZE = 600;
+
 interface Props {
-  channels: ApprovedChannel[];
+  channels: BrowseChannel[];
   countries: { code: string; name: string; flag: string; count: number }[];
   categories: { id: string; label: string; count: number }[];
   categoryLabels: Record<string, string>;
@@ -34,14 +37,19 @@ export function ChannelBrowser({
       return (
         c.name.toLowerCase().includes(q) ||
         c.countryName.toLowerCase().includes(q) ||
-        c.owners.some((o) => o.toLowerCase().includes(q))
+        c.owners.toLowerCase().includes(q)
       );
     });
   }, [channels, query, country, category]);
 
+  const [limit, setLimit] = useState(PAGE_SIZE);
+  useEffect(() => setLimit(PAGE_SIZE), [query, country, category, groupBy]);
+
+  const visible = filtered.slice(0, limit);
+
   const groups = useMemo(() => {
-    const map = new Map<string, { label: string; items: ApprovedChannel[] }>();
-    for (const c of filtered) {
+    const map = new Map<string, { label: string; items: BrowseChannel[] }>();
+    for (const c of visible) {
       const key = groupBy === 'country' ? c.country : c.primaryCategory;
       const label =
         groupBy === 'country'
@@ -52,7 +60,7 @@ export function ChannelBrowser({
       else map.set(key, { label, items: [c] });
     }
     return [...map.values()].sort((a, b) => b.items.length - a.items.length);
-  }, [filtered, groupBy, categoryLabels]);
+  }, [visible, groupBy, categoryLabels]);
 
   const hasFilters = Boolean(query || country || category);
 
@@ -123,8 +131,13 @@ export function ChannelBrowser({
           )}
         </div>
         <p className="mt-2 text-[12px] text-muted">
-          {filtered.length} channel{filtered.length === 1 ? '' : 's'} across{' '}
-          {groups.length} {groupBy === 'country' ? 'countries' : 'categories'}
+          {filtered.length.toLocaleString()} channel
+          {filtered.length === 1 ? '' : 's'} match
+          {visible.length < filtered.length
+            ? ` — showing the first ${visible.length.toLocaleString()}`
+            : `, across ${groups.length} ${
+                groupBy === 'country' ? 'countries' : 'categories'
+              }`}
         </p>
       </div>
 
@@ -164,6 +177,18 @@ export function ChannelBrowser({
             </ul>
           </section>
         ))}
+        {visible.length < filtered.length && (
+          <div className="pt-2 text-center">
+            <button
+              type="button"
+              onClick={() => setLimit((n) => n + PAGE_SIZE)}
+              className="rounded-lg border border-border bg-surface px-4 py-2 text-[13px] transition-colors hover:border-accent/60 hover:bg-surface-2"
+            >
+              Show more ({(filtered.length - visible.length).toLocaleString()}{' '}
+              remaining)
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

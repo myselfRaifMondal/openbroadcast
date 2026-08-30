@@ -12,7 +12,20 @@ export type LicensingBasis =
   | 'public-service-category'
   | 'legislative-category'
   | 'public-broadcaster-owner'
-  | 'government-owner';
+  | 'government-owner'
+  | 'unverified-open-mode';
+
+/**
+ * Which catalogue the build produces.
+ *
+ * - `public` (default): the curated allowlist policy in this file. Safe to
+ *   publish — every channel carries a named, checkable licensing basis.
+ * - `open`: a personal catalogue. Every channel iptv-org lists with a
+ *   browser-playable stream, with no licensing or category filtering at all.
+ *   Channels that do not match an allow rule are labelled honestly as
+ *   unverified rather than being given a basis they do not have.
+ */
+export type PolicyMode = 'public' | 'open';
 
 export const BASIS_LABELS: Record<LicensingBasis, string> = {
   'public-service-category':
@@ -22,6 +35,7 @@ export const BASIS_LABELS: Record<LicensingBasis, string> = {
   'public-broadcaster-owner':
     'Operated by a national public-service broadcaster',
   'government-owner': 'Operated by a government body or public authority',
+  'unverified-open-mode': 'No verified licensing basis (open mode)',
 };
 
 export const BASIS_EXPLANATIONS: Record<LicensingBasis, string> = {
@@ -33,6 +47,8 @@ export const BASIS_EXPLANATIONS: Record<LicensingBasis, string> = {
     'The channel is listed by iptv-org as owned by a national public-service broadcaster on OpenBroadcast\'s reviewed allowlist. Those organisations are statutory public broadcasters whose main services are free-to-air.',
   'government-owner':
     'The channel is listed by iptv-org as owned by a government, ministry, state authority, or public university on OpenBroadcast\'s reviewed allowlist. Their output is published by the state for public reception.',
+  'unverified-open-mode':
+    'This build runs in open mode, which lists every channel iptv-org carries a playable stream for, without applying the licensing policy. Nothing has been checked about this channel\'s rights status: it may be a commercial pay-TV, sports, or entertainment service whose stream is not licensed for redistribution. Open mode is intended for a private, personal catalogue — do not publish this build.',
 };
 
 /**

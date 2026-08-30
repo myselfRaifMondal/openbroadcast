@@ -32,6 +32,36 @@ export function getChannels(): ApprovedChannel[] {
   return data.channels;
 }
 
+/**
+ * The subset of a channel the grid actually renders. Open mode ships ~9k
+ * channels to the browser, so the full records (streams, licensing prose)
+ * must not travel with them.
+ */
+export interface BrowseChannel {
+  id: string;
+  name: string;
+  country: string;
+  countryName: string;
+  countryFlag: string;
+  primaryCategory: string;
+  logo: string | null;
+  /** Joined owner names, kept only so search can match on broadcaster. */
+  owners: string;
+}
+
+export function getBrowseIndex(): BrowseChannel[] {
+  return data.channels.map((c) => ({
+    id: c.id,
+    name: c.name,
+    country: c.country,
+    countryName: c.countryName,
+    countryFlag: c.countryFlag,
+    primaryCategory: c.primaryCategory,
+    logo: c.logo,
+    owners: c.owners.join(', '),
+  }));
+}
+
 export function getChannel(id: string): ApprovedChannel | undefined {
   return data.channels.find((c) => c.id === id);
 }

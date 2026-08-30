@@ -109,6 +109,32 @@ Re-run it whenever you want a fresher snapshot, then commit the diff. Review
 the diff: a jump in approvals usually means a new owner string slipped past
 review rather than a genuinely new public broadcaster.
 
+### Open mode (personal catalogue)
+
+```bash
+npm run filter:open        # POLICY_MODE=open
+INCLUDE_NSFW=1 npm run filter:open   # also keep adult channels
+```
+
+Open mode skips the licensing policy entirely and lists **every** channel
+iptv-org carries a browser-playable stream for — currently **9,316 channels
+across 177 countries**, including the sports, movie, entertainment, and pay-TV
+brands the public build excludes. It still drops dead channels, channels with
+no playable stream, and (unless `INCLUDE_NSFW=1`) adult channels.
+
+Channels that match no allow rule are labelled **"No verified licensing basis
+(open mode)"** on their page rather than being given a basis they have not
+earned, the header carries an `OPEN MODE` badge, and `/policy` explains that
+the policy below it is not being applied.
+
+This is for a private, local catalogue. Nothing about a stream being reachable
+means it is licensed for redistribution, so an open-mode build should not be
+deployed to a public URL. To go back:
+
+```bash
+npm run filter:channels && npm run build
+```
+
 ### Finding new candidates
 
 ```bash

@@ -13,8 +13,32 @@
       "content": "I want add the remaining channels into the allowlist.",
       "added_at": "2026-08-30T14:33:04.071974",
       "source": "realtime_capture"
+    },
+    {
+      "type": "claude_response",
+      "content": "**Allowlist expanded and live.** 568 → **781 channels**, 83 → **104 countries**.\n\n```\nApproved 781 of 40834 channels.\n```\n\n**Added (~70 owner strings + 9 patterns), all reviewed public-service/state/c",
+      "added_at": "2026-08-30T14:40:58.832413",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "Add where are the sports channels?",
+      "added_at": "2026-08-30T14:40:58.832430",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "claude_response",
+      "content": "What would you like to clarify?\n\nContext for whatever you're weighing:\n\n- **Currently excluded:** 2,006 channels on `sports` category, plus more caught by the brand denylist (ESPN, Sky, beIN, DAZN, ML",
+      "added_at": "2026-08-30T14:42:07.989698",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "I want you to add the channels which are excluded, as it's going to be a private media player for me, so don't need to be shy for the same.",
+      "added_at": "2026-08-30T14:42:07.989716",
+      "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T14:33:04.071976"
+  "updated_at": "2026-08-30T14:42:07.989718"
 }

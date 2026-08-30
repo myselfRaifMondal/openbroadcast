@@ -21,6 +21,8 @@ export default function PolicyPage() {
     (a, b) => b[1] - a[1],
   );
 
+  const open = dataset.mode === 'open';
+
   return (
     <div className="mx-auto max-w-3xl px-5 py-10">
       <Link
@@ -29,6 +31,25 @@ export default function PolicyPage() {
       >
         ← All channels
       </Link>
+
+      {open && (
+        <div className="mt-5 rounded-xl border border-accent/40 bg-surface p-4">
+          <p className="text-[13.5px] font-medium">
+            This build runs in open mode.
+          </p>
+          <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
+            The policy below is what the <code className="font-mono">public</code>{' '}
+            build applies. This build does not apply it: it lists every channel
+            iptv-org carries a browser-playable stream for, including pay-TV,
+            sports, and entertainment services whose streams are not licensed
+            for redistribution. Channels that do not match an allow rule are
+            labelled <em>No verified licensing basis</em> on their page rather
+            than given one. Open mode is for a private, personal catalogue —
+            rebuild with <code className="font-mono">npm run filter:channels</code>{' '}
+            before publishing.
+          </p>
+        </div>
+      )}
 
       <h1 className="mt-5 text-[26px] font-semibold tracking-tight">
         Why these channels?
@@ -44,7 +65,7 @@ export default function PolicyPage() {
       <div className="mt-6 grid grid-cols-3 gap-2.5">
         {[
           ['Source channels', dataset.counts.sourceChannels.toLocaleString()],
-          ['Approved', dataset.counts.approved.toLocaleString()],
+          [open ? 'Listed' : 'Approved', dataset.counts.approved.toLocaleString()],
           ['Excluded', dataset.counts.rejected.toLocaleString()],
         ].map(([label, value]) => (
           <div key={label} className="rounded-xl border border-border bg-surface p-4">

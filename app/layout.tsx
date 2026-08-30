@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { getDataset } from '@/lib/channels';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
+  const open = getDataset().mode === 'open';
+
   return (
     <html
       lang="en"
@@ -29,6 +32,11 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
               <span className="text-[15px] font-semibold tracking-tight">
                 OpenBroadcast
               </span>
+              {open && (
+                <span className="rounded-md border border-accent/40 px-1.5 py-0.5 text-[10.5px] uppercase tracking-wide text-accent">
+                  open mode
+                </span>
+              )}
             </Link>
             <nav className="flex items-center gap-5 text-[13px] text-muted">
               <Link href="/policy" className="transition-colors hover:text-foreground">
@@ -48,8 +56,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <main className="flex-1">{children}</main>
         <footer className="border-t border-border">
           <div className="mx-auto max-w-7xl px-5 py-6 text-[12px] leading-relaxed text-muted">
-            OpenBroadcast indexes only public-service, government, and civic
-            channels drawn from the{' '}
+            {open
+              ? 'This build lists the full iptv-org catalogue with no licensing filtering — a private catalogue, not a publishable one. Data from the '
+              : 'OpenBroadcast indexes only public-service, government, and civic channels drawn from the '}
             <a
               href="https://github.com/iptv-org/iptv"
               target="_blank"
