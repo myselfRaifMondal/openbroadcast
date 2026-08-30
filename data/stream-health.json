@@ -1,10 +1,11 @@
 {
-  "checkedAt": "2026-08-30T09:40:40.333Z",
+  "checkedAt": "2026-08-30T14:54:46.640Z",
+  "method": "two-pass: 10s/64-way, failures retried at 20s/40-way",
   "mode": "open",
   "counts": {
-    "live": 7108,
-    "geo-blocked": 540,
-    "dead": 1668
+    "live": 7393,
+    "geo-blocked": 542,
+    "dead": 2008
   },
   "channels": [
     {
@@ -224,6 +225,10 @@
       "verdict": "live"
     },
     {
+      "id": "A24.ar",
+      "verdict": "dead"
+    },
+    {
       "id": "ABTVBariloche.ar",
       "verdict": "live"
     },
@@ -237,7 +242,7 @@
     },
     {
       "id": "AmericaTV.ar",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "ArgentinisimaSatelital.ar",
@@ -269,7 +274,7 @@
     },
     {
       "id": "CableImagenArmstrong.ar",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "Cadena103TV.ar",
@@ -381,7 +386,7 @@
     },
     {
       "id": "Canal5TVChepes.ar",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal50Morteros.ar",
@@ -469,7 +474,7 @@
     },
     {
       "id": "CanalPulpoTV.ar",
-      "verdict": "live"
+      "verdict": "geo-blocked"
     },
     {
       "id": "CanalSantaMaria.ar",
@@ -532,6 +537,10 @@
       "verdict": "live"
     },
     {
+      "id": "DanceTV.ar",
+      "verdict": "dead"
+    },
+    {
       "id": "DisneyChannelLatinAmerica.ar",
       "verdict": "live"
     },
@@ -557,7 +566,7 @@
     },
     {
       "id": "ElTrece.ar",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "EuropaEuropa.ar",
@@ -617,7 +626,7 @@
     },
     {
       "id": "NeoTV.ar",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "NETTV.ar",
@@ -693,7 +702,7 @@
     },
     {
       "id": "SenalU.ar",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SenillosaTV.ar",
@@ -709,7 +718,7 @@
     },
     {
       "id": "SomosEntreRios.ar",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "SonyChannel.ar",
@@ -717,7 +726,7 @@
     },
     {
       "id": "T5Satelital.ar",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TelePosadas.ar",
@@ -828,6 +837,22 @@
       "verdict": "dead"
     },
     {
+      "id": "XtremaAccion.ar",
+      "verdict": "live"
+    },
+    {
+      "id": "XtremaCartoons.ar",
+      "verdict": "live"
+    },
+    {
+      "id": "XtremaCineClasico.ar",
+      "verdict": "live"
+    },
+    {
+      "id": "XtremaTerror.ar",
+      "verdict": "live"
+    },
+    {
       "id": "Armenia1.am",
       "verdict": "live"
     },
@@ -836,7 +861,23 @@
       "verdict": "live"
     },
     {
+      "id": "ArmeniaPremium.am",
+      "verdict": "live"
+    },
+    {
+      "id": "ArmeniaTVSatellite.am",
+      "verdict": "live"
+    },
+    {
+      "id": "ATV.am",
+      "verdict": "live"
+    },
+    {
       "id": "FirstChannelNews.am",
+      "verdict": "live"
+    },
+    {
+      "id": "KentronTV.am",
       "verdict": "live"
     },
     {
@@ -1097,7 +1138,7 @@
     },
     {
       "id": "ORF1.at",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "ORF2.at",
@@ -1136,6 +1177,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "SkySportAustria1.at",
+      "verdict": "dead"
+    },
+    {
       "id": "SteiermarkTV.at",
       "verdict": "live"
     },
@@ -1157,7 +1202,7 @@
     },
     {
       "id": "TirolTV.at",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TV1Oberosterreich.at",
@@ -1361,7 +1406,7 @@
     },
     {
       "id": "RTV.bd",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "RupashiBanglaTV.bd",
@@ -1389,7 +1434,7 @@
     },
     {
       "id": "Belarus2.by",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "Belarus24.by",
@@ -1548,6 +1593,10 @@
       "verdict": "dead"
     },
     {
+      "id": "RTLClub.be",
+      "verdict": "dead"
+    },
+    {
       "id": "RTLTVI.be",
       "verdict": "dead"
     },
@@ -1684,6 +1733,10 @@
       "verdict": "live"
     },
     {
+      "id": "ORTBTV.bj",
+      "verdict": "live"
+    },
+    {
       "id": "SpeedlineTV.bj",
       "verdict": "live"
     },
@@ -1741,7 +1794,7 @@
     },
     {
       "id": "CEACOMTV.bo",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "CineramaTelevision.bo",
@@ -1801,11 +1854,11 @@
     },
     {
       "id": "Gigavision.bo",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "ImperialTV.bo",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "InteractivoTelevision.bo",
@@ -1849,7 +1902,7 @@
     },
     {
       "id": "RadioMegaTVAmazonia.bo",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioSanGabriel.bo",
@@ -1881,7 +1934,7 @@
     },
     {
       "id": "RedUno.bo",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RedADvenirTV.bo",
@@ -1960,6 +2013,10 @@
       "verdict": "live"
     },
     {
+      "id": "UPEATV.bo",
+      "verdict": "live"
+    },
+    {
       "id": "VosTV.bo",
       "verdict": "live"
     },
@@ -2000,7 +2057,43 @@
       "verdict": "dead"
     },
     {
+      "id": "ArenaSport1.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport2.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport3.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport4.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport5BH.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSportPremium1BH.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSportPremium2BH.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSportPremium3BH.ba",
+      "verdict": "dead"
+    },
+    {
       "id": "BHRT.ba",
+      "verdict": "dead"
+    },
+    {
+      "id": "BHT1.ba",
       "verdict": "dead"
     },
     {
@@ -2106,6 +2199,10 @@
     {
       "id": "AugeTV.br",
       "verdict": "dead"
+    },
+    {
+      "id": "AWTV.br",
+      "verdict": "live"
     },
     {
       "id": "AXN.br",
@@ -2340,6 +2437,10 @@
       "verdict": "live"
     },
     {
+      "id": "ForaTedioTV.br",
+      "verdict": "live"
+    },
+    {
       "id": "Futura.br",
       "verdict": "live"
     },
@@ -2389,6 +2490,10 @@
     },
     {
       "id": "History.br",
+      "verdict": "live"
+    },
+    {
+      "id": "IMPDTVWorldwide.br",
       "verdict": "live"
     },
     {
@@ -2453,6 +2558,10 @@
     },
     {
       "id": "NickOnlineBobEsponja.br",
+      "verdict": "live"
+    },
+    {
+      "id": "NickToonsBrasil.br",
       "verdict": "live"
     },
     {
@@ -2550,6 +2659,10 @@
     {
       "id": "RedeCNTRiodeJaneiro.br",
       "verdict": "live"
+    },
+    {
+      "id": "RedeCNTSalvador.br",
+      "verdict": "dead"
     },
     {
       "id": "RedeFamilia.br",
@@ -2752,6 +2865,10 @@
       "verdict": "live"
     },
     {
+      "id": "TVBahia.br",
+      "verdict": "dead"
+    },
+    {
       "id": "TVBirigui.br",
       "verdict": "dead"
     },
@@ -2761,7 +2878,7 @@
     },
     {
       "id": "TVBrasilOeste.br",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "TVBRICSPortuguese.br",
@@ -2794,6 +2911,10 @@
     {
       "id": "TVCidadedePetropolis.br",
       "verdict": "dead"
+    },
+    {
+      "id": "TVCidadeVerdeCuiaba.br",
+      "verdict": "live"
     },
     {
       "id": "TVClube.br",
@@ -2993,7 +3114,7 @@
     },
     {
       "id": "TVSimCachoeiro.br",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVSimSaoMateus.br",
@@ -3152,8 +3273,16 @@
       "verdict": "dead"
     },
     {
+      "id": "78TV.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "AgroTV.bg",
       "verdict": "live"
+    },
+    {
+      "id": "BloombergTVBulgaria.bg",
+      "verdict": "dead"
     },
     {
       "id": "BNT1.bg",
@@ -3169,6 +3298,38 @@
     },
     {
       "id": "BNT4.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "BOXTV.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "bTV.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "bTVAction.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "bTVCinema.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "bTVComedy.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "bTVLady.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "BulgariaOnAir.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "cinebox.bg",
       "verdict": "dead"
     },
     {
@@ -3188,6 +3349,18 @@
       "verdict": "live"
     },
     {
+      "id": "Diema.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "DiemaFamily.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "DisneyChannel.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "DSTV.bg",
       "verdict": "live"
     },
@@ -3200,11 +3373,31 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "EuronewsBulgaria.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "H2.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "History.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "HitMixMusic.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "HopeChannelBulgaria.bg",
       "verdict": "dead"
     },
     {
       "id": "ID.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "KinoNova.bg",
       "verdict": "dead"
     },
     {
@@ -3216,12 +3409,72 @@
       "verdict": "live"
     },
     {
+      "id": "MaxSport1.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "MaxSport2.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "MaxSport3.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "MaxSport4.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "MovieStar.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographic.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographicWild.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nickelodeon.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nostalgia.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nova.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "NovaNews.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "PlovdivOrthodoxTV.bg",
       "verdict": "live"
     },
     {
+      "id": "RING.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "RMTV.bg",
       "verdict": "live"
+    },
+    {
+      "id": "StarChannel.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarCrime.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarLife.bg",
+      "verdict": "dead"
     },
     {
       "id": "TheVoice.bg",
@@ -3244,11 +3497,35 @@
       "verdict": "live"
     },
     {
+      "id": "TVRodina.bg",
+      "verdict": "dead"
+    },
+    {
       "id": "TVSpravedlivaBulgariya.bg",
       "verdict": "live"
     },
     {
       "id": "TVZagora.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV1000.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatExplore.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatHistory.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatNature.bg",
+      "verdict": "dead"
+    },
+    {
+      "id": "VivacomArena.bg",
       "verdict": "dead"
     },
     {
@@ -3353,7 +3630,7 @@
     },
     {
       "id": "SangkemTV.kh",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SEATV.kh",
@@ -3374,6 +3651,10 @@
     {
       "id": "WikiTV.kh",
       "verdict": "live"
+    },
+    {
+      "id": "AfriqueMedia.cm",
+      "verdict": "dead"
     },
     {
       "id": "Afrique54TV.cm",
@@ -3413,7 +3694,7 @@
     },
     {
       "id": "MyTVChannel.cm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "PanafricanMediaTV.cm",
@@ -3421,11 +3702,11 @@
     },
     {
       "id": "PlayTV.cm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "PLEXTV.cm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TR24Television.cm",
@@ -4029,11 +4310,15 @@
     },
     {
       "id": "TV5Unis.ca",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVOKids.ca",
       "verdict": "live"
+    },
+    {
+      "id": "UvagutTV.ca",
+      "verdict": "dead"
     },
     {
       "id": "WildTV.ca",
@@ -4249,7 +4534,7 @@
     },
     {
       "id": "ClickTVChile.cl",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "ClubTV.cl",
@@ -4453,7 +4738,7 @@
     },
     {
       "id": "LaMelinkanaTV.cl",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "LaMetroTV.cl",
@@ -4537,7 +4822,7 @@
     },
     {
       "id": "NinaTV.cl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "NTV.cl",
@@ -4625,7 +4910,7 @@
     },
     {
       "id": "RadioChiloe.cl",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioContemporaneaCoihueco.cl",
@@ -4717,6 +5002,10 @@
     },
     {
       "id": "RadioZona903.cl",
+      "verdict": "live"
+    },
+    {
+      "id": "RetroPlus2.cl",
       "verdict": "live"
     },
     {
@@ -4892,6 +5181,10 @@
       "verdict": "live"
     },
     {
+      "id": "TVOSanVicente.cl",
+      "verdict": "live"
+    },
+    {
       "id": "TVR.cl",
       "verdict": "live"
     },
@@ -4940,6 +5233,10 @@
       "verdict": "dead"
     },
     {
+      "id": "VisionPlusTV.cl",
+      "verdict": "live"
+    },
+    {
       "id": "VisionTV.cl",
       "verdict": "live"
     },
@@ -4985,7 +5282,7 @@
     },
     {
       "id": "BeijingSatelliteTV.cn",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BingtuanSatelliteTV.cn",
@@ -5672,6 +5969,14 @@
       "verdict": "live"
     },
     {
+      "id": "CanalTRO.co",
+      "verdict": "dead"
+    },
+    {
+      "id": "CanalTROPlus.co",
+      "verdict": "dead"
+    },
+    {
       "id": "CanalTV3.co",
       "verdict": "live"
     },
@@ -5884,12 +6189,40 @@
       "verdict": "live"
     },
     {
+      "id": "TeleAmiga.co",
+      "verdict": "dead"
+    },
+    {
       "id": "TeleMocoaCanal10.co",
       "verdict": "live"
     },
     {
+      "id": "TeleVid.co",
+      "verdict": "dead"
+    },
+    {
+      "id": "Teleantioquia.co",
+      "verdict": "dead"
+    },
+    {
+      "id": "Telecafe.co",
+      "verdict": "dead"
+    },
+    {
+      "id": "Telecaribe.co",
+      "verdict": "dead"
+    },
+    {
+      "id": "TelecaribePlus.co",
+      "verdict": "dead"
+    },
+    {
       "id": "Teleislas.co",
       "verdict": "live"
+    },
+    {
+      "id": "Telemedellin.co",
+      "verdict": "dead"
     },
     {
       "id": "Telepacifico.co",
@@ -5901,11 +6234,15 @@
     },
     {
       "id": "Telesangil.co",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TeveColombia.co",
       "verdict": "live"
+    },
+    {
+      "id": "Trece.co",
+      "verdict": "dead"
     },
     {
       "id": "TuUniversoTV.co",
@@ -6100,6 +6437,10 @@
       "verdict": "live"
     },
     {
+      "id": "RadioTurrialbaTVSports.cr",
+      "verdict": "dead"
+    },
+    {
       "id": "RetroxTV.cr",
       "verdict": "dead"
     },
@@ -6144,8 +6485,16 @@
       "verdict": "live"
     },
     {
+      "id": "TeleredTelevision.cr",
+      "verdict": "live"
+    },
+    {
       "id": "TeleSURCostaRica.cr",
       "verdict": "live"
+    },
+    {
+      "id": "Teletica7.cr",
+      "verdict": "dead"
     },
     {
       "id": "TicaVision.cr",
@@ -6153,6 +6502,10 @@
     },
     {
       "id": "TigoSports.cr",
+      "verdict": "dead"
+    },
+    {
+      "id": "Trivision36.cr",
       "verdict": "dead"
     },
     {
@@ -6196,6 +6549,46 @@
       "verdict": "live"
     },
     {
+      "id": "ArenaSport1.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport10.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport2.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport3.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport4.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport5.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport6.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport7.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport8.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport9.hr",
+      "verdict": "dead"
+    },
+    {
       "id": "BravoKidsTV.hr",
       "verdict": "live"
     },
@@ -6209,15 +6602,15 @@
     },
     {
       "id": "HRT1.hr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "HRT2.hr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "HRT3.hr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "HRT4.hr",
@@ -6253,7 +6646,7 @@
     },
     {
       "id": "RadioTelevizijaBanovina.hr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SBTV.hr",
@@ -6281,6 +6674,10 @@
     },
     {
       "id": "TVZapad.hr",
+      "verdict": "dead"
+    },
+    {
+      "id": "CubavisionInternacional.cu",
       "verdict": "dead"
     },
     {
@@ -6360,8 +6757,20 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "Ballcasterz.cz",
+      "verdict": "live"
+    },
+    {
       "id": "BarrandovKrimi.cz",
       "verdict": "live"
+    },
+    {
+      "id": "Cinemax.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "Cinemax2.cz",
+      "verdict": "dead"
     },
     {
       "id": "CNNPrimaNews.cz",
@@ -6396,12 +6805,36 @@
       "verdict": "live"
     },
     {
+      "id": "DisneyJunior.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "DVTVExtra.cz",
+      "verdict": "live"
+    },
+    {
       "id": "ElektrikaTV.cz",
       "verdict": "live"
     },
     {
+      "id": "Eurosport4KCzechia.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "FilmPlus.cz",
+      "verdict": "dead"
+    },
+    {
       "id": "GolfChannel.cz",
       "verdict": "live"
+    },
+    {
+      "id": "History.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "History2.cz",
+      "verdict": "dead"
     },
     {
       "id": "JC1.cz",
@@ -6409,6 +6842,14 @@
     },
     {
       "id": "Jihoceskatelevize.cz",
+      "verdict": "live"
+    },
+    {
+      "id": "KinoBarrandov.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "KVIFFTV.cz",
       "verdict": "live"
     },
     {
@@ -6434,6 +6875,22 @@
     {
       "id": "MusicBoxSexy.cz",
       "verdict": "live"
+    },
+    {
+      "id": "NationalGeographic.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographicWild.cz",
+      "verdict": "live"
+    },
+    {
+      "id": "NickJr.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nickelodeon.cz",
+      "verdict": "dead"
     },
     {
       "id": "Nicktoons.cz",
@@ -6476,8 +6933,16 @@
       "verdict": "live"
     },
     {
+      "id": "PrimaKrimi.cz",
+      "verdict": "dead"
+    },
+    {
       "id": "PrimaLove.cz",
       "verdict": "live"
+    },
+    {
+      "id": "PrimaMax.cz",
+      "verdict": "dead"
     },
     {
       "id": "PrimaShow.cz",
@@ -6516,12 +6981,28 @@
       "verdict": "live"
     },
     {
+      "id": "Sport1.cz",
+      "verdict": "dead"
+    },
+    {
+      "id": "Sport2.cz",
+      "verdict": "dead"
+    },
+    {
       "id": "SportyTV.cz",
       "verdict": "live"
     },
     {
+      "id": "TelevizePrerov.cz",
+      "verdict": "dead"
+    },
+    {
       "id": "TelevizeSeznam.cz",
       "verdict": "live"
+    },
+    {
+      "id": "TVBarrandov.cz",
+      "verdict": "dead"
     },
     {
       "id": "TVBrno1.cz",
@@ -6536,11 +7017,27 @@
       "verdict": "live"
     },
     {
+      "id": "TVPaprika.cz",
+      "verdict": "dead"
+    },
+    {
       "id": "UpNetwork.cz",
       "verdict": "live"
     },
     {
       "id": "UTV.cz",
+      "verdict": "live"
+    },
+    {
+      "id": "ViasatExplore.cz",
+      "verdict": "live"
+    },
+    {
+      "id": "ViasatHistory.cz",
+      "verdict": "live"
+    },
+    {
+      "id": "ViasatNature.cz",
       "verdict": "live"
     },
     {
@@ -6557,7 +7054,7 @@
     },
     {
       "id": "BarakaTelevision.cd",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "BossBrothersTV.cd",
@@ -6640,6 +7137,10 @@
       "verdict": "dead"
     },
     {
+      "id": "TV2Sport.dk",
+      "verdict": "dead"
+    },
+    {
       "id": "TV2Bornholm.dk",
       "verdict": "live"
     },
@@ -6652,12 +7153,20 @@
       "verdict": "dead"
     },
     {
+      "id": "TV3Plus.dk",
+      "verdict": "dead"
+    },
+    {
       "id": "TVMarineret.dk",
       "verdict": "live"
     },
     {
       "id": "A7TV.do",
       "verdict": "live"
+    },
+    {
+      "id": "AcentoTV.do",
+      "verdict": "dead"
     },
     {
       "id": "AdoramTV.do",
@@ -6753,7 +7262,7 @@
     },
     {
       "id": "Canal70.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "CanalCatorce.do",
@@ -6885,11 +7394,15 @@
     },
     {
       "id": "DelPuebloTV.do",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "DeltaTVCanal50.do",
       "verdict": "live"
+    },
+    {
+      "id": "Digital15.do",
+      "verdict": "dead"
     },
     {
       "id": "DigitalVision63.do",
@@ -6902,6 +7415,10 @@
     {
       "id": "Ecovision.do",
       "verdict": "live"
+    },
+    {
+      "id": "ElNuevoDiarioTV.do",
+      "verdict": "dead"
     },
     {
       "id": "ElPitucoTV.do",
@@ -6966,6 +7483,10 @@
     {
       "id": "GiTelevision.do",
       "verdict": "live"
+    },
+    {
+      "id": "GlobalSocialTV.do",
+      "verdict": "dead"
     },
     {
       "id": "GlobalTV.do",
@@ -7101,7 +7622,7 @@
     },
     {
       "id": "ManielTV.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MarkaTV.do",
@@ -7121,7 +7642,7 @@
     },
     {
       "id": "MITurnoTV.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MiavisionTV.do",
@@ -7134,6 +7655,10 @@
     {
       "id": "MisionELTV.do",
       "verdict": "live"
+    },
+    {
+      "id": "MocaVisionCanal48.do",
+      "verdict": "dead"
     },
     {
       "id": "MontecristiDigital8.do",
@@ -7173,7 +7698,7 @@
     },
     {
       "id": "NotisurTV.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "NuevaVision14.do",
@@ -7201,7 +7726,7 @@
     },
     {
       "id": "PeraviaVision.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "PortalDigitalTV.do",
@@ -7229,7 +7754,7 @@
     },
     {
       "id": "RTelevision.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RETV.do",
@@ -7305,7 +7830,7 @@
     },
     {
       "id": "SuperDigitalTV.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SuperTV55.do",
@@ -7368,6 +7893,10 @@
       "verdict": "live"
     },
     {
+      "id": "Telecentro.do",
+      "verdict": "dead"
+    },
+    {
       "id": "TeleCibaoHD.do",
       "verdict": "live"
     },
@@ -7400,6 +7929,10 @@
       "verdict": "live"
     },
     {
+      "id": "Telemicro.do",
+      "verdict": "dead"
+    },
+    {
       "id": "TelenewsTV.do",
       "verdict": "live"
     },
@@ -7421,7 +7954,7 @@
     },
     {
       "id": "TeleRadioNorte.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TELESIGLO.do",
@@ -7444,6 +7977,14 @@
       "verdict": "live"
     },
     {
+      "id": "TeleviaductoCanal14.do",
+      "verdict": "dead"
+    },
+    {
+      "id": "TeleviaductoCanal3.do",
+      "verdict": "dead"
+    },
+    {
       "id": "Televida.do",
       "verdict": "live"
     },
@@ -7458,6 +7999,10 @@
     {
       "id": "TigueritoTV.do",
       "verdict": "live"
+    },
+    {
+      "id": "TNECanal58.do",
+      "verdict": "dead"
     },
     {
       "id": "TomAndJerry.do",
@@ -7525,7 +8070,7 @@
     },
     {
       "id": "TVN24.do",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVO.do",
@@ -7561,7 +8106,7 @@
     },
     {
       "id": "Vision3000.do",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "VisionNDV.do",
@@ -7860,6 +8405,10 @@
       "verdict": "live"
     },
     {
+      "id": "Telesucesos.ec",
+      "verdict": "dead"
+    },
+    {
       "id": "TVCisne.ec",
       "verdict": "live"
     },
@@ -7976,6 +8525,10 @@
       "verdict": "live"
     },
     {
+      "id": "RotanaCinemaEgypt.eg",
+      "verdict": "live"
+    },
+    {
       "id": "WatanTV.eg",
       "verdict": "live"
     },
@@ -7993,7 +8546,7 @@
     },
     {
       "id": "Canal10.sv",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal11TuTV.sv",
@@ -8041,7 +8594,7 @@
     },
     {
       "id": "JFVTV.sv",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "JosueTV.sv",
@@ -8088,8 +8641,12 @@
       "verdict": "live"
     },
     {
-      "id": "TVCa.sv",
+      "id": "TVCNetwork.sv",
       "verdict": "dead"
+    },
+    {
+      "id": "TVCa.sv",
+      "verdict": "live"
     },
     {
       "id": "TVMElSalvador.sv",
@@ -8156,6 +8713,14 @@
       "verdict": "live"
     },
     {
+      "id": "Go3Sport1.ee",
+      "verdict": "live"
+    },
+    {
+      "id": "KidZoneMax.ee",
+      "verdict": "dead"
+    },
+    {
       "id": "LifeTV.ee",
       "verdict": "live"
     },
@@ -8201,7 +8766,7 @@
     },
     {
       "id": "Hero.fi",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "HimlenTV7.fi",
@@ -8233,7 +8798,7 @@
     },
     {
       "id": "MTV3.fi",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "NarTV.fi",
@@ -8257,7 +8822,7 @@
     },
     {
       "id": "OnniTV.fi",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "STARChannel.fi",
@@ -8352,7 +8917,31 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "BFMAlsace.fr",
+      "verdict": "live"
+    },
+    {
       "id": "BFMBusiness.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMCotedAzur.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMDICIAlpesduSud.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMDICIHauteProvence.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMGrandLille.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMGrandLittoral.fr",
       "verdict": "live"
     },
     {
@@ -8360,7 +8949,23 @@
       "verdict": "live"
     },
     {
+      "id": "BFMMarseille.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMNormandie.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMTechCo.fr",
+      "verdict": "live"
+    },
+    {
       "id": "BFMTV.fr",
+      "verdict": "live"
+    },
+    {
+      "id": "BFMVar.fr",
       "verdict": "live"
     },
     {
@@ -8384,6 +8989,10 @@
       "verdict": "live"
     },
     {
+      "id": "CanalPlusSport360.fr",
+      "verdict": "dead"
+    },
+    {
       "id": "CannesLerinsTV.fr",
       "verdict": "live"
     },
@@ -8396,8 +9005,16 @@
       "verdict": "live"
     },
     {
+      "id": "CinePlusClassic.fr",
+      "verdict": "live"
+    },
+    {
       "id": "CinePlusEmotion.fr",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "CinePlusFrisson.fr",
+      "verdict": "dead"
     },
     {
       "id": "CNews.fr",
@@ -8508,6 +9125,10 @@
       "verdict": "live"
     },
     {
+      "id": "Gulli.fr",
+      "verdict": "live"
+    },
+    {
       "id": "HANDICAPTV.fr",
       "verdict": "live"
     },
@@ -8544,6 +9165,10 @@
       "verdict": "live"
     },
     {
+      "id": "M6.fr",
+      "verdict": "live"
+    },
+    {
       "id": "M6Music.fr",
       "verdict": "geo-blocked"
     },
@@ -8556,6 +9181,10 @@
       "verdict": "live"
     },
     {
+      "id": "Mezzo.fr",
+      "verdict": "dead"
+    },
+    {
       "id": "MezzoLive.fr",
       "verdict": "live"
     },
@@ -8566,6 +9195,10 @@
     {
       "id": "MoselleTV.fr",
       "verdict": "dead"
+    },
+    {
+      "id": "MTV.fr",
+      "verdict": "live"
     },
     {
       "id": "MuseumTVFrench.fr",
@@ -8688,6 +9321,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "RMCSport1.fr",
+      "verdict": "dead"
+    },
+    {
       "id": "RMCStory.fr",
       "verdict": "live"
     },
@@ -8736,12 +9373,20 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "TF1.fr",
+      "verdict": "live"
+    },
+    {
       "id": "TFX.fr",
       "verdict": "geo-blocked"
     },
     {
       "id": "TiVi5Monde.fr",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "TMC.fr",
+      "verdict": "live"
     },
     {
       "id": "TraceAfrica.fr",
@@ -8897,7 +9542,7 @@
     },
     {
       "id": "viaTelePaese.fr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "VosgesTV.fr",
@@ -8989,6 +9634,10 @@
     },
     {
       "id": "Rustavi2.ge",
+      "verdict": "dead"
+    },
+    {
+      "id": "SetantaSports3.ge",
       "verdict": "dead"
     },
     {
@@ -9684,6 +10333,14 @@
       "verdict": "live"
     },
     {
+      "id": "OstWest.de",
+      "verdict": "dead"
+    },
+    {
+      "id": "OstWest24.de",
+      "verdict": "live"
+    },
+    {
       "id": "ParamountNetworkdePlutoTV.de",
       "verdict": "live"
     },
@@ -10348,6 +11005,10 @@
       "verdict": "live"
     },
     {
+      "id": "RTLSuper.de",
+      "verdict": "dead"
+    },
+    {
       "id": "Rugrats.de",
       "verdict": "live"
     },
@@ -10416,6 +11077,10 @@
       "verdict": "live"
     },
     {
+      "id": "SkySportTopEvent.de",
+      "verdict": "dead"
+    },
+    {
       "id": "SonnenklarTV.de",
       "verdict": "live"
     },
@@ -10470,6 +11135,10 @@
     {
       "id": "SpongeBobSchwammkopf.de",
       "verdict": "live"
+    },
+    {
+      "id": "SportdigitalFUSSBALL.de",
+      "verdict": "dead"
     },
     {
       "id": "SRFernsehen.de",
@@ -10584,6 +11253,14 @@
       "verdict": "live"
     },
     {
+      "id": "TVRUS.de",
+      "verdict": "dead"
+    },
+    {
+      "id": "TVRUSPlus.de",
+      "verdict": "dead"
+    },
+    {
       "id": "Unserding.de",
       "verdict": "geo-blocked"
     },
@@ -10636,6 +11313,10 @@
       "verdict": "live"
     },
     {
+      "id": "GTV.gh",
+      "verdict": "dead"
+    },
+    {
       "id": "HopeChannelGhana.gh",
       "verdict": "dead"
     },
@@ -10661,7 +11342,7 @@
     },
     {
       "id": "TV3.gh",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "4E.gr",
@@ -10690,6 +11371,10 @@
     {
       "id": "AlphaTV.gr",
       "verdict": "live"
+    },
+    {
+      "id": "ANT1.gr",
+      "verdict": "dead"
     },
     {
       "id": "ART.gr",
@@ -10901,7 +11586,7 @@
     },
     {
       "id": "StartTV.gr",
-      "verdict": "live"
+      "verdict": "geo-blocked"
     },
     {
       "id": "SyrosTV1.gr",
@@ -11109,7 +11794,7 @@
     },
     {
       "id": "MultivisionCanal3.gt",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MultivisionSports.gt",
@@ -11156,6 +11841,10 @@
       "verdict": "dead"
     },
     {
+      "id": "SILTV.gt",
+      "verdict": "live"
+    },
+    {
       "id": "SolTV.gt",
       "verdict": "live"
     },
@@ -11193,7 +11882,7 @@
     },
     {
       "id": "TVMaya.gt",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVTun.gt",
@@ -11241,7 +11930,7 @@
     },
     {
       "id": "HGPTV.gy",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "IgniteTelevision.gy",
@@ -11281,7 +11970,7 @@
     },
     {
       "id": "RadioTelePlanetCompas.ht",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioTelevisionShilo.ht",
@@ -11341,7 +12030,7 @@
     },
     {
       "id": "Canal5ElLider.hn",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal51.hn",
@@ -11561,11 +12250,11 @@
     },
     {
       "id": "TelevisionMetropolis192.hn",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TelevisionOlanchana.hn",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TENCanal10.hn",
@@ -11573,7 +12262,7 @@
     },
     {
       "id": "TSi.hn",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVCentro272HD.hn",
@@ -11637,7 +12326,7 @@
     },
     {
       "id": "RTHKTV31.hk",
-      "verdict": "live"
+      "verdict": "geo-blocked"
     },
     {
       "id": "RTHKTV32.hk",
@@ -11677,10 +12366,14 @@
     },
     {
       "id": "ATV.hu",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "ATVSpirit.hu",
+      "verdict": "live"
+    },
+    {
+      "id": "AXNSpin.hu",
       "verdict": "dead"
     },
     {
@@ -11709,10 +12402,18 @@
     },
     {
       "id": "CsurgoTV.hu",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "DaruTV.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "DikhTV.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "DisneyChannel.hu",
       "verdict": "dead"
     },
     {
@@ -11722,6 +12423,14 @@
     {
       "id": "DTV.hu",
       "verdict": "live"
+    },
+    {
+      "id": "Duna.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "DunaWorld.hu",
+      "verdict": "dead"
     },
     {
       "id": "EgykerTV.hu",
@@ -11738,6 +12447,22 @@
     {
       "id": "FehervarTV.hu",
       "verdict": "live"
+    },
+    {
+      "id": "FEM3.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "FilmCafe.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "FilmPlus.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Film4.hu",
+      "verdict": "dead"
     },
     {
       "id": "FIXTV.hu",
@@ -11780,8 +12505,24 @@
       "verdict": "live"
     },
     {
+      "id": "History.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "IzauraTV.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "JaszsagiTersegiTV.hu",
       "verdict": "live"
+    },
+    {
+      "id": "JimJam.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "JockyTV.hu",
+      "verdict": "dead"
     },
     {
       "id": "KanizsaTV.hu",
@@ -11804,6 +12545,10 @@
       "verdict": "dead"
     },
     {
+      "id": "Kolyokklub.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "KomaromiTelevizio.hu",
       "verdict": "live"
     },
@@ -11816,7 +12561,15 @@
       "verdict": "live"
     },
     {
+      "id": "LifeTV.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "Loversenykozvetites.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "M1.hu",
       "verdict": "dead"
     },
     {
@@ -11825,11 +12578,15 @@
     },
     {
       "id": "M4Sport.hu",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "M5.hu",
       "verdict": "live"
+    },
+    {
+      "id": "MagyarMoziTV.hu",
+      "verdict": "dead"
     },
     {
       "id": "MakoiVarosiTelevizio.hu",
@@ -11840,8 +12597,48 @@
       "verdict": "live"
     },
     {
+      "id": "Minimax.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "MoraNetTV.hu",
       "verdict": "live"
+    },
+    {
+      "id": "MoziPlus.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Moziklub.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Moziverzum.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "MuzsikaTV.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographic.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographicWild.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "NickJr.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nickelodeon.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nicktoons.hu",
+      "verdict": "dead"
     },
     {
       "id": "OroszlanyiVarosiTelevizio.hu",
@@ -11864,8 +12661,16 @@
       "verdict": "live"
     },
     {
+      "id": "OzoneTV.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "PilisTV.hu",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "Prime.hu",
+      "verdict": "dead"
     },
     {
       "id": "PVTV.hu",
@@ -11880,15 +12685,75 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "RTL.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "RTLGold.hu",
       "verdict": "live"
+    },
+    {
+      "id": "RTLHarom.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTLKetto.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTLOtthon.hu",
+      "verdict": "dead"
     },
     {
       "id": "SIXOTV.hu",
       "verdict": "live"
     },
     {
+      "id": "SlagerTV.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "SoltvadkertiTelevizio.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "SorozatPlus.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Sorozatklub.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Spektrum.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "SpektrumHome.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Spiler1.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Spiler2.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Sport1.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Sport2.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Story4.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "SuperTV2.hu",
       "verdict": "dead"
     },
     {
@@ -11932,12 +12797,52 @@
       "verdict": "live"
     },
     {
+      "id": "TVPaprika.hu",
+      "verdict": "dead"
+    },
+    {
       "id": "TVSzentendre.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV2.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV2Comedy.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV2Kids.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV2Sef.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV4.hu",
       "verdict": "dead"
     },
     {
       "id": "VasarhelyiTelevizio.hu",
       "verdict": "live"
+    },
+    {
+      "id": "Viasat3.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Viasat6.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatFilm.hu",
+      "verdict": "dead"
+    },
+    {
+      "id": "Viasat2.hu",
+      "verdict": "dead"
     },
     {
       "id": "VolgyhidTV.hu",
@@ -11962,6 +12867,10 @@
     {
       "id": "ZalaegerszegiTV.hu",
       "verdict": "live"
+    },
+    {
+      "id": "Zenebutik.hu",
+      "verdict": "dead"
     },
     {
       "id": "ZugloTV.hu",
@@ -12017,7 +12926,7 @@
     },
     {
       "id": "4TVNews.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "6TVTelugu.in",
@@ -12149,7 +13058,7 @@
     },
     {
       "id": "AnandTV.in",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "AnandaBarta.in",
@@ -12170,6 +13079,18 @@
     {
       "id": "AnjanTV.in",
       "verdict": "live"
+    },
+    {
+      "id": "AnmolCinema.in",
+      "verdict": "dead"
+    },
+    {
+      "id": "AnmolCinema2.in",
+      "verdict": "dead"
+    },
+    {
+      "id": "AnmolTV.in",
+      "verdict": "dead"
     },
     {
       "id": "APN.in",
@@ -12210,6 +13131,10 @@
     {
       "id": "AsianetNews.in",
       "verdict": "live"
+    },
+    {
+      "id": "AsianetPlus.in",
+      "verdict": "dead"
     },
     {
       "id": "AsianetSuvarnaNews.in",
@@ -12284,6 +13209,10 @@
       "verdict": "live"
     },
     {
+      "id": "BigMagic.in",
+      "verdict": "dead"
+    },
+    {
       "id": "BIGTV.in",
       "verdict": "live"
     },
@@ -12329,7 +13258,7 @@
     },
     {
       "id": "Chithiram.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "CNBCAwaaz.in",
@@ -12349,6 +13278,10 @@
     },
     {
       "id": "CnewsBharat.in",
+      "verdict": "live"
+    },
+    {
+      "id": "Colors.in",
       "verdict": "live"
     },
     {
@@ -12421,7 +13354,7 @@
     },
     {
       "id": "CVRHealth.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "CVROMSpiritual.in",
@@ -12728,11 +13661,11 @@
       "verdict": "live"
     },
     {
-      "id": "ETNowSwadesh.in",
+      "id": "ETNow.in",
       "verdict": "live"
     },
     {
-      "id": "ETVAbhiruchi.in",
+      "id": "ETNowSwadesh.in",
       "verdict": "live"
     },
     {
@@ -12837,7 +13770,7 @@
     },
     {
       "id": "GSTV.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "GTCNews.in",
@@ -12861,7 +13794,7 @@
     },
     {
       "id": "Gyandarshan.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "HareKrsnaTV.in",
@@ -13153,11 +14086,11 @@
     },
     {
       "id": "MahaMovie.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MahaPunjabi.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MahaaBhakti.in",
@@ -13276,12 +14209,20 @@
       "verdict": "live"
     },
     {
+      "id": "MoviePlex.in",
+      "verdict": "dead"
+    },
+    {
       "id": "MoviesNow.in",
       "verdict": "dead"
     },
     {
       "id": "MoviesNowPlus.in",
       "verdict": "dead"
+    },
+    {
+      "id": "MTV.in",
+      "verdict": "live"
     },
     {
       "id": "MusicIndia.in",
@@ -13328,6 +14269,10 @@
       "verdict": "live"
     },
     {
+      "id": "NDTVMarathi.in",
+      "verdict": "live"
+    },
+    {
       "id": "NDTVProfit.in",
       "verdict": "live"
     },
@@ -13369,7 +14314,7 @@
     },
     {
       "id": "NewsDaily24.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "NewsIndia24x7.in",
@@ -13417,6 +14362,10 @@
     },
     {
       "id": "News18India.in",
+      "verdict": "live"
+    },
+    {
+      "id": "News18Kannada.in",
       "verdict": "live"
     },
     {
@@ -13525,7 +14474,7 @@
     },
     {
       "id": "OrangeBanglaTV.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "OscarMoviesBhojpuri.in",
@@ -13637,7 +14586,7 @@
     },
     {
       "id": "PTCSimran.in",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "PublicFirst.in",
@@ -14024,6 +14973,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "StarGoldThrills.in",
+      "verdict": "dead"
+    },
+    {
       "id": "StarJalsha.in",
       "verdict": "live"
     },
@@ -14064,6 +15017,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "StarSportsKhel.in",
+      "verdict": "dead"
+    },
+    {
       "id": "StarSportsSelect1.in",
       "verdict": "geo-blocked"
     },
@@ -14097,10 +15054,6 @@
     },
     {
       "id": "StudioYuva.in",
-      "verdict": "live"
-    },
-    {
-      "id": "SubhartiTV.in",
       "verdict": "live"
     },
     {
@@ -14384,6 +15337,14 @@
       "verdict": "live"
     },
     {
+      "id": "Unite8Sports1.in",
+      "verdict": "live"
+    },
+    {
+      "id": "Unite8Sports2.in",
+      "verdict": "live"
+    },
+    {
       "id": "UTVPalakkad.in",
       "verdict": "live"
     },
@@ -14580,6 +15541,10 @@
       "verdict": "live"
     },
     {
+      "id": "ZeeAction.in",
+      "verdict": "dead"
+    },
+    {
       "id": "ZeeBangla.in",
       "verdict": "live"
     },
@@ -14594,6 +15559,10 @@
     {
       "id": "ZeeBiharJharkhand.in",
       "verdict": "live"
+    },
+    {
+      "id": "ZeeBiskope.in",
+      "verdict": "dead"
     },
     {
       "id": "ZeeBollymovies.in",
@@ -14716,12 +15685,20 @@
       "verdict": "live"
     },
     {
+      "id": "AFBTVKupang.id",
+      "verdict": "dead"
+    },
+    {
       "id": "AhsanTV.id",
       "verdict": "live"
     },
     {
       "id": "AjwaTV.id",
       "verdict": "live"
+    },
+    {
+      "id": "AKTV.id",
+      "verdict": "dead"
     },
     {
       "id": "AlWafaTarim.id",
@@ -14736,6 +15713,10 @@
       "verdict": "dead"
     },
     {
+      "id": "ANTV.id",
+      "verdict": "dead"
+    },
+    {
       "id": "AshiilTV.id",
       "verdict": "live"
     },
@@ -14744,8 +15725,12 @@
       "verdict": "live"
     },
     {
+      "id": "AstroBlitarTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "AtambuaTV.id",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "BalikpapanTV.id",
@@ -14757,15 +15742,19 @@
     },
     {
       "id": "BanjarTV.id",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BantenTV.id",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BatamTV.id",
-      "verdict": "live"
+      "verdict": "dead"
+    },
+    {
+      "id": "BeritaSatu.id",
+      "verdict": "dead"
     },
     {
       "id": "BiznetAdventure.id",
@@ -14792,8 +15781,20 @@
       "verdict": "live"
     },
     {
+      "id": "BTV.id",
+      "verdict": "dead"
+    },
+    {
       "id": "BungoTV.id",
       "verdict": "live"
+    },
+    {
+      "id": "CarubanTV.id",
+      "verdict": "live"
+    },
+    {
+      "id": "ChannelJowo.id",
+      "verdict": "dead"
     },
     {
       "id": "CNBCIndonesia.id",
@@ -14804,12 +15805,36 @@
       "verdict": "live"
     },
     {
+      "id": "DavikaTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "DensFoodChannel.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "DensKnowledge.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "DensLifeStyle.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "DensPlay.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "DensShowBiz.id",
+      "verdict": "dead"
+    },
+    {
       "id": "DhammaTV.id",
       "verdict": "live"
     },
     {
       "id": "DhohoTV.id",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "DMITV.id",
@@ -14825,6 +15850,10 @@
     },
     {
       "id": "EInternational.id",
+      "verdict": "live"
+    },
+    {
+      "id": "EfarinaTV.id",
       "verdict": "live"
     },
     {
@@ -14856,7 +15885,19 @@
       "verdict": "dead"
     },
     {
+      "id": "IAmChannel.id",
+      "verdict": "live"
+    },
+    {
+      "id": "IndonesianaTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "iNews.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "JakTV.id",
       "verdict": "dead"
     },
     {
@@ -14865,6 +15906,10 @@
     },
     {
       "id": "JawaPosTV.id",
+      "verdict": "live"
+    },
+    {
+      "id": "JekTV.id",
       "verdict": "live"
     },
     {
@@ -14885,10 +15930,18 @@
     },
     {
       "id": "KidsTV.id",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "KilisuciTV.id",
+      "verdict": "live"
+    },
+    {
+      "id": "KompasTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "KTV.id",
       "verdict": "live"
     },
     {
@@ -14900,7 +15953,15 @@
       "verdict": "live"
     },
     {
+      "id": "MaduTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "MagnaChannel.id",
+      "verdict": "live"
+    },
+    {
+      "id": "MatrixTVYogyakarta.id",
       "verdict": "live"
     },
     {
@@ -14920,7 +15981,15 @@
       "verdict": "dead"
     },
     {
+      "id": "MGSTV.id",
+      "verdict": "dead"
+    },
+    {
       "id": "MNCTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "Moji.id",
       "verdict": "dead"
     },
     {
@@ -14928,8 +15997,24 @@
       "verdict": "live"
     },
     {
+      "id": "MusicInformationChannel.id",
+      "verdict": "live"
+    },
+    {
+      "id": "MyCinema.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "MyFamily.id",
+      "verdict": "dead"
+    },
+    {
       "id": "MyKidz.id",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "NaajiyaTV.id",
+      "verdict": "dead"
     },
     {
       "id": "NabawiTV.id",
@@ -14948,12 +16033,24 @@
       "verdict": "dead"
     },
     {
+      "id": "PKTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "PONTV.id",
       "verdict": "live"
     },
     {
+      "id": "PujaTVAceh.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "RadarLampungTV.id",
+      "verdict": "dead"
+    },
+    {
       "id": "RadarTasikmalayaTV.id",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "RajawaliTV.id",
@@ -14961,6 +16058,10 @@
     },
     {
       "id": "RCTI.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "RCTV.id",
       "verdict": "dead"
     },
     {
@@ -14980,11 +16081,27 @@
       "verdict": "live"
     },
     {
+      "id": "SalamTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "SaliraTV.id",
       "verdict": "live"
     },
     {
       "id": "SampitTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "SangajiTV.id",
+      "verdict": "live"
+    },
+    {
+      "id": "SCTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "SelaparangTV.id",
       "verdict": "live"
     },
     {
@@ -15000,12 +16117,20 @@
       "verdict": "live"
     },
     {
+      "id": "SriwijayaTV.id",
+      "verdict": "dead"
+    },
+    {
+      "id": "StaraTV.id",
+      "verdict": "live"
+    },
+    {
       "id": "STV.id",
       "verdict": "live"
     },
     {
       "id": "SultraTV.id",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "SurauTV.id",
@@ -15040,6 +16165,10 @@
       "verdict": "live"
     },
     {
+      "id": "tvOne.id",
+      "verdict": "dead"
+    },
+    {
       "id": "TVRParlemen.id",
       "verdict": "live"
     },
@@ -15048,7 +16177,15 @@
       "verdict": "live"
     },
     {
+      "id": "TVRISport.id",
+      "verdict": "dead"
+    },
+    {
       "id": "TVRIWorld.id",
+      "verdict": "live"
+    },
+    {
+      "id": "UChannel.id",
       "verdict": "live"
     },
     {
@@ -15409,7 +16546,7 @@
     },
     {
       "id": "PressTV.ir",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "PressTVFrench.ir",
@@ -15624,6 +16761,10 @@
       "verdict": "live"
     },
     {
+      "id": "AnwarTV2.iq",
+      "verdict": "dead"
+    },
+    {
       "id": "AvarTV.iq",
       "verdict": "live"
     },
@@ -15796,6 +16937,22 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "PremierSports1.ie",
+      "verdict": "dead"
+    },
+    {
+      "id": "PremierSports2.ie",
+      "verdict": "dead"
+    },
+    {
+      "id": "SetantaSports1Eurasia.ie",
+      "verdict": "live"
+    },
+    {
+      "id": "SetantaSports2Eurasia.ie",
+      "verdict": "live"
+    },
+    {
       "id": "SkyNews.ie",
       "verdict": "live"
     },
@@ -15816,11 +16973,23 @@
       "verdict": "live"
     },
     {
+      "id": "5Sport.il",
+      "verdict": "live"
+    },
+    {
       "id": "Channel13.il",
       "verdict": "live"
     },
     {
+      "id": "Channel24.il",
+      "verdict": "live"
+    },
+    {
       "id": "Channel9.il",
+      "verdict": "live"
+    },
+    {
+      "id": "GoodLife.il",
       "verdict": "live"
     },
     {
@@ -15833,6 +17002,14 @@
     },
     {
       "id": "Hop.il",
+      "verdict": "live"
+    },
+    {
+      "id": "HOTDrama.il",
+      "verdict": "live"
+    },
+    {
+      "id": "HOTZone.il",
       "verdict": "live"
     },
     {
@@ -15857,15 +17034,19 @@
     },
     {
       "id": "Kan11.il",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "KanEducational.il",
       "verdict": "live"
     },
     {
+      "id": "Keshet12.il",
+      "verdict": "live"
+    },
+    {
       "id": "KnessetChannel.il",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Makan33.il",
@@ -15889,6 +17070,14 @@
     },
     {
       "id": "YamTichoni.il",
+      "verdict": "live"
+    },
+    {
+      "id": "YesMoviesAction.il",
+      "verdict": "live"
+    },
+    {
+      "id": "Zoom.il",
       "verdict": "live"
     },
     {
@@ -16237,7 +17426,7 @@
     },
     {
       "id": "MediasetItalia.it",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MediterraniaTV.it",
@@ -16261,7 +17450,7 @@
     },
     {
       "id": "Odeon24.it",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "OndaNovaraTV.it",
@@ -16381,7 +17570,7 @@
     },
     {
       "id": "RadioStudioDeltaTV.it",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioTaorminaSicilia.it",
@@ -16397,6 +17586,10 @@
     },
     {
       "id": "Rai1.it",
+      "verdict": "live"
+    },
+    {
+      "id": "Rai2.it",
       "verdict": "live"
     },
     {
@@ -16421,11 +17614,23 @@
     },
     {
       "id": "RaiScuola.it",
+      "verdict": "live"
+    },
+    {
+      "id": "RaiSport.it",
       "verdict": "dead"
     },
     {
       "id": "RaiStoria.it",
-      "verdict": "dead"
+      "verdict": "live"
+    },
+    {
+      "id": "RaiSudtirol.it",
+      "verdict": "live"
+    },
+    {
+      "id": "RaiWorldPremium.it",
+      "verdict": "live"
     },
     {
       "id": "RDSSocialTV.it",
@@ -16528,6 +17733,14 @@
       "verdict": "live"
     },
     {
+      "id": "SkySportBasket.it",
+      "verdict": "dead"
+    },
+    {
+      "id": "SkySportF1.it",
+      "verdict": "dead"
+    },
+    {
       "id": "SophiaTV.it",
       "verdict": "live"
     },
@@ -16537,7 +17750,7 @@
     },
     {
       "id": "SportitaliaMotori.it",
-      "verdict": "geo-blocked"
+      "verdict": "dead"
     },
     {
       "id": "SportitaliaSolocalcio.it",
@@ -16856,6 +18069,10 @@
       "verdict": "dead"
     },
     {
+      "id": "ZonaDAZN.it",
+      "verdict": "dead"
+    },
+    {
       "id": "7Info.ci",
       "verdict": "live"
     },
@@ -16956,6 +18173,10 @@
       "verdict": "live"
     },
     {
+      "id": "CGNTVJapan.jp",
+      "verdict": "live"
+    },
+    {
       "id": "GSTV.jp",
       "verdict": "live"
     },
@@ -16984,8 +18205,12 @@
       "verdict": "live"
     },
     {
-      "id": "NHKGeneralTV.jp",
+      "id": "MTV.jp",
       "verdict": "live"
+    },
+    {
+      "id": "NHKGeneralTV.jp",
+      "verdict": "dead"
     },
     {
       "id": "NHKWorldPremium.jp",
@@ -17144,6 +18369,10 @@
       "verdict": "live"
     },
     {
+      "id": "MuzzOne.kz",
+      "verdict": "dead"
+    },
+    {
       "id": "NickelodeonCIS.kz",
       "verdict": "live"
     },
@@ -17194,6 +18423,10 @@
     {
       "id": "Saryarqa.kz",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "Semei.kz",
+      "verdict": "dead"
     },
     {
       "id": "SilkWay.kz",
@@ -17313,7 +18546,7 @@
     },
     {
       "id": "MOFTV.ke",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MorningCloudTV.ke",
@@ -17560,11 +18793,19 @@
       "verdict": "live"
     },
     {
-      "id": "LTV1.lv",
+      "id": "Gribuvisuzinat.lv",
       "verdict": "dead"
     },
     {
+      "id": "LTV1.lv",
+      "verdict": "live"
+    },
+    {
       "id": "LTV7.lv",
+      "verdict": "live"
+    },
+    {
+      "id": "MovifyKino.lv",
       "verdict": "dead"
     },
     {
@@ -17580,8 +18821,16 @@
       "verdict": "live"
     },
     {
+      "id": "SeaTV.lv",
+      "verdict": "live"
+    },
+    {
       "id": "TVJurmala.lv",
       "verdict": "geo-blocked"
+    },
+    {
+      "id": "TV3Life.lv",
+      "verdict": "live"
     },
     {
       "id": "TVNET.lv",
@@ -17724,11 +18973,27 @@
       "verdict": "live"
     },
     {
+      "id": "WasatTV.ly",
+      "verdict": "live"
+    },
+    {
+      "id": "BalticumTV.lt",
+      "verdict": "live"
+    },
+    {
+      "id": "BTV.lt",
+      "verdict": "live"
+    },
+    {
       "id": "DelfiTV.lt",
       "verdict": "live"
     },
     {
       "id": "LietuvosRytasTV.lt",
+      "verdict": "live"
+    },
+    {
+      "id": "LNK.lt",
       "verdict": "live"
     },
     {
@@ -17753,7 +19018,7 @@
     },
     {
       "id": "LRTTV.lt",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "M1.lt",
@@ -17764,12 +19029,24 @@
       "verdict": "live"
     },
     {
+      "id": "TV3.lt",
+      "verdict": "live"
+    },
+    {
+      "id": "TV6.lt",
+      "verdict": "live"
+    },
+    {
+      "id": "TV8.lt",
+      "verdict": "live"
+    },
+    {
       "id": "apartTV.lu",
       "verdict": "live"
     },
     {
       "id": "DudelangeTV.lu",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "eldoTV.lu",
@@ -17844,8 +19121,20 @@
       "verdict": "dead"
     },
     {
+      "id": "BeritaRTM.my",
+      "verdict": "dead"
+    },
+    {
       "id": "CinemaWorld.my",
       "verdict": "live"
+    },
+    {
+      "id": "DidikTVKPM.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "DramaSangat.my",
+      "verdict": "dead"
     },
     {
       "id": "MaahTV.my",
@@ -17853,6 +19142,18 @@
     },
     {
       "id": "NTV7.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "Okey.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTMParlimenDewanNegara.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTMParlimenDewanRakyat.my",
       "verdict": "dead"
     },
     {
@@ -17869,6 +19170,14 @@
     },
     {
       "id": "TV2.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV3.my",
+      "verdict": "dead"
+    },
+    {
+      "id": "TV6.my",
       "verdict": "dead"
     },
     {
@@ -18100,6 +19409,10 @@
       "verdict": "live"
     },
     {
+      "id": "Canal28.mx",
+      "verdict": "dead"
+    },
+    {
       "id": "Canal30Cintalapa.mx",
       "verdict": "dead"
     },
@@ -18137,6 +19450,10 @@
     },
     {
       "id": "CineLatino.mx",
+      "verdict": "dead"
+    },
+    {
+      "id": "ClaroSports.mx",
       "verdict": "dead"
     },
     {
@@ -18357,11 +19674,11 @@
     },
     {
       "id": "SIPSETV81.mx",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "SIPSETVCUN81.mx",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SistemaMichoacanodeTV.mx",
@@ -18392,6 +19709,10 @@
       "verdict": "dead"
     },
     {
+      "id": "TeleYucatan.mx",
+      "verdict": "live"
+    },
+    {
       "id": "TeleFormula.mx",
       "verdict": "live"
     },
@@ -18409,11 +19730,11 @@
     },
     {
       "id": "TlaxcalaTV.mx",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TlnovelasLatinAmerica.mx",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TransmediaTelevisionMorelia.mx",
@@ -18521,7 +19842,7 @@
     },
     {
       "id": "UMTV.mx",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "UnisonTV.mx",
@@ -18632,6 +19953,10 @@
       "verdict": "dead"
     },
     {
+      "id": "RadioChisinau.md",
+      "verdict": "dead"
+    },
+    {
       "id": "RadioMoldova.md",
       "verdict": "live"
     },
@@ -18696,7 +20021,63 @@
       "verdict": "live"
     },
     {
+      "id": "AsianBox.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "BloombergTVMongolia.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "C1.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "CentralTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "Channel11.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "Cinema.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "CNBCMongolia.mn",
+      "verdict": "live"
+    },
+    {
       "id": "DreamTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "EagleNews.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "EdutainmentTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "ETV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "GlobalTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "GTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "MalchinTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "MNPlus.mn",
       "verdict": "live"
     },
     {
@@ -18713,6 +20094,74 @@
     },
     {
       "id": "MNBWorld.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "MongolianNewsChannel.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "MovieBox.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "NTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "ONTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "ParliamentTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "SBN.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "SoyonGegeeruulegchTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "StarTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "SuldTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TenGerTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TMTV.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TV25.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TV5.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TV8.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "TV9.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "UBS.mn",
+      "verdict": "live"
+    },
+    {
+      "id": "UlziiTV.mn",
       "verdict": "live"
     },
     {
@@ -18825,7 +20274,7 @@
     },
     {
       "id": "HluttawSD.mm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MEntertainmentChannel.mm",
@@ -18833,7 +20282,7 @@
     },
     {
       "id": "MRTV.mm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MRTVEntertainment.mm",
@@ -18849,11 +20298,11 @@
     },
     {
       "id": "MRTVNRC.mm",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MRTVSports.mm",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MWD.mm",
@@ -18972,6 +20421,10 @@
       "verdict": "dead"
     },
     {
+      "id": "DisneyChannel.nl",
+      "verdict": "dead"
+    },
+    {
       "id": "DitisHelmond.nl",
       "verdict": "live"
     },
@@ -19008,8 +20461,36 @@
       "verdict": "live"
     },
     {
+      "id": "Film1Action.nl",
+      "verdict": "dead"
+    },
+    {
+      "id": "Film1Drama.nl",
+      "verdict": "dead"
+    },
+    {
+      "id": "Film1Family.nl",
+      "verdict": "dead"
+    },
+    {
+      "id": "Film1Premiere.nl",
+      "verdict": "dead"
+    },
+    {
       "id": "FilmBox.nl",
       "verdict": "dead"
+    },
+    {
+      "id": "FomixTV.nl",
+      "verdict": "live"
+    },
+    {
+      "id": "FunBoxUHD.nl",
+      "verdict": "live"
+    },
+    {
+      "id": "Gametoon.nl",
+      "verdict": "live"
     },
     {
       "id": "GigantFM.nl",
@@ -19110,6 +20591,10 @@
     {
       "id": "ML5TV.nl",
       "verdict": "live"
+    },
+    {
+      "id": "NationalGeographic.nl",
+      "verdict": "dead"
     },
     {
       "id": "NH.nl",
@@ -19544,6 +21029,14 @@
       "verdict": "live"
     },
     {
+      "id": "ZiggoSport.nl",
+      "verdict": "dead"
+    },
+    {
+      "id": "ZiggoSport2.nl",
+      "verdict": "dead"
+    },
+    {
       "id": "ZiggoSport5.nl",
       "verdict": "geo-blocked"
     },
@@ -19713,7 +21206,7 @@
     },
     {
       "id": "ApprovalTV.ng",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "BCSStarCrossTV.ng",
@@ -19820,6 +21313,10 @@
       "verdict": "dead"
     },
     {
+      "id": "OSBCTV.ng",
+      "verdict": "dead"
+    },
+    {
       "id": "PhenomenalLifeTV.ng",
       "verdict": "dead"
     },
@@ -19869,7 +21366,7 @@
     },
     {
       "id": "TeleRegencyTV.ng",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVWEST.ng",
@@ -19989,7 +21486,7 @@
     },
     {
       "id": "TopEstradaTV.mk",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVERA.mk",
@@ -19997,7 +21494,7 @@
     },
     {
       "id": "TVNOVA12.mk",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVShenja.mk",
@@ -20101,6 +21598,10 @@
     },
     {
       "id": "ApnaChannel.pk",
+      "verdict": "dead"
+    },
+    {
+      "id": "ARYMusik.pk",
       "verdict": "dead"
     },
     {
@@ -20357,7 +21858,7 @@
     },
     {
       "id": "SkyNewsUrdu.pk",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "StarAsia.pk",
@@ -20397,7 +21898,7 @@
     },
     {
       "id": "ZindagiTV.pk",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "AjyalTV.ps",
@@ -20417,7 +21918,7 @@
     },
     {
       "id": "HolyQuranRadioNablus.ps",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "KolalnasTV.ps",
@@ -20428,11 +21929,19 @@
       "verdict": "live"
     },
     {
+      "id": "MusawaChannel.ps",
+      "verdict": "dead"
+    },
+    {
       "id": "NablusTV.ps",
       "verdict": "dead"
     },
     {
       "id": "PalestineEdu.ps",
+      "verdict": "dead"
+    },
+    {
+      "id": "PalestineMubasher.ps",
       "verdict": "dead"
     },
     {
@@ -20449,6 +21958,10 @@
     },
     {
       "id": "RajeenTV.ps",
+      "verdict": "live"
+    },
+    {
+      "id": "SerajTV.ps",
       "verdict": "live"
     },
     {
@@ -20505,7 +22018,7 @@
     },
     {
       "id": "PindinTV.pa",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Planet1009FM.pa",
@@ -20517,7 +22030,7 @@
     },
     {
       "id": "RadioAncon.pa",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "RadioHogar.pa",
@@ -20533,7 +22046,7 @@
     },
     {
       "id": "TropiQ997FM.pa",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TropicalMoonCumbiaTV.pa",
@@ -20581,7 +22094,7 @@
     },
     {
       "id": "BrunoMasiTV.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "C9N.py",
@@ -20589,14 +22102,22 @@
     },
     {
       "id": "CADTV.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal5TVMax.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal8CCProducciones.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "Canal8VisionTV.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "CanalPro.py",
       "verdict": "dead"
     },
     {
@@ -20608,7 +22129,15 @@
       "verdict": "dead"
     },
     {
+      "id": "DelReyTV.py",
+      "verdict": "dead"
+    },
+    {
       "id": "DismarRadioTV.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "E40.py",
       "verdict": "dead"
     },
     {
@@ -20624,7 +22153,15 @@
       "verdict": "dead"
     },
     {
+      "id": "HEiNow.py",
+      "verdict": "dead"
+    },
+    {
       "id": "InvasivaTV.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "Latele.py",
       "verdict": "dead"
     },
     {
@@ -20637,6 +22174,10 @@
     },
     {
       "id": "MiTV.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "MonumentalTV.py",
       "verdict": "dead"
     },
     {
@@ -20653,6 +22194,10 @@
     },
     {
       "id": "NextHD.py",
+      "verdict": "dead"
+    },
+    {
+      "id": "NPY.py",
       "verdict": "dead"
     },
     {
@@ -20681,15 +22226,15 @@
     },
     {
       "id": "ProductivaTV.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioColmenar925FM.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioGuairaTV.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RadioSanCristobal887FM.py",
@@ -20705,7 +22250,7 @@
     },
     {
       "id": "RCCTV.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RedDigital.py",
@@ -20729,10 +22274,14 @@
     },
     {
       "id": "SucesoTV.py",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "SURTVItapua.py",
+      "verdict": "live"
+    },
+    {
+      "id": "Telefuturo.py",
       "verdict": "live"
     },
     {
@@ -20741,7 +22290,7 @@
     },
     {
       "id": "TigoSportsPlus.py",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Trece.py",
@@ -20817,7 +22366,7 @@
     },
     {
       "id": "AndinaRTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "AntaresTelevision.pe",
@@ -20841,7 +22390,7 @@
     },
     {
       "id": "AtlantisRadioTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "ATV.pe",
@@ -20881,7 +22430,7 @@
     },
     {
       "id": "Canal25Ayacucho.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Canal8Catacaos.pe",
@@ -20897,7 +22446,7 @@
     },
     {
       "id": "CanalMasTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "CasmaTV.pe",
@@ -20997,10 +22546,14 @@
     },
     {
       "id": "JN19.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "JNETV.pe",
+      "verdict": "live"
+    },
+    {
+      "id": "JuntosTV.pe",
       "verdict": "live"
     },
     {
@@ -21069,7 +22622,7 @@
     },
     {
       "id": "MetropolitanadelCuzco.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MielTV.pe",
@@ -21081,7 +22634,7 @@
     },
     {
       "id": "Millenium109FM.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MonterricoTV.pe",
@@ -21097,7 +22650,7 @@
     },
     {
       "id": "NacionalTvPeru.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Nativa.pe",
@@ -21109,7 +22662,7 @@
     },
     {
       "id": "NeoTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "NZKTelevision.pe",
@@ -21129,7 +22682,7 @@
     },
     {
       "id": "OzonoTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "PanamericanaTV.pe",
@@ -21141,7 +22694,7 @@
     },
     {
       "id": "PequesTV.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "PiuraTV.pe",
@@ -21150,6 +22703,10 @@
     {
       "id": "PlaneaTV.pe",
       "verdict": "live"
+    },
+    {
+      "id": "PrattelTV.pe",
+      "verdict": "dead"
     },
     {
       "id": "Primavera15.pe",
@@ -21197,7 +22754,7 @@
     },
     {
       "id": "RealTelevision.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RegionTVCallao.pe",
@@ -21205,11 +22762,11 @@
     },
     {
       "id": "RikuTV.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "RNTelevision.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "RPPTV.pe",
@@ -21221,7 +22778,7 @@
     },
     {
       "id": "RTP.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RumbaMixTV.pe",
@@ -21233,11 +22790,15 @@
     },
     {
       "id": "SiscomTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "SolarTelevision.pe",
       "verdict": "live"
+    },
+    {
+      "id": "SolTV.pe",
+      "verdict": "dead"
     },
     {
       "id": "SqalaTV.pe",
@@ -21265,15 +22826,15 @@
     },
     {
       "id": "TelesystemTV.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TelevisionTarapoto.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TeveEmpresa.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Tevesur.pe",
@@ -21297,19 +22858,19 @@
     },
     {
       "id": "TVCosmos.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TVKaliente.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVMAR.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVMAX.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVNorteChiclayo.pe",
@@ -21329,7 +22890,7 @@
     },
     {
       "id": "TVPlusChincha.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVenLinea.pe",
@@ -21341,7 +22902,7 @@
     },
     {
       "id": "UcayalinadeTelevision.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "UchuTV.pe",
@@ -21353,11 +22914,11 @@
     },
     {
       "id": "Unitel.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "UniversitariaTV.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "UranioTV.pe",
@@ -21377,7 +22938,7 @@
     },
     {
       "id": "Vision.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "VisionSur.pe",
@@ -21388,12 +22949,16 @@
       "verdict": "live"
     },
     {
+      "id": "VivaTV.pe",
+      "verdict": "dead"
+    },
+    {
       "id": "VNP.pe",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "VRCanal21Nasca.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "WayraTV.pe",
@@ -21409,15 +22974,15 @@
     },
     {
       "id": "Wtv.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "YurimaguasTV.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Yurivision.pe",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "ZeleveTV.pe",
@@ -21429,7 +22994,7 @@
     },
     {
       "id": "BilyonaryoNewsChannel.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "CCTN47.ph",
@@ -21445,11 +23010,11 @@
     },
     {
       "id": "INCRadio.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "INCTV.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "KapatidTV5.ph",
@@ -21469,31 +23034,43 @@
     },
     {
       "id": "PremierSports.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "PremierSports2.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "SMNI.ph",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "4FunKids.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "4FunTV.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "AmericanCrimeChannel.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "ATMRozrywkaREWORK.pl",
-      "verdict": "live"
+      "verdict": "dead"
+    },
+    {
+      "id": "AXNPoland.pl",
+      "verdict": "dead"
+    },
+    {
+      "id": "AXNSpin.pl",
+      "verdict": "dead"
+    },
+    {
+      "id": "BelsatTV.pl",
+      "verdict": "dead"
     },
     {
       "id": "BialogardzkaTelewizjaKablowa.pl",
@@ -21501,19 +23078,19 @@
     },
     {
       "id": "Bigtime.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BTB.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BTB2.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BTB3.pl",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "BTBInfo.pl",
@@ -21552,7 +23129,15 @@
       "verdict": "live"
     },
     {
+      "id": "FILMBOXPlusAction.pl",
+      "verdict": "dead"
+    },
+    {
       "id": "FILMBOXPlusComedy.pl",
+      "verdict": "live"
+    },
+    {
+      "id": "FILMBOXPlusEmotion.pl",
       "verdict": "live"
     },
     {
@@ -21590,6 +23175,10 @@
     {
       "id": "Moconomy.pl",
       "verdict": "live"
+    },
+    {
+      "id": "Motowizja.pl",
+      "verdict": "dead"
     },
     {
       "id": "MusicBoxPolska.pl",
@@ -21764,6 +23353,10 @@
       "verdict": "live"
     },
     {
+      "id": "TVPDokument.pl",
+      "verdict": "dead"
+    },
+    {
       "id": "TVPHistoria.pl",
       "verdict": "geo-blocked"
     },
@@ -21786,6 +23379,10 @@
     {
       "id": "TVP1.pl",
       "verdict": "live"
+    },
+    {
+      "id": "TVP2.pl",
+      "verdict": "dead"
     },
     {
       "id": "TVS.pl",
@@ -21833,10 +23430,18 @@
     },
     {
       "id": "ADBTV.pt",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "ARTV.pt",
+      "verdict": "live"
+    },
+    {
+      "id": "AXN.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "AXNMovies.pt",
       "verdict": "live"
     },
     {
@@ -21912,12 +23517,104 @@
       "verdict": "live"
     },
     {
+      "id": "RTP1.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTP2.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPAcores.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPAfrica.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPMadeira.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPMemoria.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPMundo.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTPNoticias.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SIC.pt",
+      "verdict": "dead"
+    },
+    {
       "id": "SICAltaDefinicao.pt",
       "verdict": "live"
     },
     {
+      "id": "SICMulher.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SICNoticias.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SICRadical.pt",
+      "verdict": "dead"
+    },
+    {
       "id": "SICReplay.pt",
       "verdict": "live"
+    },
+    {
+      "id": "SportTVPlus.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SportTV1.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SportTV2.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SportTV5.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SportTV6.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "SportTV7.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarChannel.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarComedy.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarCrime.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarLife.pt",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarMovies.pt",
+      "verdict": "dead"
     },
     {
       "id": "TVMana1.pt",
@@ -22049,7 +23746,7 @@
     },
     {
       "id": "WELU81.pr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "WIPRTV61.pr",
@@ -22140,6 +23837,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "LibyaAlAhrarTV.qa",
+      "verdict": "live"
+    },
+    {
       "id": "QatarTelevision.qa",
       "verdict": "live"
     },
@@ -22220,8 +23921,16 @@
       "verdict": "live"
     },
     {
+      "id": "BollywoodClassic.ro",
+      "verdict": "dead"
+    },
+    {
       "id": "BollywoodHD.ro",
       "verdict": "live"
+    },
+    {
+      "id": "BoomTV.ro",
+      "verdict": "dead"
     },
     {
       "id": "BucovinaTV.ro",
@@ -22230,6 +23939,10 @@
     {
       "id": "ColumnaTV.ro",
       "verdict": "live"
+    },
+    {
+      "id": "ComedyCentral.ro",
+      "verdict": "dead"
     },
     {
       "id": "ComedyPlay.ro",
@@ -22244,6 +23957,10 @@
       "verdict": "live"
     },
     {
+      "id": "DigiSport1.ro",
+      "verdict": "dead"
+    },
+    {
       "id": "DigiSport2.ro",
       "verdict": "live"
     },
@@ -22256,12 +23973,28 @@
       "verdict": "live"
     },
     {
+      "id": "DisneyChannel.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "DisneyJunior.ro",
+      "verdict": "dead"
+    },
+    {
       "id": "DottoTV.ro",
       "verdict": "live"
     },
     {
       "id": "EMITV.ro",
       "verdict": "live"
+    },
+    {
+      "id": "EuronewsRomania.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "FilmNow.ro",
+      "verdict": "dead"
     },
     {
       "id": "HD365TV.ro",
@@ -22278,6 +24011,10 @@
     {
       "id": "IasiTVLife.ro",
       "verdict": "dead"
+    },
+    {
+      "id": "ImpactTV.ro",
+      "verdict": "live"
     },
     {
       "id": "ImpactTVDance.ro",
@@ -22302,6 +24039,10 @@
     {
       "id": "KanalD2.ro",
       "verdict": "live"
+    },
+    {
+      "id": "KapitalTV.ro",
+      "verdict": "dead"
     },
     {
       "id": "KissTV.ro",
@@ -22336,6 +24077,22 @@
       "verdict": "live"
     },
     {
+      "id": "NationalGeographic.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "NationalGeographicWild.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nickelodeon.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nicktoons.ro",
+      "verdict": "dead"
+    },
+    {
       "id": "NovaTVBrasov.ro",
       "verdict": "live"
     },
@@ -22361,7 +24118,7 @@
     },
     {
       "id": "RadioRomaniaAntenaSatelor.ro",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "RealitateaPlus.ro",
@@ -22408,11 +24165,19 @@
       "verdict": "live"
     },
     {
+      "id": "TimelessDiziChannel.ro",
+      "verdict": "dead"
+    },
+    {
       "id": "TraditionalTV.ro",
       "verdict": "dead"
     },
     {
       "id": "TVBuzau.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "TVPaprika.ro",
       "verdict": "dead"
     },
     {
@@ -22481,6 +24246,18 @@
     },
     {
       "id": "TVSat.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatExplore.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatHistory.ro",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatNature.ro",
       "verdict": "dead"
     },
     {
@@ -22660,11 +24437,23 @@
       "verdict": "live"
     },
     {
+      "id": "Channel5.ru",
+      "verdict": "live"
+    },
+    {
       "id": "Channel5International.ru",
       "verdict": "live"
     },
     {
       "id": "Channel8.ru",
+      "verdict": "live"
+    },
+    {
+      "id": "Channel8Krasnoyarsk.ru",
+      "verdict": "live"
+    },
+    {
+      "id": "Channel8Novosibirsk.ru",
       "verdict": "live"
     },
     {
@@ -22677,7 +24466,7 @@
     },
     {
       "id": "Che.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Cinema.ru",
@@ -22757,7 +24546,7 @@
     },
     {
       "id": "CityEdenTeleNovella.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "CityEdenTV.ru",
@@ -23052,6 +24841,10 @@
       "verdict": "dead"
     },
     {
+      "id": "Kuban24.ru",
+      "verdict": "live"
+    },
+    {
       "id": "Kuhnya.ru",
       "verdict": "live"
     },
@@ -23068,6 +24861,10 @@
       "verdict": "live"
     },
     {
+      "id": "LawTV.ru",
+      "verdict": "live"
+    },
+    {
       "id": "LDPRTV.ru",
       "verdict": "live"
     },
@@ -23077,7 +24874,7 @@
     },
     {
       "id": "LenTV24.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Leomax24.ru",
@@ -23260,11 +25057,19 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "NovgorOblTV.ru",
+      "verdict": "live"
+    },
+    {
       "id": "NovyiRusskii.ru",
       "verdict": "dead"
     },
     {
       "id": "NST.ru",
+      "verdict": "live"
+    },
+    {
+      "id": "NTK21.ru",
       "verdict": "live"
     },
     {
@@ -23357,7 +25162,7 @@
     },
     {
       "id": "OTR.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "OTVPrim.ru",
@@ -23464,6 +25269,10 @@
       "verdict": "live"
     },
     {
+      "id": "Rossiya1Vainah.ru",
+      "verdict": "dead"
+    },
+    {
       "id": "RT.ru",
       "verdict": "live"
     },
@@ -23482,6 +25291,10 @@
     {
       "id": "RTenEspanol.ru",
       "verdict": "live"
+    },
+    {
+      "id": "RTGint.ru",
+      "verdict": "dead"
     },
     {
       "id": "RTGTV.ru",
@@ -23578,6 +25391,14 @@
     {
       "id": "Sarafan.ru",
       "verdict": "live"
+    },
+    {
+      "id": "SetantaSports1.ru",
+      "verdict": "dead"
+    },
+    {
+      "id": "SetantaSports2.ru",
+      "verdict": "dead"
     },
     {
       "id": "Sever.ru",
@@ -23800,8 +25621,12 @@
       "verdict": "live"
     },
     {
+      "id": "TNTInternational.ru",
+      "verdict": "live"
+    },
+    {
       "id": "TNT4.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TNVPlanet.ru",
@@ -24009,7 +25834,7 @@
     },
     {
       "id": "Vostok24.ru",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Vremya.ru",
@@ -24156,6 +25981,10 @@
       "verdict": "live"
     },
     {
+      "id": "AlResalah.sa",
+      "verdict": "live"
+    },
+    {
       "id": "AlRiyadhRadio.sa",
       "verdict": "live"
     },
@@ -24173,7 +26002,7 @@
     },
     {
       "id": "AlkhuzamaRadio.sa",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "AlwesamTV.sa",
@@ -24296,6 +26125,34 @@
       "verdict": "live"
     },
     {
+      "id": "RotanaCinemaKSA.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaClassic.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaClip.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaComedy.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaDrama.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaKhalijia.sa",
+      "verdict": "live"
+    },
+    {
+      "id": "RotanaMusic.sa",
+      "verdict": "live"
+    },
+    {
       "id": "SaudiThaqafiyaTV.sa",
       "verdict": "live"
     },
@@ -24317,7 +26174,7 @@
     },
     {
       "id": "A2iMusic.sn",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "A2iNaija.sn",
@@ -24376,7 +26233,83 @@
       "verdict": "dead"
     },
     {
+      "id": "ArenaFight.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport1.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport1Premium.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport10.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport2.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport2Premium.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport3.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport3Premium.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport4.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport4Premium.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport5.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport5Premium.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport6.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport7.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport8.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport9.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSportAdrenalin.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSportTenis.rs",
+      "verdict": "dead"
+    },
+    {
       "id": "BelleAmie.rs",
+      "verdict": "dead"
+    },
+    {
+      "id": "DMSat.rs",
       "verdict": "dead"
     },
     {
@@ -24386,6 +26319,10 @@
     {
       "id": "IDJTV.rs",
       "verdict": "live"
+    },
+    {
+      "id": "KitchenTV.rs",
+      "verdict": "dead"
     },
     {
       "id": "NarodnaTV.rs",
@@ -24493,6 +26430,10 @@
     },
     {
       "id": "SandzakTV.rs",
+      "verdict": "live"
+    },
+    {
+      "id": "SciFi.rs",
       "verdict": "live"
     },
     {
@@ -24656,6 +26597,14 @@
       "verdict": "live"
     },
     {
+      "id": "ArenaSport1.sk",
+      "verdict": "dead"
+    },
+    {
+      "id": "ArenaSport2.sk",
+      "verdict": "dead"
+    },
+    {
       "id": "ducktv.sk",
       "verdict": "live"
     },
@@ -24686,6 +26635,18 @@
     {
       "id": "PrimaCoolSK.sk",
       "verdict": "live"
+    },
+    {
+      "id": "PrimaKrimiSK.sk",
+      "verdict": "dead"
+    },
+    {
+      "id": "PrimaloveSK.sk",
+      "verdict": "dead"
+    },
+    {
+      "id": "PrimaSK.sk",
+      "verdict": "dead"
     },
     {
       "id": "RegioTV.sk",
@@ -24824,11 +26785,31 @@
       "verdict": "live"
     },
     {
+      "id": "H2HD.si",
+      "verdict": "dead"
+    },
+    {
       "id": "History.si",
       "verdict": "dead"
     },
     {
       "id": "KanalA.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarChannel.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarCrime.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarLife.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "StarMovies.si",
       "verdict": "dead"
     },
     {
@@ -24854,6 +26835,18 @@
     {
       "id": "TVVeseljakGolicaHD.si",
       "verdict": "live"
+    },
+    {
+      "id": "ViasatExplore.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatHistory.si",
+      "verdict": "dead"
+    },
+    {
+      "id": "ViasatNature.si",
+      "verdict": "dead"
     },
     {
       "id": "ArlaadiTV.so",
@@ -25065,7 +27058,7 @@
     },
     {
       "id": "GugbangTV.kr",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "HLAJDTV.kr",
@@ -25173,7 +27166,7 @@
     },
     {
       "id": "KBSWorld.kr",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "KCTV.kr",
@@ -25252,6 +27245,14 @@
       "verdict": "live"
     },
     {
+      "id": "TVChosun.kr",
+      "verdict": "live"
+    },
+    {
+      "id": "TVChosun2.kr",
+      "verdict": "live"
+    },
+    {
       "id": "WShopping.kr",
       "verdict": "live"
     },
@@ -25264,12 +27265,24 @@
       "verdict": "dead"
     },
     {
+      "id": "101tvMalaga.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "101tvSevilla.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "12tv.es",
+      "verdict": "live"
+    },
+    {
       "id": "24Horas.es",
       "verdict": "live"
     },
     {
       "id": "24HorasCanarias.es",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "24HorasCatalunya.es",
@@ -25357,7 +27370,7 @@
     },
     {
       "id": "AXNCEE.es",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "BailenTV.es",
@@ -25366,6 +27379,10 @@
     {
       "id": "BCNGospelTV.es",
       "verdict": "live"
+    },
+    {
+      "id": "BDN.es",
+      "verdict": "dead"
     },
     {
       "id": "BiosferaTV.es",
@@ -25456,6 +27473,10 @@
       "verdict": "live"
     },
     {
+      "id": "CanalReusTV.es",
+      "verdict": "dead"
+    },
+    {
       "id": "CanalSanRoque.es",
       "verdict": "live"
     },
@@ -25473,6 +27494,18 @@
     },
     {
       "id": "CanalSurNoticias.es",
+      "verdict": "live"
+    },
+    {
+      "id": "CanalTaronjaComarquesCentrals.es",
+      "verdict": "live"
+    },
+    {
+      "id": "CanalTaronjaOsonaiMoianes.es",
+      "verdict": "live"
+    },
+    {
+      "id": "CanalTerrassa.es",
       "verdict": "live"
     },
     {
@@ -25552,6 +27585,14 @@
       "verdict": "live"
     },
     {
+      "id": "CugatTV.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "DeportesporMovistarPlusPlus.es",
+      "verdict": "dead"
+    },
+    {
       "id": "DiezTVLasVillas.es",
       "verdict": "live"
     },
@@ -25574,6 +27615,10 @@
     {
       "id": "El33.es",
       "verdict": "live"
+    },
+    {
+      "id": "El9TV.es",
+      "verdict": "dead"
     },
     {
       "id": "ElMueble.es",
@@ -25604,6 +27649,10 @@
       "verdict": "live"
     },
     {
+      "id": "EsTuTele.es",
+      "verdict": "live"
+    },
+    {
       "id": "ETB1.es",
       "verdict": "live"
     },
@@ -25622,6 +27671,10 @@
     {
       "id": "ETB2On.es",
       "verdict": "live"
+    },
+    {
+      "id": "etv.es",
+      "verdict": "dead"
     },
     {
       "id": "EWTNEspana.es",
@@ -25680,6 +27733,10 @@
       "verdict": "live"
     },
     {
+      "id": "KinoKazka.es",
+      "verdict": "live"
+    },
+    {
       "id": "La1.es",
       "verdict": "live"
     },
@@ -25716,8 +27773,16 @@
       "verdict": "live"
     },
     {
+      "id": "LigadeCampeonesporMovistarPlusPlus.es",
+      "verdict": "dead"
+    },
+    {
       "id": "LiraTV.es",
       "verdict": "live"
+    },
+    {
+      "id": "LleidaTelevisio.es",
+      "verdict": "dead"
     },
     {
       "id": "LogosTV.es",
@@ -25748,6 +27813,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "MataroTelevisio.es",
+      "verdict": "dead"
+    },
+    {
       "id": "Mijas340TV.es",
       "verdict": "live"
     },
@@ -25774,6 +27843,10 @@
     {
       "id": "Nortevision.es",
       "verdict": "live"
+    },
+    {
+      "id": "OlotTV.es",
+      "verdict": "dead"
     },
     {
       "id": "OlympicChannel.es",
@@ -25804,6 +27877,10 @@
       "verdict": "dead"
     },
     {
+      "id": "PenedesTelevisio.es",
+      "verdict": "dead"
+    },
+    {
       "id": "Pequeradio.es",
       "verdict": "dead"
     },
@@ -25826,6 +27903,10 @@
     {
       "id": "PopularTVMelilla.es",
       "verdict": "dead"
+    },
+    {
+      "id": "PopularTVMurcia.es",
+      "verdict": "live"
     },
     {
       "id": "PTVCordoba.es",
@@ -25912,8 +27993,20 @@
       "verdict": "live"
     },
     {
+      "id": "RTVElVendrell.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "RTVManilva.es",
+      "verdict": "dead"
+    },
+    {
       "id": "RTVVida.es",
       "verdict": "live"
+    },
+    {
+      "id": "RTVCCardedeu.es",
+      "verdict": "dead"
     },
     {
       "id": "SevillaFCTV.es",
@@ -25948,12 +28041,20 @@
       "verdict": "live"
     },
     {
+      "id": "Tele7.es",
+      "verdict": "live"
+    },
+    {
       "id": "TeleElx.es",
       "verdict": "live"
     },
     {
       "id": "TeleSafor.es",
       "verdict": "live"
+    },
+    {
+      "id": "TeleBilbao.es",
+      "verdict": "dead"
     },
     {
       "id": "Teledeporte.es",
@@ -25969,7 +28070,7 @@
     },
     {
       "id": "Telemotril.es",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Teleonuba.es",
@@ -25978,6 +28079,10 @@
     {
       "id": "TeleRibera.es",
       "verdict": "dead"
+    },
+    {
+      "id": "TeleVigo.es",
+      "verdict": "live"
     },
     {
       "id": "TelevisionAranda.es",
@@ -26012,12 +28117,32 @@
       "verdict": "live"
     },
     {
+      "id": "TVBergueda.es",
+      "verdict": "dead"
+    },
+    {
       "id": "TVBRICSSpanish.es",
       "verdict": "live"
     },
     {
+      "id": "TVCostaBrava.es",
+      "verdict": "dead"
+    },
+    {
       "id": "TVGirona.es",
       "verdict": "dead"
+    },
+    {
+      "id": "TVLHospitalet.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "TVRipolles.es",
+      "verdict": "dead"
+    },
+    {
+      "id": "TVSabadellValles.es",
+      "verdict": "live"
     },
     {
       "id": "TV3.es",
@@ -26088,12 +28213,24 @@
       "verdict": "live"
     },
     {
+      "id": "VallesVisio.es",
+      "verdict": "dead"
+    },
+    {
       "id": "VentdelnordTV.es",
       "verdict": "dead"
     },
     {
+      "id": "Vision6TV.es",
+      "verdict": "live"
+    },
+    {
       "id": "Vivamovil.es",
       "verdict": "dead"
+    },
+    {
+      "id": "VOTV.es",
+      "verdict": "live"
     },
     {
       "id": "VoyagesSaveurs.es",
@@ -26125,7 +28262,7 @@
     },
     {
       "id": "ImaiTV.lk",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "JayaTV.lk",
@@ -27064,6 +29201,10 @@
       "verdict": "geo-blocked"
     },
     {
+      "id": "RSILa2.ch",
+      "verdict": "dead"
+    },
+    {
       "id": "RTSInfo.ch",
       "verdict": "geo-blocked"
     },
@@ -27081,6 +29222,10 @@
     },
     {
       "id": "SKITV.ch",
+      "verdict": "dead"
+    },
+    {
+      "id": "SRFzwei.ch",
       "verdict": "dead"
     },
     {
@@ -27313,7 +29458,7 @@
     },
     {
       "id": "DodomaTV.tz",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "IBNTV.tz",
@@ -27321,7 +29466,7 @@
     },
     {
       "id": "IBNTVAfrica.tz",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MahaasinTV.tz",
@@ -27772,6 +29917,26 @@
       "verdict": "dead"
     },
     {
+      "id": "beINBoxOffice1.tr",
+      "verdict": "dead"
+    },
+    {
+      "id": "beINBoxOffice2.tr",
+      "verdict": "dead"
+    },
+    {
+      "id": "beINBoxOffice3.tr",
+      "verdict": "dead"
+    },
+    {
+      "id": "beINMoviesStars.tr",
+      "verdict": "dead"
+    },
+    {
+      "id": "beINMoviesTurk.tr",
+      "verdict": "dead"
+    },
+    {
       "id": "BenguturkTV.tr",
       "verdict": "live"
     },
@@ -28141,7 +30306,7 @@
     },
     {
       "id": "MedMuzik.tr",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "MekameleenTV.tr",
@@ -28392,6 +30557,10 @@
       "verdict": "live"
     },
     {
+      "id": "TV100.tr",
+      "verdict": "dead"
+    },
+    {
       "id": "TV264.tr",
       "verdict": "live"
     },
@@ -28438,6 +30607,10 @@
     {
       "id": "VavTV.tr",
       "verdict": "live"
+    },
+    {
+      "id": "ViasatHistory.tr",
+      "verdict": "dead"
     },
     {
       "id": "ZarokTV.tr",
@@ -28513,7 +30686,7 @@
     },
     {
       "id": "DreamTV.ug",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "FarajaTelevision.ug",
@@ -28522,6 +30695,10 @@
     {
       "id": "FORTTV.ug",
       "verdict": "live"
+    },
+    {
+      "id": "GalaxyTV.ug",
+      "verdict": "dead"
     },
     {
       "id": "GuguddeTV.ug",
@@ -28564,7 +30741,15 @@
       "verdict": "live"
     },
     {
+      "id": "1Plus1Ukraina.ua",
+      "verdict": "live"
+    },
+    {
       "id": "100NEWS.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "2Plus2.ua",
       "verdict": "live"
     },
     {
@@ -28580,8 +30765,20 @@
       "verdict": "live"
     },
     {
+      "id": "6sotok.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "ApostropheTV.ua",
+      "verdict": "live"
+    },
+    {
       "id": "ArmyTV.ua",
       "verdict": "live"
+    },
+    {
+      "id": "ATR.ua",
+      "verdict": "dead"
     },
     {
       "id": "Avers.ua",
@@ -28593,6 +30790,22 @@
     },
     {
       "id": "BamBarBiaTV.ua",
+      "verdict": "dead"
+    },
+    {
+      "id": "Bigudi.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "BlackSeaTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Bolt.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Channel11.ua",
       "verdict": "dead"
     },
     {
@@ -28608,12 +30821,24 @@
       "verdict": "live"
     },
     {
+      "id": "Channel8.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "ChemodanTV.ua",
+      "verdict": "live"
+    },
+    {
       "id": "Cherniveckiypromin.ua",
       "verdict": "dead"
     },
     {
       "id": "ChPinfo.ua",
       "verdict": "dead"
+    },
+    {
+      "id": "ContinentE.ua",
+      "verdict": "live"
     },
     {
       "id": "Dacha.ua",
@@ -28636,11 +30861,31 @@
       "verdict": "dead"
     },
     {
+      "id": "DynamoKyivTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "EkoTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "EnterFilm.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Equalympic.ua",
+      "verdict": "live"
+    },
+    {
       "id": "EspresoTV.ua",
       "verdict": "live"
     },
     {
       "id": "EWTNUkraine.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Fauna.ua",
       "verdict": "live"
     },
     {
@@ -28669,11 +30914,27 @@
     },
     {
       "id": "HopeChannelUkraine.ua",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "IUAtv.ua",
       "verdict": "dead"
+    },
+    {
+      "id": "ICTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "ICTV2.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "InRatingTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Inter.ua",
+      "verdict": "live"
     },
     {
       "id": "InterPlus.ua",
@@ -28696,12 +30957,36 @@
       "verdict": "live"
     },
     {
+      "id": "K1.ua",
+      "verdict": "live"
+    },
+    {
       "id": "K2.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Kino1.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Kino2.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Kinoliving.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Kinowood.ua",
       "verdict": "live"
     },
     {
       "id": "KusKus.ua",
       "verdict": "live"
+    },
+    {
+      "id": "KvartalTV.ua",
+      "verdict": "dead"
     },
     {
       "id": "KvartalTVInternational.ua",
@@ -28712,7 +30997,19 @@
       "verdict": "live"
     },
     {
+      "id": "Lale.ua",
+      "verdict": "live"
+    },
+    {
       "id": "Lugansk24.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "M1.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "M2.ua",
       "verdict": "live"
     },
     {
@@ -28724,7 +31021,15 @@
       "verdict": "live"
     },
     {
+      "id": "MasonTV.ua",
+      "verdict": "live"
+    },
+    {
       "id": "Mega.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "MegogoMusic.ua",
       "verdict": "live"
     },
     {
@@ -28736,7 +31041,35 @@
       "verdict": "live"
     },
     {
+      "id": "MyUkrainaPlus.ua",
+      "verdict": "dead"
+    },
+    {
+      "id": "MyUkrainaTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "NasheLubimoeKinoUkraine.ua",
+      "verdict": "live"
+    },
+    {
       "id": "NASHEMusic.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "NationalGeographicWild.ua",
+      "verdict": "dead"
+    },
+    {
+      "id": "Nauka.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "NikiJunior.ua",
+      "verdict": "dead"
+    },
+    {
+      "id": "NovyiChannel.ua",
       "verdict": "live"
     },
     {
@@ -28748,11 +31081,23 @@
       "verdict": "live"
     },
     {
+      "id": "ObozrevatelTV.ua",
+      "verdict": "live"
+    },
+    {
       "id": "ObshchestvennoeNezavisimoeTelevidenie.ua",
       "verdict": "live"
     },
     {
+      "id": "OnePlanet.ua",
+      "verdict": "live"
+    },
+    {
       "id": "OrbitaTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "OTSE.ua",
       "verdict": "live"
     },
     {
@@ -28768,6 +31113,14 @@
       "verdict": "live"
     },
     {
+      "id": "Pershyiavtomobilnyi.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "PershyiZahidnyi.ua",
+      "verdict": "live"
+    },
+    {
       "id": "PervyygorodskoyOdessa.ua",
       "verdict": "live"
     },
@@ -28776,7 +31129,23 @@
       "verdict": "live"
     },
     {
+      "id": "PLUSPLUS.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "PravdaTUT.ua",
+      "verdict": "dead"
+    },
+    {
       "id": "PTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "QuizTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "RadaTV.ua",
       "verdict": "live"
     },
     {
@@ -28804,6 +31173,14 @@
       "verdict": "live"
     },
     {
+      "id": "SaltTV.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "SetantaSportsPlusUkraine.ua",
+      "verdict": "live"
+    },
+    {
       "id": "SferaTV.ua",
       "verdict": "live"
     },
@@ -28816,6 +31193,42 @@
       "verdict": "live"
     },
     {
+      "id": "Sonce.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport1.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport1Baltic.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport2.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport3.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport4.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "Sport5.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "STB.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "SuspilneKrym.ua",
+      "verdict": "live"
+    },
+    {
       "id": "SuspilneKultura.ua",
       "verdict": "live"
     },
@@ -28824,8 +31237,16 @@
       "verdict": "live"
     },
     {
+      "id": "SuspilneSport.ua",
+      "verdict": "live"
+    },
+    {
       "id": "Svarozhychy.ua",
       "verdict": "dead"
+    },
+    {
+      "id": "SvitPlus.ua",
+      "verdict": "live"
     },
     {
       "id": "TelekanalRAI.ua",
@@ -28840,6 +31261,10 @@
       "verdict": "dead"
     },
     {
+      "id": "Terra.ua",
+      "verdict": "live"
+    },
+    {
       "id": "TET.ua",
       "verdict": "live"
     },
@@ -28850,6 +31275,18 @@
     {
       "id": "TRKAleks.ua",
       "verdict": "dead"
+    },
+    {
+      "id": "TRKIldana.ua",
+      "verdict": "dead"
+    },
+    {
+      "id": "Trofei.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "TUSO.ua",
+      "verdict": "live"
     },
     {
       "id": "TV4.ua",
@@ -28864,12 +31301,24 @@
       "verdict": "live"
     },
     {
+      "id": "Tviyserial.ua",
+      "verdict": "live"
+    },
+    {
+      "id": "UNIANSerial.ua",
+      "verdict": "live"
+    },
+    {
       "id": "ViasatKino.ua",
-      "verdict": "geo-blocked"
+      "verdict": "live"
     },
     {
       "id": "Z.ua",
       "verdict": "dead"
+    },
+    {
+      "id": "Zoom.ua",
+      "verdict": "live"
     },
     {
       "id": "AjmanTV.ae",
@@ -29052,6 +31501,10 @@
       "verdict": "live"
     },
     {
+      "id": "AMCEurope.uk",
+      "verdict": "dead"
+    },
+    {
       "id": "AnandTV.uk",
       "verdict": "live"
     },
@@ -29077,6 +31530,10 @@
     },
     {
       "id": "BBCEarth.uk",
+      "verdict": "live"
+    },
+    {
+      "id": "BBCFirst.uk",
       "verdict": "live"
     },
     {
@@ -29268,6 +31725,10 @@
       "verdict": "live"
     },
     {
+      "id": "DAZN5.uk",
+      "verdict": "dead"
+    },
+    {
       "id": "DAZNCombat.uk",
       "verdict": "live"
     },
@@ -29381,7 +31842,7 @@
     },
     {
       "id": "IqraBangla.uk",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "IqraTV.uk",
@@ -29572,6 +32033,10 @@
       "verdict": "live"
     },
     {
+      "id": "SetantaSports.uk",
+      "verdict": "live"
+    },
+    {
       "id": "SetarehTV.uk",
       "verdict": "live"
     },
@@ -29597,7 +32062,7 @@
     },
     {
       "id": "SkySportsCricket.uk",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "SkySportsF1.uk",
@@ -29605,6 +32070,14 @@
     },
     {
       "id": "SkySportsGolf.uk",
+      "verdict": "dead"
+    },
+    {
+      "id": "SkySportsNews.uk",
+      "verdict": "dead"
+    },
+    {
+      "id": "SkySportsNFL.uk",
       "verdict": "dead"
     },
     {
@@ -29733,6 +32206,10 @@
     },
     {
       "id": "V2BEATTV.uk",
+      "verdict": "live"
+    },
+    {
+      "id": "ViasatEpicDrama.uk",
       "verdict": "live"
     },
     {
@@ -30336,6 +32813,10 @@
       "verdict": "live"
     },
     {
+      "id": "AXNAdria.us",
+      "verdict": "live"
+    },
+    {
       "id": "AXNBlack.us",
       "verdict": "live"
     },
@@ -30433,7 +32914,7 @@
     },
     {
       "id": "beINSportsUSA.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "beINSPORTSXTRA.us",
@@ -30960,6 +33441,10 @@
       "verdict": "live"
     },
     {
+      "id": "CinemaxLatino.us",
+      "verdict": "dead"
+    },
+    {
       "id": "CinePride.us",
       "verdict": "live"
     },
@@ -31305,7 +33790,7 @@
     },
     {
       "id": "CW.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "CypressChannel36.us",
@@ -31969,7 +34454,7 @@
     },
     {
       "id": "GolfChannel.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "GolfChannelLatinAmerica.us",
@@ -32728,6 +35213,10 @@
       "verdict": "live"
     },
     {
+      "id": "KVCRDT242.us",
+      "verdict": "live"
+    },
+    {
       "id": "KVIE62.us",
       "verdict": "live"
     },
@@ -33089,7 +35578,7 @@
     },
     {
       "id": "MetaleitorTV.us",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MeTV.us",
@@ -33149,7 +35638,7 @@
     },
     {
       "id": "MLBNetwork.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "MLBStrikeZone.us",
@@ -33433,7 +35922,7 @@
     },
     {
       "id": "NBCSportsBayArea.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "NBCSportsNOW.us",
@@ -33441,7 +35930,7 @@
     },
     {
       "id": "NBCSportsPhiladelphia.us",
-      "verdict": "dead"
+      "verdict": "geo-blocked"
     },
     {
       "id": "NBCUniverso.us",
@@ -33485,7 +35974,7 @@
     },
     {
       "id": "News12Bronx.us",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "News12Brooklyn.us",
@@ -33513,7 +36002,7 @@
     },
     {
       "id": "News12Westchester.us",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "News12PlusConnecticut.us",
@@ -33529,11 +36018,11 @@
     },
     {
       "id": "News12PlusNewJersey.us",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "News12PlusNewYork.us",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "Newsmax2.us",
@@ -34869,7 +37358,7 @@
     },
     {
       "id": "ShalomWorldPrayer.us",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "ShemarooBollywood.us",
@@ -35772,6 +38261,10 @@
       "verdict": "live"
     },
     {
+      "id": "UniversalComedy.us",
+      "verdict": "live"
+    },
+    {
       "id": "UniversalCrime.us",
       "verdict": "live"
     },
@@ -36074,6 +38567,10 @@
     {
       "id": "WGBATV261.us",
       "verdict": "live"
+    },
+    {
+      "id": "WGBODT661.us",
+      "verdict": "dead"
     },
     {
       "id": "WGGSTV161.us",
@@ -36520,6 +39017,10 @@
       "verdict": "live"
     },
     {
+      "id": "ZoomNews.us",
+      "verdict": "dead"
+    },
+    {
       "id": "Canal5.uy",
       "verdict": "dead"
     },
@@ -36561,7 +39062,7 @@
     },
     {
       "id": "FargonaMTRK.uz",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "FTV.uz",
@@ -36605,7 +39106,7 @@
     },
     {
       "id": "NavoiyMTRK.uz",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "NurafshonTV.uz",
@@ -36625,7 +39126,7 @@
     },
     {
       "id": "Qaraqalpaqstan.uz",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "RenessansTV.uz",
@@ -36661,7 +39162,7 @@
     },
     {
       "id": "AbejalesTV.ve",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "AguacateTV.ve",
@@ -36693,6 +39194,10 @@
     },
     {
       "id": "Canal21Tachira.ve",
+      "verdict": "live"
+    },
+    {
+      "id": "CanalCdelZulia.ve",
       "verdict": "live"
     },
     {
@@ -36777,7 +39282,7 @@
     },
     {
       "id": "MaximaTV.ve",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "MeridianoTV.ve",
@@ -36861,7 +39366,7 @@
     },
     {
       "id": "TelevisoradeOriente.ve",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TNORadio.ve",
@@ -36873,7 +39378,7 @@
     },
     {
       "id": "TRT.ve",
-      "verdict": "live"
+      "verdict": "dead"
     },
     {
       "id": "TuTV.ve",
@@ -36889,7 +39394,7 @@
     },
     {
       "id": "TVOasisMonay.ve",
-      "verdict": "dead"
+      "verdict": "live"
     },
     {
       "id": "TVMparati.ve",
@@ -36897,7 +39402,11 @@
     },
     {
       "id": "TVS.ve",
-      "verdict": "dead"
+      "verdict": "live"
+    },
+    {
+      "id": "UN24.ve",
+      "verdict": "live"
     },
     {
       "id": "UniTV.ve",
@@ -37271,6 +39780,5 @@
       "id": "YadahTV.zw",
       "verdict": "live"
     }
-  ],
-  "method": "two-pass: 10s/64-way, failures retried at 20s/40-way"
+  ]
 }

@@ -8,10 +8,23 @@ import {
   getChannel,
   getChannels,
   getRecommendations,
+  reach,
 } from '@/lib/channels';
 
+/**
+ * Prerender the most widely carried channels only.
+ *
+ * Prerendering all ~8k produced a 6.2 GB build that filled the disk and took
+ * five minutes. The rest render on first request and are cached from then on —
+ * dynamicParams defaults to true, so every channel stays reachable.
+ */
+const PRERENDER = 900;
+
 export function generateStaticParams() {
-  return getChannels().map((c) => ({ id: c.id }));
+  return [...getChannels()]
+    .sort((a, b) => reach(b) - reach(a) || a.name.localeCompare(b.name))
+    .slice(0, PRERENDER)
+    .map((c) => ({ id: c.id }));
 }
 
 export async function generateMetadata(props: PageProps<'/channel/[id]'>) {

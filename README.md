@@ -9,7 +9,7 @@ dataset. It does **not** mirror that dataset. A build-time filter admits a
 channel only when a named, checkable rule says it is public-service,
 government, or civic, and every channel page states which rule applied.
 
-**Current snapshot: 7,648 channels across 174 countries — the open
+**Current snapshot: 7,935 channels across 174 countries — the open
 catalogue, pruned to those whose streams still respond.**
 
 OpenBroadcast hosts no video. Playback is a direct browser connection to the

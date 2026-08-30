@@ -381,6 +381,20 @@ export const DENIED_BRAND_PATTERNS: RegExp[] = [
   /\bmajor league\b/i,
 ];
 
+/**
+ * Channels that are plainly sport but carry no `sports` tag upstream.
+ *
+ * An explicit id list, reviewed one by one — a name regex on "motor" or
+ * "formula" pulls in motoring shows and a Georgian news channel called
+ * Formula, none of which are sport. Anything ambiguous stays out and keeps the
+ * genre iptv-org gave it.
+ */
+export const EXTRA_SPORT_CHANNELS: string[] = [
+  'PolsatSport1.pl',
+  'TNAWrestlingChannel.pl',
+  'WomensSportsNetwork.us',
+];
+
 export function matchesDeniedBrand(...fields: (string | null | undefined)[]) {
   for (const field of fields) {
     if (!field) continue;

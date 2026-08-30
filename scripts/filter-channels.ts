@@ -14,6 +14,7 @@ import {
   BASIS_EXPLANATIONS,
   BASIS_LABELS,
   DENIED_CATEGORIES,
+  EXTRA_SPORT_CHANNELS,
   GOVERNMENT_OWNER_PATTERNS,
   PUBLIC_BROADCASTER_OWNERS,
   matchesDeniedBrand,
@@ -91,8 +92,10 @@ interface BlocklistEntry {
 export interface ApprovedStream {
   url: string;
   quality: string | null;
-  /** Streams needing a custom UA/referrer cannot be played from a browser. */
+  /** Playlist must be fetched through /api/manifest, which supplies the headers. */
   needsCustomHeaders: boolean;
+  userAgent?: string | null;
+  referrer?: string | null;
 }
 
 export interface ApprovedChannel {
@@ -287,14 +290,17 @@ async function main() {
     }
 
     // --- playability -------------------------------------------------------
+    // Streams needing a custom UA/referrer are kept: /api/manifest fetches the
+    // playlist server-side with those headers. Their segments are served
+    // straight from the origin, so no video passes through us.
     const raw = streamsByChannel.get(channel.id) ?? [];
-    const playable = raw
-      .filter((s) => !s.user_agent && !s.referrer)
-      .map<ApprovedStream>((s) => ({
-        url: s.url,
-        quality: s.quality,
-        needsCustomHeaders: false,
-      }));
+    const playable = raw.map<ApprovedStream>((s) => ({
+      url: s.url,
+      quality: s.quality,
+      needsCustomHeaders: Boolean(s.user_agent || s.referrer),
+      userAgent: s.user_agent ?? null,
+      referrer: s.referrer ?? null,
+    }));
 
     // De-duplicate identical URLs.
     const seen = new Set<string>();
@@ -311,6 +317,9 @@ async function main() {
 
     const country = countryByCode.get(channel.country);
     const logo = logoByChannel.get(channel.id);
+    const categories = EXTRA_SPORT_CHANNELS.includes(channel.id)
+      ? [...new Set([...channel.categories, 'sports'])]
+      : channel.categories;
 
     approved.push({
       id: channel.id,
@@ -318,8 +327,8 @@ async function main() {
       country: channel.country,
       countryName: country?.name ?? channel.country,
       countryFlag: country?.flag ?? '🏳️',
-      categories: channel.categories,
-      primaryCategory: channel.categories[0] ?? 'general',
+      categories,
+      primaryCategory: categories[0] ?? 'general',
       owners: channel.owners,
       network: channel.network,
       website: channel.website,

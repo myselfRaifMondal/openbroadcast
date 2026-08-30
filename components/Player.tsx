@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ApprovedStream } from '@/lib/channels';
+import { manifestUrl } from '@/lib/proxy-allowlist';
 
 type Status = 'tuning' | 'on-air' | 'no-signal';
 
@@ -46,6 +47,13 @@ export function Player({
 
   const stream = streams[index];
   const dense = streams.length > 6;
+  // Streams whose origin demands a user-agent or referer are loaded through
+  // /api/manifest, which supplies them. Segments still come from the origin.
+  const sourceUrl = stream
+    ? stream.needsCustomHeaders
+      ? manifestUrl(stream.url)
+      : stream.url
+    : '';
 
   useEffect(() => {
     const video = videoRef.current;
@@ -99,13 +107,13 @@ export function Player({
           setStatus('on-air');
           void video.play().catch(() => {});
         });
-        instance.loadSource(stream.url);
+        instance.loadSource(sourceUrl);
         instance.attachMedia(video);
         return;
       }
 
       if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = stream.url;
+        video.src = sourceUrl;
         video.addEventListener(
           'loadedmetadata',
           () => {
@@ -132,7 +140,7 @@ export function Player({
       video.removeAttribute('src');
       video.load();
     };
-  }, [stream, index, streams.length]);
+  }, [stream, sourceUrl, index, streams.length]);
 
   // Track how far behind the live edge we have drifted. That is the only
   // position a broadcast has that means anything, which is why this player

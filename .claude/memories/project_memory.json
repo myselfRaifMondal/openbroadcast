@@ -22,7 +22,7 @@
     },
     {
       "type": "reference",
-      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full catalogue), audit:candidates [minChannels] (owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (two-pass stream probe, writes data/stream-health.json, records a streamHealth summary on the dataset, prunes only genuinely dead and never geo-blocked). Also: npm run build:search-index (and prebuild, which runs it automatically before next build).",
+      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full catalogue), audit:candidates [minChannels] (owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (two-pass stream probe, writes data/stream-health.json, records a streamHealth summary on the dataset, prunes only genuinely dead and never geo-blocked). Also: npm run build:search-index (and prebuild, which runs it automatically before next build).\n\nSocial/advertising assets live in brand/: five HTML artboards sharing brand/_base.css (same tokens as app/globals.css), rendered by brand/render.sh to brand/out/*.png at exact platform sizes — ig-feed 1080x1350, ig-story 1080x1920, linkedin 1200x627, whatsapp-status 1080x1920, square 1080x1080. render.sh drives the Chromium that Playwright already caches (~/Library/Caches/ms-playwright/chromium_headless_shell-1234/...) at 2x then sips-resamples down; no playwright npm dep is installed. Serve with `python3 -m http.server 4199` in brand/ first. NOTE: the Playwright MCP downscales screenshots (1080 -> 982), so never use it to produce fixed-size deliverables. Rules held: no broadcaster logos in adverts (implies endorsement), and every figure must match the current catalogue or the copy is a false claim.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -34,7 +34,7 @@
     },
     {
       "type": "decision",
-      "content": "UI is a broadcast-test-card design, rebuilt 2026-08-30 in the shape of a streaming front page (user asked for 'Twitch kind of UI'). Palette = desaturated SMPTE colour bars used as GENRE CODING, not decoration — categoryColor() in lib/channels.ts maps each genre to a bar colour used on card stripes, chips, and idents. Type: Archivo (display, uppercase tracked) + IBM Plex Sans (body) + IBM Plex Mono (data). Signature motif = the seven bars (.bars / .testcard in globals.css): logo mark, tuning state, and the test card shown for a dead feed. Structure: left rail (Sidebar.tsx, most-carried channels, localStorage via useSyncExternalStore), genre shelves (ChannelRow.tsx), full grid (ChannelBrowser.tsx), hero that opens on live TV and scans past dead feeds (HeroTuner.tsx). Keys: R surfs random, / focuses search. Search: a global command palette (SearchPalette.tsx) opens from any page with / or Cmd/Ctrl-K — the user specifically asked for search while watching, so it must stay reachable mid-programme; it fetches public/search-index.json (~470 KB, written by the prebuild script, gitignored) on first open rather than shipping 7.6k channels as page props. ChannelBrowser's own input is 'Filter this grid' and binds no key: one key, one meaning. Footer credits 'Raif Mondal' (their preferred short form — LICENSE still carries the full legal name 'Raif Salauddin Mondal', left deliberately).",
+      "content": "UI is a broadcast-test-card design, rebuilt 2026-08-30 in the shape of a streaming front page (user asked for 'Twitch kind of UI'). Palette = desaturated SMPTE colour bars used as GENRE CODING, not decoration — categoryColor() in lib/channels.ts maps each genre to a bar colour used on card stripes, chips, and idents. Type: Archivo (display, uppercase tracked) + IBM Plex Sans (body) + IBM Plex Mono (data). Signature motif = the seven bars (.bars / .testcard in globals.css): logo mark, tuning state, and the test card shown for a dead feed. Structure: left rail (Sidebar.tsx, most-carried channels, localStorage via useSyncExternalStore), genre shelves (ChannelRow.tsx), full grid (ChannelBrowser.tsx), hero that opens on live TV and scans past dead feeds (HeroTuner.tsx). Keys: R surfs random, / focuses search. Search: a global command palette (SearchPalette.tsx) opens from any page with / or Cmd/Ctrl-K — the user specifically asked for search while watching, so it must stay reachable mid-programme; it fetches public/search-index.json (~470 KB, written by the prebuild script, gitignored) on first open rather than shipping 7.6k channels as page props. ChannelBrowser's own input is 'Filter this grid' and binds no key: one key, one meaning. Footer credits 'Raif Mondal' (their preferred short form — LICENSE still carries the full legal name 'Raif Salauddin Mondal', left deliberately). Player (components/Player.tsx) uses CUSTOM live controls, never <video controls>: the native bar's seek bar + duration is the grammar of a recording and misrepresents a broadcast (it also produced a '0:00' timecode under dead feeds — the user spotted this). No progress bar or duration anywhere; instead a LIVE pill that becomes 'Go live · Ns behind' and seeks to the edge. CRITICAL: measure drift against hls.js liveSyncPosition, NOT seekable.end — healthy HLS sits 15-20s behind the manifest edge by design, so measuring from the edge labels live playback as behind (my first version did exactly that). Player also auto-walks past dead mirrors before showing No signal. Keys: space/k, m, f.",
       "added_at": "2026-08-30T16:22:52.664250",
       "source": "consolidated"
     },
@@ -46,29 +46,17 @@
     },
     {
       "type": "claude_response",
-      "content": "Memories consolidated: 11 → 7. Dropped the transcript captures and folded the substance into existing entries — the search palette and its index-fetch rationale plus your short-form name into the UI m",
-      "added_at": "2026-08-30T17:43:13.566950",
+      "content": "Probe is running. SSRF address guards pass all 17 cases including cloud-metadata (`169.254.169.254`) and IPv4-mapped loopback, while correctly *allowing* `172.32.0.1` just outside the private range.\n\n",
+      "added_at": "2026-08-30T19:39:03.936122",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "Let's now do one thing, create instagram, linkedin and whatsapp branding images, as if an advertisement branding content images for the same.",
-      "added_at": "2026-08-30T17:43:13.566974",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "Five assets, in `brand/out/`, at exact platform sizes:\n\n| File | Size | Use |\n|---|---|---|\n| `ig-feed.png` | 1080×1350 | Instagram feed (4:5) |\n| `ig-story.png` | 1080×1920 | Instagram / Facebook sto",
-      "added_at": "2026-08-30T18:16:55.417431",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "The video player within the site, can we remove it and just like add it like it's LIVE or something??? Just curious to know, because it shows a different meaning to the player itself isn't",
-      "added_at": "2026-08-30T18:16:55.417475",
+      "content": "<task-notification> <task-id>b71gamn5v</task-id> <tool-use-id>toolu_013b5LYaPxv7YiRU9tu8KdA7</tool-use-id> <output-file>/private/tmp/claude-501/-Users-raifsalauddinmondal-Documents-Projects-GitHub/3ce",
+      "added_at": "2026-08-30T19:39:03.936167",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T18:16:55.417477"
+  "updated_at": "2026-08-30T19:39:03.936169"
 }

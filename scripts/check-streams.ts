@@ -40,14 +40,18 @@ interface Probe {
   detail: string;
 }
 
-async function probe(url: string, timeoutMs = TIMEOUT_MS): Promise<Probe> {
+async function probe(
+  url: string,
+  timeoutMs = TIMEOUT_MS,
+  extraHeaders: Record<string, string> = {},
+): Promise<Probe> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
       signal: controller.signal,
       redirect: 'follow',
-      headers: { accept: '*/*' },
+      headers: { accept: '*/*', ...extraHeaders },
     });
 
     if (res.status === 403 || res.status === 451) {
@@ -66,6 +70,52 @@ async function probe(url: string, timeoutMs = TIMEOUT_MS): Promise<Probe> {
     const msg = err instanceof Error ? err.message : String(err);
     const detail = /abort/i.test(msg) ? `timeout after ${timeoutMs}ms` : msg;
     return { url, verdict: 'dead', detail };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * hls.js fetches segments with XHR, so the segment origin must return CORS
+ * headers or the browser blocks it — however healthy the stream is
+ * server-side. Only matters for proxy-only channels: everything else reaches
+ * the browser the same way it reached this probe.
+ *
+ * Returns true when a browser would actually be able to play the stream.
+ */
+async function segmentsAllowBrowser(
+  manifestUrl: string,
+  extraHeaders: Record<string, string>,
+): Promise<boolean> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), RETRY_TIMEOUT_MS);
+  try {
+    const res = await fetch(manifestUrl, {
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: { accept: '*/*', ...extraHeaders },
+    });
+    if (!res.ok) return false;
+
+    const body = await res.text();
+    const first = body
+      .split('\n')
+      .map((l) => l.trim())
+      .find((l) => l && !l.startsWith('#'));
+    if (!first) return false;
+
+    const child = new URL(first, res.url || manifestUrl).toString();
+    const seg = await fetch(child, {
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: { origin: 'https://openbroadcast.vercel.app' },
+    });
+    if (!seg.ok) return false;
+
+    const allow = seg.headers.get('access-control-allow-origin');
+    return allow === '*' || allow === 'https://openbroadcast.vercel.app';
+  } catch {
+    return false;
   } finally {
     clearTimeout(timer);
   }
@@ -90,6 +140,20 @@ async function main() {
   const dataset = JSON.parse(await readFile(FILE, 'utf8')) as ApprovedDataset;
   const channels = dataset.channels;
 
+  // Header-gated streams must be probed the way the app plays them — through
+  // their headers — or every channel behind the manifest proxy is condemned as
+  // dead despite working fine.
+  const headersByUrl = new Map<string, Record<string, string>>();
+  for (const channel of channels) {
+    for (const s of channel.streams) {
+      if (!s.needsCustomHeaders) continue;
+      const h: Record<string, string> = {};
+      if (s.userAgent) h['user-agent'] = s.userAgent;
+      if (s.referrer) h.referer = s.referrer;
+      headersByUrl.set(s.url, h);
+    }
+  }
+
   // One probe per stream, deduplicated across channels sharing a URL.
   const urls = [...new Set(channels.flatMap((c) => c.streams.map((s) => s.url)))];
   console.log(
@@ -100,7 +164,7 @@ async function main() {
   let done = 0;
   const probes = await pool(
     urls.map((url) => async () => {
-      const result = await probe(url);
+      const result = await probe(url, TIMEOUT_MS, headersByUrl.get(url) ?? {});
       done += 1;
       if (done % 500 === 0) {
         process.stdout.write(`  ${done}/${urls.length}\n`);
@@ -122,7 +186,9 @@ async function main() {
     );
     let recovered = 0;
     const retries = await pool(
-      retryUrls.map((url) => () => probe(url, RETRY_TIMEOUT_MS)),
+      retryUrls.map(
+        (url) => () => probe(url, RETRY_TIMEOUT_MS, headersByUrl.get(url) ?? {}),
+      ),
       RETRY_CONCURRENCY,
     );
     for (const r of retries) {
@@ -141,6 +207,42 @@ async function main() {
         : 'dead';
     return { id: c.id, name: c.name, country: c.country, verdict, results };
   });
+
+  // Third pass: for channels that only exist behind the manifest proxy, prove a
+  // browser could actually play them. A stream that answers this probe but has
+  // no CORS on its segments plays nowhere, and listing it would be a lie.
+  const proxyOnlyChannels = channels.filter(
+    (c) => c.streams.every((s) => s.needsCustomHeaders) && c.streams.length > 0,
+  );
+  const browserPlayable = new Set<string>();
+  if (proxyOnlyChannels.length > 0) {
+    console.log(
+      `\nChecking segment CORS for ${proxyOnlyChannels.length} proxy-only channels…`,
+    );
+    await pool(
+      proxyOnlyChannels.map((c) => async () => {
+        for (const s of c.streams) {
+          const h: Record<string, string> = {};
+          if (s.userAgent) h['user-agent'] = s.userAgent;
+          if (s.referrer) h.referer = s.referrer;
+          if (await segmentsAllowBrowser(s.url, h)) {
+            browserPlayable.add(c.id);
+            return;
+          }
+        }
+      }),
+      16,
+    );
+    console.log(
+      `  ${browserPlayable.size} of ${proxyOnlyChannels.length} are playable in a browser`,
+    );
+  }
+  const proxyOnlyIds = new Set(proxyOnlyChannels.map((c) => c.id));
+  for (const c of perChannel) {
+    if (proxyOnlyIds.has(c.id) && !browserPlayable.has(c.id)) {
+      c.verdict = 'dead';
+    }
+  }
 
   const counts = { live: 0, 'geo-blocked': 0, dead: 0 } as Record<Verdict, number>;
   perChannel.forEach((c) => (counts[c.verdict] += 1));
@@ -185,14 +287,35 @@ async function main() {
   console.log(`\nWrote ${REPORT}`);
 
   if (PRUNE) {
+    // Geo-blocked channels are kept: a 403 from a directly-played stream means
+    // a healthy feed fenced to its own country, and it plays in-country.
+    //
+    // That inference does not hold for a channel reachable ONLY through the
+    // manifest proxy. There a 403 is ambiguous — it could be geo-fencing, or
+    // the origin rejecting our headers or our datacenter IP. Since it cannot be
+    // told apart, those are dropped rather than listed as working.
+    const proxiedOnly = new Map(
+      channels.map((c) => [c.id, proxyOnlyIds.has(c.id)]),
+    );
+    const unverifiableProxy = perChannel.filter(
+      (c) => proxiedOnly.get(c.id) && c.verdict !== 'live',
+    ).length;
+
     const keep = new Set(
-      perChannel.filter((c) => c.verdict !== 'dead').map((c) => c.id),
+      perChannel
+        .filter((c) => c.verdict !== 'dead')
+        .filter((c) => !(proxiedOnly.get(c.id) && c.verdict !== 'live'))
+        .map((c) => c.id),
     );
     const pruned = channels.filter((c) => keep.has(c.id));
     dataset.channels = pruned;
     dataset.counts.approved = pruned.length;
     dataset.counts.rejected = dataset.counts.sourceChannels - pruned.length;
     dataset.rejectionReasons['stream unreachable (two-pass probe)'] = counts.dead;
+    if (unverifiableProxy > 0) {
+      dataset.rejectionReasons['proxy-only stream could not be verified'] =
+        unverifiableProxy;
+    }
     dataset.streamHealth = {
       checkedAt: new Date().toISOString(),
       live: counts.live,
@@ -200,7 +323,13 @@ async function main() {
       pruned: counts.dead,
     };
     await writeFile(FILE, JSON.stringify(dataset, null, 2) + '\n', 'utf8');
-    console.log(`Pruned ${counts.dead} dead channels — ${pruned.length} remain.`);
+    console.log(
+      `Pruned ${counts.dead} dead channels` +
+        (unverifiableProxy > 0
+          ? ` and ${unverifiableProxy} unverifiable proxy-only channels`
+          : '') +
+        ` — ${pruned.length} remain.`,
+    );
   }
 }
 

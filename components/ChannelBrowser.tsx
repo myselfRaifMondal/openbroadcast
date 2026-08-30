@@ -30,7 +30,8 @@ export function ChannelBrowser({
     const q = query.trim().toLowerCase();
     return channels.filter((c) => {
       if (country && c.country !== country) return false;
-      if (category && c.primaryCategory !== category) return false;
+      // Match any tagged genre, not just the primary one.
+      if (category && !c.categories.includes(category)) return false;
       if (!q) return true;
       return (
         c.name.toLowerCase().includes(q) ||

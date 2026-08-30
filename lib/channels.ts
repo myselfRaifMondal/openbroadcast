@@ -103,22 +103,29 @@ export interface BrowseChannel {
   countryName: string;
   countryFlag: string;
   primaryCategory: string;
+  /** Every genre the channel is tagged with, so filtering is not limited to the first. */
+  categories: string[];
   logo: string | null;
   /** Joined owner names, kept only so search can match on broadcaster. */
   owners: string;
 }
 
 export function getBrowseIndex(): BrowseChannel[] {
-  return data.channels.map((c) => ({
+  return data.channels.map(toBrowseChannel);
+}
+
+function toBrowseChannel(c: ApprovedChannel): BrowseChannel {
+  return {
     id: c.id,
     name: c.name,
     country: c.country,
     countryName: c.countryName,
     countryFlag: c.countryFlag,
     primaryCategory: c.primaryCategory,
+    categories: c.categories.length > 0 ? c.categories : [c.primaryCategory],
     logo: c.logo,
     owners: c.owners.join(', '),
-  }));
+  };
 }
 
 export function getCountries() {
@@ -140,14 +147,32 @@ export function getCountries() {
   return [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+/**
+ * Counts every genre a channel is tagged with, not just its first one.
+ * primaryCategory is only categories[0]; keying genre lists off it hides a
+ * channel tagged ["general","sports"] from Sport entirely.
+ */
 export function getCategories() {
   const map = new Map<string, number>();
   for (const c of data.channels) {
-    map.set(c.primaryCategory, (map.get(c.primaryCategory) ?? 0) + 1);
+    const tags = c.categories.length > 0 ? c.categories : [c.primaryCategory];
+    for (const tag of new Set(tags)) {
+      map.set(tag, (map.get(tag) ?? 0) + 1);
+    }
   }
   return [...map.entries()]
     .map(([id, count]) => ({ id, label: CATEGORY_LABELS[id] ?? id, count }))
     .sort((a, b) => b.count - a.count);
+}
+
+/** True when the channel carries this genre at all, primary or not. */
+export function hasCategory(
+  c: { categories: string[]; primaryCategory: string },
+  id: string,
+) {
+  return c.categories.length > 0
+    ? c.categories.includes(id)
+    : c.primaryCategory === id;
 }
 
 /**
@@ -165,16 +190,7 @@ export function getRailChannels(limit = 160): BrowseChannel[] {
     .filter((c) => c.logo)
     .sort((a, b) => reach(b) - reach(a) || a.name.localeCompare(b.name))
     .slice(0, limit)
-    .map((c) => ({
-      id: c.id,
-      name: c.name,
-      country: c.country,
-      countryName: c.countryName,
-      countryFlag: c.countryFlag,
-      primaryCategory: c.primaryCategory,
-      logo: c.logo,
-      owners: c.owners.join(', '),
-    }));
+    .map(toBrowseChannel);
 }
 
 /**
@@ -187,19 +203,10 @@ export function getRows(genres: string[], perRow = 14) {
       id,
       label: CATEGORY_LABELS[id] ?? id,
       items: [...data.channels]
-        .filter((c) => c.primaryCategory === id && c.logo)
+        .filter((c) => hasCategory(c, id) && c.logo)
         .sort((a, b) => reach(b) - reach(a) || a.name.localeCompare(b.name))
         .slice(0, perRow)
-        .map((c) => ({
-          id: c.id,
-          name: c.name,
-          country: c.country,
-          countryName: c.countryName,
-          countryFlag: c.countryFlag,
-          primaryCategory: c.primaryCategory,
-          logo: c.logo,
-          owners: c.owners.join(', '),
-        })),
+        .map(toBrowseChannel),
     }))
     .filter((row) => row.items.length > 0);
 }
