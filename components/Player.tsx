@@ -3,30 +3,45 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ApprovedStream } from '@/lib/channels';
 
-type Status = 'idle' | 'loading' | 'playing' | 'error';
+type Status = 'tuning' | 'on-air' | 'no-signal';
 
-export function Player({ streams, name }: { streams: ApprovedStream[]; name: string }) {
+export function Player({
+  streams,
+  name,
+}: {
+  streams: ApprovedStream[];
+  name: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [index, setIndex] = useState(0);
-  const [status, setStatus] = useState<Status>('loading');
+  const [status, setStatus] = useState<Status>('tuning');
   const [message, setMessage] = useState<string | null>(null);
 
   const stream = streams[index];
+  // Past a handful, repeated "1080p" labels stop distinguishing anything, so
+  // the feeds get numbered and the quality moves to the selected one.
+  const dense = streams.length > 6;
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !stream) return;
 
     let cancelled = false;
-    // hls.js instance type is resolved lazily; `unknown` keeps this SSR-safe.
     let hls: { destroy: () => void } | null = null;
 
-    setStatus('loading');
+    setStatus('tuning');
     setMessage(null);
 
+    // A channel often lists many mirrors of the same feed and the first is
+    // frequently dead, so walk to the next one rather than making the viewer
+    // click through them. Only give up once every feed has been tried.
     const fail = (detail: string) => {
       if (cancelled) return;
-      setStatus('error');
+      if (index < streams.length - 1) {
+        setIndex(index + 1);
+        return;
+      }
+      setStatus('no-signal');
       setMessage(detail);
     };
 
@@ -43,114 +58,130 @@ export function Player({ streams, name }: { streams: ApprovedStream[]; name: str
         hls = instance;
         instance.on(Hls.Events.ERROR, (_evt, data) => {
           if (!data.fatal) return;
-          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-            fail(
-              'The broadcaster’s stream could not be reached. It may be geo-restricted, offline, or blocking browser playback.',
-            );
-          } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+          if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
             instance.recoverMediaError();
-          } else {
-            fail('This stream could not be played in the browser.');
+            return;
           }
+          fail(
+            streams.length > 1
+              ? `None of the ${streams.length} feeds for this channel responded. It may be off air, or restricted to its own country.`
+              : 'This feed is not responding. It may be off air, or restricted to its own country.',
+          );
         });
         instance.on(Hls.Events.MANIFEST_PARSED, () => {
-          void video.play().catch(() => {
-            /* autoplay blocked — user can press play */
-          });
-          if (!cancelled) setStatus('playing');
+          if (cancelled) return;
+          setStatus('on-air');
+          void video.play().catch(() => {});
         });
         instance.loadSource(stream.url);
         instance.attachMedia(video);
         return;
       }
 
-      // Safari and iOS play HLS natively.
       if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = stream.url;
-        video.addEventListener(
-          'loadedmetadata',
-          () => {
-            if (!cancelled) setStatus('playing');
-            void video.play().catch(() => {});
-          },
-          { once: true },
-        );
-        video.addEventListener('error', () => fail('This stream could not be played.'), {
+        video.addEventListener('loadedmetadata', () => {
+          if (cancelled) return;
+          setStatus('on-air');
+          void video.play().catch(() => {});
+        }, { once: true });
+        video.addEventListener('error', () => fail('This feed is not responding.'), {
           once: true,
         });
         return;
       }
 
-      fail('This browser cannot play HLS streams.');
+      fail('This browser cannot play HLS video.');
     }
 
     void attach();
-
     return () => {
       cancelled = true;
       hls?.destroy();
       video.removeAttribute('src');
       video.load();
     };
-  }, [stream]);
+  }, [stream, index, streams.length]);
 
   if (!stream) {
     return (
-      <div className="grid aspect-video place-items-center rounded-xl border border-border bg-surface text-[13px] text-muted">
-        No playable stream is listed for this channel.
+      <div className="grid aspect-video place-items-center rounded-xl border border-line bg-panel">
+        <span aria-hidden className="testcard h-20 w-32 rounded-md" />
       </div>
     );
   }
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-xl border border-border bg-black">
+      <div className="scanlines relative overflow-hidden rounded-xl border border-line bg-black">
         <video
           ref={videoRef}
-          controls
+          controls={status === 'on-air'}
           playsInline
-          muted
+          autoPlay
           className="aspect-video w-full bg-black"
           aria-label={`Live stream: ${name}`}
         />
-        {status === 'loading' && (
-          <div className="pointer-events-none absolute inset-0 grid place-items-center bg-black/55 text-[13px] text-muted">
-            Connecting to {name}…
+
+        {status === 'tuning' && (
+          <div className="pointer-events-none absolute inset-0 grid place-items-center bg-black/70">
+            <div className="flex flex-col items-center gap-3">
+              <span aria-hidden className="bars h-1.5 w-24 animate-pulse rounded-full" />
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">
+                Tuning
+              </p>
+            </div>
           </div>
         )}
-        {status === 'error' && (
-          <div className="absolute inset-0 grid place-items-center bg-black/85 px-6 text-center">
-            <div>
-              <p className="text-[13.5px]">{message}</p>
-              {streams.length > 1 && (
-                <p className="mt-2 text-[12px] text-muted">
-                  Try another source below.
+
+        {status === 'no-signal' && (
+          <div className="absolute inset-0 grid place-items-center bg-ink px-6">
+            <div className="flex w-full max-w-md flex-col items-center gap-5 text-center">
+              <span
+                aria-hidden
+                className="testcard aspect-[4/3] w-full max-w-[260px] rounded-lg"
+              />
+              <div>
+                <p className="font-display text-[15px] font-bold uppercase tracking-[0.22em]">
+                  No signal
                 </p>
-              )}
+                <p className="mt-2 text-[13.5px] leading-relaxed text-dim">{message}</p>
+              </div>
             </div>
           </div>
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2 text-[12px]">
-        <span className="text-muted">
-          {streams.length > 1 ? 'Sources:' : 'Source:'}
-        </span>
-        {streams.map((s, i) => (
-          <button
-            key={s.url}
-            type="button"
-            onClick={() => setIndex(i)}
-            className={`rounded-md border px-2 py-1 transition-colors ${
-              i === index
-                ? 'border-accent/70 bg-surface-2 text-foreground'
-                : 'border-border bg-surface text-muted hover:text-foreground'
-            }`}
-          >
-            {s.quality ?? `Source ${i + 1}`}
-          </button>
-        ))}
-      </div>
+      {streams.length > 1 && (
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">
+            {dense ? 'Feeds' : 'Sources'}
+          </span>
+          {streams.map((s, i) => (
+            <button
+              key={s.url}
+              type="button"
+              onClick={() => setIndex(i)}
+              title={s.quality ? `Feed ${i + 1} — ${s.quality}` : `Feed ${i + 1}`}
+              aria-label={s.quality ? `Feed ${i + 1}, ${s.quality}` : `Feed ${i + 1}`}
+              className={`rounded-md border font-mono text-[11px] transition-colors ${
+                dense ? 'h-7 w-7' : 'px-2.5 py-1'
+              } ${
+                i === index
+                  ? 'border-cyan/60 bg-raise text-text'
+                  : 'border-line text-dim hover:text-text'
+              }`}
+            >
+              {dense ? i + 1 : (s.quality ?? i + 1)}
+            </button>
+          ))}
+          {dense && (
+            <span className="ml-1 font-mono text-[10.5px] text-faint">
+              {streams[index]?.quality ?? ''}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

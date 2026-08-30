@@ -1,78 +1,75 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { getDataset } from '@/lib/channels';
+import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
+import { ShuffleButton } from '@/components/ShuffleButton';
+import { Sidebar } from '@/components/Sidebar';
+import { getRailChannels, getShuffleIds } from '@/lib/channels';
 import './globals.css';
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+const archivo = Archivo({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800'],
+});
+const plex = IBM_Plex_Sans({
+  variable: '--font-plex',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+});
+const plexMono = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  subsets: ['latin'],
+  weight: ['400', '500'],
+});
 
 export const metadata: Metadata = {
-  title: 'OpenBroadcast — Public & Open Live TV',
-  description:
-    'Live TV from public-service broadcasters, government and civic channels only. Every channel carries a stated licensing basis.',
+  title: 'OpenBroadcast',
+  description: 'Live television from everywhere, in one tuner.',
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
-  const open = getDataset().mode === 'open';
+/** Seven SMPTE bars — the mark this whole interface is built around. */
+function BarMark() {
+  return (
+    <span
+      aria-hidden
+      className="bars inline-block h-5 w-[18px] rounded-[2px] shadow-[0_0_18px_-4px_var(--bar-cyan)]"
+    />
+  );
+}
 
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${plex.variable} ${plexMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col font-sans">
-        <header className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5">
+      <body className="flex min-h-full flex-col">
+        <header className="sticky top-0 z-30 border-b border-line bg-ink/80 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-5 py-3">
             <Link href="/" className="flex items-center gap-2.5">
-              <span
-                aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_var(--accent)]"
-              />
-              <span className="text-[15px] font-semibold tracking-tight">
-                OpenBroadcast
+              <BarMark />
+              <span className="font-display text-[15px] font-extrabold uppercase tracking-[0.14em]">
+                Openbroadcast
               </span>
-              {open && (
-                <span className="rounded-md border border-accent/40 px-1.5 py-0.5 text-[10.5px] uppercase tracking-wide text-accent">
-                  open mode
-                </span>
-              )}
             </Link>
-            <nav className="flex items-center gap-5 text-[13px] text-muted">
-              <Link href="/policy" className="transition-colors hover:text-foreground">
-                Why these channels?
-              </Link>
-              <a
-                href="https://github.com/myselfRaifMondal/openbroadcast"
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-foreground"
-              >
-                Source
-              </a>
-            </nav>
+
+            <div className="ml-auto">
+              <ShuffleButton ids={getShuffleIds()} />
+            </div>
           </div>
         </header>
-        <main className="flex-1">{children}</main>
-        <footer className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-5 py-6 text-[12px] leading-relaxed text-muted">
-            {open
-              ? 'This build lists the full iptv-org catalogue with no licensing filtering — a private catalogue, not a publishable one. Data from the '
-              : 'OpenBroadcast indexes only public-service, government, and civic channels drawn from the '}
-            <a
-              href="https://github.com/iptv-org/iptv"
-              target="_blank"
-              rel="noreferrer"
-              className="text-foreground underline underline-offset-2"
-            >
-              iptv-org
-            </a>{' '}
-            open dataset. Streams are served directly by the broadcasters; we
-            host no video. See the{' '}
-            <Link href="/policy" className="text-foreground underline underline-offset-2">
-              filtering policy
-            </Link>
-            .
+
+        <div className="flex flex-1">
+          <Sidebar channels={getRailChannels()} />
+          <main className="min-w-0 flex-1">{children}</main>
+        </div>
+
+        <footer className="border-t border-line">
+          <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-5 py-5">
+            <span aria-hidden className="bars h-[3px] flex-1 rounded-full opacity-30" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+              End of transmission
+            </span>
           </div>
         </footer>
       </body>

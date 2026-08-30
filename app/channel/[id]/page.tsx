@@ -2,7 +2,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChannelLogo } from '@/components/ChannelLogo';
 import { Player } from '@/components/Player';
-import { CATEGORY_LABELS, getChannel, getChannels } from '@/lib/channels';
+import {
+  CATEGORY_LABELS,
+  categoryColor,
+  getChannel,
+  getChannels,
+  getRecommendations,
+} from '@/lib/channels';
 
 export function generateStaticParams() {
   return getChannels().map((c) => ({ id: c.id }));
@@ -11,10 +17,10 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<'/channel/[id]'>) {
   const { id } = await props.params;
   const channel = getChannel(decodeURIComponent(id));
-  if (!channel) return { title: 'Channel not found — OpenBroadcast' };
+  if (!channel) return { title: 'Off air — OpenBroadcast' };
   return {
-    title: `${channel.name} — live on OpenBroadcast`,
-    description: `${channel.name} (${channel.countryName}). ${channel.licensing.label}.`,
+    title: `${channel.name} · OpenBroadcast`,
+    description: `${channel.name}, live from ${channel.countryName}.`,
   };
 }
 
@@ -23,122 +29,106 @@ export default async function ChannelPage(props: PageProps<'/channel/[id]'>) {
   const channel = getChannel(decodeURIComponent(id));
   if (!channel) notFound();
 
-  const related = getChannels()
-    .filter((c) => c.country === channel.country && c.id !== channel.id)
-    .slice(0, 8);
+  const accent = categoryColor(channel.primaryCategory);
+  const categories =
+    channel.categories.length > 0 ? channel.categories : [channel.primaryCategory];
+
+  const recommended = getRecommendations(channel, 12);
 
   return (
-    <div className="mx-auto max-w-4xl px-5 py-8">
-      <Link
-        href="/"
-        className="text-[12.5px] text-muted transition-colors hover:text-foreground"
-      >
-        ← All channels
-      </Link>
-
-      <div className="mt-5 flex items-start gap-4">
-        <ChannelLogo src={channel.logo} name={channel.name} size="lg" />
+    <div className="mx-auto max-w-[1500px] px-5 py-5">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_312px]">
         <div className="min-w-0">
-          <h1 className="text-[22px] font-semibold tracking-tight">{channel.name}</h1>
-          <p className="mt-1 text-[13px] text-muted">
-            {channel.countryFlag} {channel.countryName} ·{' '}
-            {(channel.categories.length > 0
-              ? channel.categories
-              : [channel.primaryCategory]
-            )
-              .map((c) => CATEGORY_LABELS[c] ?? c)
-              .join(' · ')}
-          </p>
-          {channel.owners.length > 0 && (
-            <p className="mt-1 text-[12.5px] text-muted">
-              Operated by {channel.owners.join(', ')}
-            </p>
-          )}
-        </div>
-      </div>
+          <div className="tune-in">
+            <Player streams={channel.streams} name={channel.name} />
+          </div>
 
-      <div className="mt-6">
-        <Player streams={channel.streams} name={channel.name} />
-      </div>
-
-      <section className="mt-8 rounded-xl border border-border bg-surface p-5">
-        <h2 className="text-[14px] font-semibold tracking-tight">
-          Why is this channel here?
-        </h2>
-        <p className="mt-1.5 inline-block rounded-md bg-surface-2 px-2 py-1 text-[12px] text-accent">
-          {channel.licensing.label}
-        </p>
-        <p className="mt-3 text-[13.5px] leading-relaxed text-muted">
-          {channel.licensing.explanation}
-        </p>
-        <dl className="mt-4 grid gap-2 border-t border-border pt-4 text-[12.5px]">
-          <div className="flex gap-3">
-            <dt className="w-32 shrink-0 text-muted">Evidence</dt>
-            <dd className="font-mono text-[12px]">{channel.licensing.evidence}</dd>
-          </div>
-          <div className="flex gap-3">
-            <dt className="w-32 shrink-0 text-muted">Channel ID</dt>
-            <dd className="font-mono text-[12px]">{channel.id}</dd>
-          </div>
-          <div className="flex gap-3">
-            <dt className="w-32 shrink-0 text-muted">Metadata source</dt>
-            <dd>
-              <a
-                href={channel.licensing.source}
-                target="_blank"
-                rel="noreferrer"
-                className="underline underline-offset-2"
-              >
-                iptv-org channels.json
-              </a>
-            </dd>
-          </div>
-          {channel.website && (
-            <div className="flex gap-3">
-              <dt className="w-32 shrink-0 text-muted">Broadcaster site</dt>
-              <dd>
-                <a
-                  href={channel.website}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline underline-offset-2"
-                >
-                  {new URL(channel.website).hostname}
-                </a>
-              </dd>
+          {/* Ident bar, in the register of an on-screen station bug. */}
+          <div
+            className="mt-4 flex items-start gap-4 border-l-2 pl-4"
+            style={{ borderColor: accent }}
+          >
+            <ChannelLogo
+              src={channel.logo}
+              name={channel.name}
+              category={channel.primaryCategory}
+              size="lg"
+            />
+            <div className="min-w-0 flex-1">
+              {/* No status pill here: the player is the only thing that knows
+                  whether the feed is actually up, and a LIVE badge sitting
+                  beside a "No signal" screen would simply be wrong. */}
+              <h1 className="font-display text-[24px] font-extrabold leading-tight tracking-[-0.015em] sm:text-[30px]">
+                {channel.name}
+              </h1>
+              <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.14em] text-dim">
+                <span>
+                  {channel.countryFlag} {channel.countryName}
+                </span>
+                <span aria-hidden className="text-faint">/</span>
+                <span style={{ color: accent }}>
+                  {categories.map((c) => CATEGORY_LABELS[c] ?? c).join(' · ')}
+                </span>
+                {channel.streams.length > 1 && (
+                  <>
+                    <span aria-hidden className="text-faint">/</span>
+                    <span>{channel.streams.length} feeds</span>
+                  </>
+                )}
+              </p>
+              {channel.owners.length > 0 && (
+                <p className="mt-1.5 text-[12.5px] text-faint">
+                  {channel.owners.join(', ')}
+                </p>
+              )}
             </div>
-          )}
-        </dl>
-        <p className="mt-4 text-[12px] leading-relaxed text-muted">
-          OpenBroadcast does not host or re-encode this stream. Playback is a
-          direct connection to the broadcaster’s own endpoint. Availability may
-          still be geo-restricted by the broadcaster.{' '}
-          <Link href="/policy" className="underline underline-offset-2">
-            Full policy
-          </Link>
-        </p>
-      </section>
+          </div>
+        </div>
 
-      {related.length > 0 && (
-        <section className="mt-8">
-          <h2 className="mb-3 text-[14px] font-semibold tracking-tight">
-            More from {channel.countryName}
+        {/* Up next. Similarity only — genre, then country, then how widely the
+            channel is carried. Nothing here is personalised, because there is
+            no watch history to personalise from. */}
+        <aside className="min-w-0">
+          <h2 className="mb-2.5 font-display text-[12px] font-bold uppercase tracking-[0.18em] text-dim">
+            Up next
           </h2>
-          <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-2.5">
-            {related.map((c) => (
+          <ul className="space-y-1.5">
+            {recommended.map((c) => (
               <li key={c.id}>
                 <Link
                   href={`/channel/${encodeURIComponent(c.id)}`}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-surface p-3 transition-colors hover:border-accent/60 hover:bg-surface-2"
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-lg border border-line bg-panel py-2 pl-4 pr-3 transition-colors hover:bg-raise"
                 >
-                  <ChannelLogo src={c.logo} name={c.name} />
-                  <span className="truncate text-[13px]">{c.name}</span>
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-0 h-full w-[3px] transition-all duration-200 group-hover:w-[5px]"
+                    style={{ background: categoryColor(c.primaryCategory) }}
+                  />
+                  <ChannelLogo
+                    src={c.logo}
+                    name={c.name}
+                    category={c.primaryCategory}
+                    size="sm"
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[13px] font-medium">
+                      {c.name}
+                    </span>
+                    <span className="block truncate font-mono text-[10px] uppercase tracking-[0.1em] text-faint">
+                      {c.countryFlag} {c.countryName} ·{' '}
+                      {CATEGORY_LABELS[c.primaryCategory] ?? c.primaryCategory}
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden
+                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-live shadow-[0_0_8px_var(--live)]"
+                  />
                 </Link>
               </li>
             ))}
           </ul>
-        </section>
-      )}
+        </aside>
+      </div>
     </div>
   );
 }

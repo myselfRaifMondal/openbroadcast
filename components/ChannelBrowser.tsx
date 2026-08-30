@@ -1,14 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
-import type { BrowseChannel } from '@/lib/channels';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { categoryColor, type BrowseChannel } from '@/lib/channels';
 import { ChannelLogo } from './ChannelLogo';
 
-type GroupBy = 'country' | 'category';
-
-/** How many cards to render before the reader asks for more. */
-const PAGE_SIZE = 600;
+const PAGE_SIZE = 480;
 
 interface Props {
   channels: BrowseChannel[];
@@ -26,7 +23,21 @@ export function ChannelBrowser({
   const [query, setQuery] = useState('');
   const [country, setCountry] = useState('');
   const [category, setCategory] = useState('');
-  const [groupBy, setGroupBy] = useState<GroupBy>('country');
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  // "/" jumps to search, the convention for a list this long.
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      const el = e.target as HTMLElement | null;
+      if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+      if (e.key === '/') {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -42,10 +53,8 @@ export function ChannelBrowser({
     });
   }, [channels, query, country, category]);
 
-  // Reset paging when the filters change, adjusting state during render rather
-  // than in an effect so the new list never paints at the stale limit first.
   const [limit, setLimit] = useState(PAGE_SIZE);
-  const signature = `${query}|${country}|${category}|${groupBy}`;
+  const signature = `${query}|${country}|${category}`;
   const [prevSignature, setPrevSignature] = useState(signature);
   if (signature !== prevSignature) {
     setPrevSignature(signature);
@@ -55,75 +64,62 @@ export function ChannelBrowser({
   const visible = filtered.slice(0, limit);
 
   const groups = useMemo(() => {
-    const map = new Map<string, { label: string; items: BrowseChannel[] }>();
+    const map = new Map<string, { label: string; flag: string; items: BrowseChannel[] }>();
     for (const c of visible) {
-      const key = groupBy === 'country' ? c.country : c.primaryCategory;
-      const label =
-        groupBy === 'country'
-          ? `${c.countryFlag}  ${c.countryName}`
-          : (categoryLabels[c.primaryCategory] ?? c.primaryCategory);
-      const entry = map.get(key);
+      const entry = map.get(c.country);
       if (entry) entry.items.push(c);
-      else map.set(key, { label, items: [c] });
+      else
+        map.set(c.country, {
+          label: c.countryName,
+          flag: c.countryFlag,
+          items: [c],
+        });
     }
     return [...map.values()].sort((a, b) => b.items.length - a.items.length);
-  }, [visible, groupBy, categoryLabels]);
+  }, [visible]);
 
-  const hasFilters = Boolean(query || country || category);
+  const filtering = Boolean(query || country || category);
 
   return (
     <div>
-      <div className="sticky top-[57px] z-10 -mx-5 mb-8 border-b border-border bg-background/90 px-5 py-3 backdrop-blur">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search channels, countries, broadcasters…"
-            aria-label="Search channels"
-            className="min-w-[220px] flex-1 rounded-lg border border-border bg-surface px-3.5 py-2 text-[14px] outline-none placeholder:text-muted focus:border-accent"
-          />
+      {/* Tuning controls. Search leads because at this scale it is how you
+          actually find anything. */}
+      <div className="sticky top-[57px] z-20 -mx-5 border-b border-line bg-ink/85 px-5 py-3 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-2.5">
+          <div className="relative min-w-[240px] flex-1">
+            <span
+              aria-hidden
+              className="bars pointer-events-none absolute left-3 top-1/2 h-3.5 w-1 -translate-y-1/2 rounded-full"
+            />
+            <input
+              ref={searchRef}
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={`Search ${channels.length.toLocaleString()} channels`}
+              aria-label="Search channels"
+              className="w-full rounded-lg border border-line bg-panel py-2.5 pl-7 pr-10 text-[14px] outline-none placeholder:text-faint focus:border-cyan/70"
+            />
+            <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-faint sm:block">
+              /
+            </kbd>
+          </div>
+
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             aria-label="Filter by country"
-            className="rounded-lg border border-border bg-surface px-3 py-2 text-[13px] outline-none focus:border-accent"
+            className="rounded-lg border border-line bg-panel px-3 py-2.5 font-mono text-[12px] text-dim outline-none focus:border-cyan/70"
           >
             <option value="">All countries</option>
             {countries.map((c) => (
               <option key={c.code} value={c.code}>
-                {c.name} ({c.count})
+                {c.name} · {c.count}
               </option>
             ))}
           </select>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            aria-label="Filter by category"
-            className="rounded-lg border border-border bg-surface px-3 py-2 text-[13px] outline-none focus:border-accent"
-          >
-            <option value="">All categories</option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.label} ({c.count})
-              </option>
-            ))}
-          </select>
-          <div className="flex rounded-lg border border-border bg-surface p-0.5 text-[12px]">
-            {(['country', 'category'] as GroupBy[]).map((g) => (
-              <button
-                key={g}
-                type="button"
-                onClick={() => setGroupBy(g)}
-                className={`rounded-md px-2.5 py-1.5 capitalize transition-colors ${
-                  groupBy === g ? 'bg-surface-2 text-foreground' : 'text-muted'
-                }`}
-              >
-                By {g}
-              </button>
-            ))}
-          </div>
-          {hasFilters && (
+
+          {filtering && (
             <button
               type="button"
               onClick={() => {
@@ -131,72 +127,147 @@ export function ChannelBrowser({
                 setCountry('');
                 setCategory('');
               }}
-              className="rounded-lg px-2.5 py-1.5 text-[12px] text-muted transition-colors hover:text-foreground"
+              className="rounded-lg border border-line px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-dim transition-colors hover:text-text"
             >
-              Clear
+              Reset
             </button>
           )}
         </div>
-        <p className="mt-2 text-[12px] text-muted">
-          {filtered.length.toLocaleString()} channel
-          {filtered.length === 1 ? '' : 's'} match
-          {visible.length < filtered.length
-            ? ` — showing the first ${visible.length.toLocaleString()}`
-            : `, across ${groups.length} ${
-                groupBy === 'country' ? 'countries' : 'categories'
-              }`}
-        </p>
+
+        {/* Genre chips, colour-coded to the bars. */}
+        <div className="mx-auto mt-2.5 flex max-w-[1400px] gap-1.5 overflow-x-auto pb-0.5">
+          <Chip
+            active={category === ''}
+            onClick={() => setCategory('')}
+            color="var(--bar-white)"
+            label="All"
+            count={channels.length}
+          />
+          {categories.map((c) => (
+            <Chip
+              key={c.id}
+              active={category === c.id}
+              onClick={() => setCategory(c.id)}
+              color={categoryColor(c.id)}
+              label={c.label}
+              count={c.count}
+            />
+          ))}
+        </div>
       </div>
 
-      {groups.length === 0 && (
-        <p className="py-20 text-center text-[14px] text-muted">
-          No channels match those filters.
+      <div className="mx-auto max-w-[1400px]">
+        <p className="py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+          {filtered.length.toLocaleString()} channels
+          {visible.length < filtered.length &&
+            ` · showing ${visible.length.toLocaleString()}`}
         </p>
-      )}
 
-      <div className="space-y-10 pb-16">
-        {groups.map((group) => (
-          <section key={group.label}>
-            <h2 className="mb-3.5 flex items-baseline gap-2 text-[14px] font-semibold tracking-tight">
-              {group.label}
-              <span className="text-[12px] font-normal text-muted">
-                {group.items.length}
-              </span>
-            </h2>
-            <ul className="grid grid-cols-[repeat(auto-fill,minmax(232px,1fr))] gap-2.5">
-              {group.items.map((c) => (
-                <li key={c.id}>
-                  <Link
-                    href={`/channel/${encodeURIComponent(c.id)}`}
-                    className="flex h-full items-center gap-3 rounded-xl border border-border bg-surface p-3 transition-colors hover:border-accent/60 hover:bg-surface-2"
-                  >
-                    <ChannelLogo src={c.logo} name={c.name} />
-                    <div className="min-w-0">
-                      <p className="truncate text-[13.5px] font-medium">{c.name}</p>
-                      <p className="mt-0.5 truncate text-[11.5px] text-muted">
-                        {c.countryFlag} {c.countryName} ·{' '}
-                        {categoryLabels[c.primaryCategory] ?? c.primaryCategory}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-        {visible.length < filtered.length && (
-          <div className="pt-2 text-center">
-            <button
-              type="button"
-              onClick={() => setLimit((n) => n + PAGE_SIZE)}
-              className="rounded-lg border border-border bg-surface px-4 py-2 text-[13px] transition-colors hover:border-accent/60 hover:bg-surface-2"
-            >
-              Show more ({(filtered.length - visible.length).toLocaleString()}{' '}
-              remaining)
-            </button>
+        {groups.length === 0 && (
+          <div className="flex flex-col items-center gap-4 py-24 text-center">
+            <span aria-hidden className="testcard h-16 w-28 rounded-md" />
+            <p className="text-[14px] text-dim">
+              Nothing on that frequency. Try a broader search.
+            </p>
           </div>
         )}
+
+        <div className="space-y-9 pb-14">
+          {groups.map((group) => (
+            <section key={group.label}>
+              <h2 className="mb-3 flex items-center gap-2.5">
+                <span className="text-[15px]" aria-hidden>
+                  {group.flag}
+                </span>
+                <span className="font-display text-[13px] font-bold uppercase tracking-[0.16em]">
+                  {group.label}
+                </span>
+                <span className="font-mono text-[11px] text-faint">
+                  {group.items.length}
+                </span>
+                <span aria-hidden className="ml-1 h-px flex-1 bg-line" />
+              </h2>
+
+              <ul className="grid grid-cols-[repeat(auto-fill,minmax(216px,1fr))] gap-2">
+                {group.items.map((c) => (
+                  <li key={c.id}>
+                    <Link
+                      href={`/channel/${encodeURIComponent(c.id)}`}
+                      className="group relative flex h-full items-center gap-3 overflow-hidden rounded-lg border border-line bg-panel py-2.5 pl-4 pr-3 transition-colors hover:border-line/0 hover:bg-raise"
+                    >
+                      <span
+                        aria-hidden
+                        className="absolute left-0 top-0 h-full w-[3px] transition-all duration-200 group-hover:w-[5px]"
+                        style={{ background: categoryColor(c.primaryCategory) }}
+                      />
+                      <ChannelLogo
+                        src={c.logo}
+                        name={c.name}
+                        category={c.primaryCategory}
+                        size="sm"
+                      />
+                      <span className="min-w-0">
+                        <span className="block truncate text-[13.5px] font-medium">
+                          {c.name}
+                        </span>
+                        <span className="block truncate font-mono text-[10.5px] uppercase tracking-[0.12em] text-faint">
+                          {categoryLabels[c.primaryCategory] ?? c.primaryCategory}
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          {visible.length < filtered.length && (
+            <div className="pt-1 text-center">
+              <button
+                type="button"
+                onClick={() => setLimit((n) => n + PAGE_SIZE)}
+                className="rounded-full border border-line bg-panel px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-dim transition-colors hover:border-cyan/60 hover:text-text"
+              >
+                Load {Math.min(PAGE_SIZE, filtered.length - visible.length)} more
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
+  );
+}
+
+function Chip({
+  active,
+  onClick,
+  color,
+  label,
+  count,
+}: {
+  active: boolean;
+  onClick: () => void;
+  color: string;
+  label: string;
+  count: number;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] transition-colors ${
+        active
+          ? 'border-transparent bg-raise text-text'
+          : 'border-line text-dim hover:text-text'
+      }`}
+    >
+      <span
+        aria-hidden
+        className="h-1.5 w-1.5 rounded-full"
+        style={{ background: color, opacity: active ? 1 : 0.55 }}
+      />
+      {label}
+      <span className="font-mono text-[10px] text-faint">{count}</span>
+    </button>
   );
 }

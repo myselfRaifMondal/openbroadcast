@@ -17,79 +17,6 @@ broadcaster's own HLS endpoint.
 
 ---
 
-## Filtering policy
-
-The iptv-org dataset has no per-channel licensing field. So the policy is an
-**allowlist, not a blocklist**: the pipeline starts from zero channels and
-admits one only on a positive, named ground. Anything ambiguous or
-unrecognised is excluded — "probably fine" is not a ground for inclusion.
-
-The policy lives in [`scripts/policy.ts`](scripts/policy.ts) and is applied by
-[`scripts/filter-channels.ts`](scripts/filter-channels.ts).
-
-### Grounds for inclusion (a channel must match at least one)
-
-| Basis | Rule |
-| --- | --- |
-| `public-service-category` | iptv-org tags the channel with its `public` category, reserved for free-to-air public-service broadcasters. |
-| `legislative-category` | iptv-org tags the channel with its `legislative` category — parliamentary, municipal, and civic-government feeds. |
-| `public-broadcaster-owner` | An owner string matches the reviewed allowlist of national public-service broadcasters (BBC, PBS, ARD, ZDF, NHK, France Télévisions, RTVE, ABC Australia, CBC, SVT, NRK, Yle, TRT, SABC, Prasar Bharati, …). **Exact string match only** — a near-miss counts as unverified. |
-| `government-owner` | An owner string matches a reviewed government / public-authority pattern (`Government of …`, `Ministry of …`, `City of …`, `… Public Broadcasting`, national state broadcasting companies, public university and community-college districts). |
-
-The matched basis, and the exact source value that triggered it, are stored on
-every approved channel and shown in the "Why is this channel here?" panel on
-its page.
-
-### Hard exclusions (applied after every allow rule — these always win)
-
-- **Excluded categories:** sports, movies, series, xxx, shop, entertainment,
-  comedy, animation, music, lifestyle, relax, auto, outdoor, travel, cooking,
-  family, classic, interactive.
-- **Premium / pay-TV brands**, matched against channel name, network, alternate
-  names, and owners: ESPN, Sky, beIN, DAZN, PPV and pay-per-view, HBO,
-  Showtime, Starz, Cinemax, Paramount/Viacom, Warner Bros. Discovery, Disney,
-  Fox, NBC/CNBC/MSNBC/Telemundo, Comcast, AMC Networks, TNT, CNN, Star, Zee,
-  Sony, Hallmark, MTV, Nickelodeon, Pluto, Nexstar, Sinclair, Gray, Scripps,
-  Viaplay, Canal+, OSN, and the major sports leagues (MLB, NBA, NFL, NHL, UEFA,
-  FIFA, F1, WWE, UFC, SuperSport, Eurosport).
-- **iptv-org blocklist and NSFW flags** — every entry iptv-org marks for a
-  rights complaint or adult content.
-- **Closed or replaced channels.**
-- **Streams that cannot be played from a browser** — sources requiring a
-  spoofed `user-agent` or `referrer` are dropped rather than worked around.
-- **No verifiable basis** — if none of the four inclusion rules fires, the
-  channel is excluded. By design this is the largest exclusion bucket.
-
-### What the current run excluded
-
-| Reason | Channels |
-| --- | --- |
-| no verifiable public/free-to-air licensing basis | 20,811 |
-| denied category: entertainment | 3,804 |
-| denied brand / commercial group | 2,555 |
-| denied category: sports | 2,006 |
-| denied category: music | 1,807 |
-| no browser-playable stream | 1,664 |
-| denied category: movies | 1,586 |
-| iptv-org blocklist | 1,420 |
-| closed or replaced | 1,262 |
-| denied category: shop | 696 |
-| denied category: series | 676 |
-| denied category: lifestyle | 411 |
-| denied category: comedy | 341 |
-| denied category: animation | 258 |
-| denied category: travel | 181 |
-| stream unreachable (two-pass probe) | 158 |
-| denied category: outdoor | 134 |
-| denied category: classic | 113 |
-| denied category: family | 100 |
-| denied category: cooking | 90 |
-| denied category: auto | 72 |
-| denied category: relax | 53 |
-| NSFW | 10 |
-| denied category: interactive | 3 |
-
----
 
 ## Re-running / updating the approved list
 
@@ -228,13 +155,15 @@ serves the open catalogue — see **Open mode** below.
 
 ```
 app/
-  page.tsx              home — browsable grid, search, country/category filters
-  channel/[id]/page.tsx player page + licensing justification
-  policy/page.tsx       the filtering policy, rendered from the live policy module
+  page.tsx              home — live hero, genre shelves, full browse grid
+  channel/[id]/page.tsx player, channel ident, recommendations rail
 components/
-  ChannelBrowser.tsx    search, filters, grouping by country or category
-  Player.tsx            hls.js <video> player with source fallback
-  ChannelLogo.tsx       logo with initials fallback
+  Sidebar.tsx           left rail of the most widely carried channels
+  ChannelRow.tsx        horizontally scrolling genre shelf
+  HeroTuner.tsx         the front page opens on a live channel, and scans past dead ones
+  ChannelBrowser.tsx    search, country filter, genre chips, grouped grid
+  Player.tsx            hls.js player that walks past dead feeds automatically
+  ChannelLogo.tsx       logo with a bar-coloured initials fallback
 lib/channels.ts         typed accessors over the approved dataset
 scripts/
   policy.ts             the allowlist / denylist policy
