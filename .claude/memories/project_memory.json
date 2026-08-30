@@ -4,25 +4,19 @@
   "realtime_memories": [
     {
       "type": "project",
-      "content": "OpenBroadcast (~/Documents/Projects/GitHub/openbroadcast): Next.js 16 App Router + TypeScript + Tailwind v4 + hls.js live-TV player over the iptv-org open dataset. Statically prerenders every channel page from a committed data/channels.approved.json snapshot; never calls iptv-org at request time. Pushed to github.com/myselfRaifMondal/openbroadcast (PUBLIC, main) and connected to the Vercel Hobby project (prj_QvYbgDmBaZd4ktme2R5TENoFpE8u, openbroadcast.vercel.app): push to main auto-deploys production, other branches get previews. Verified working — a push produced a Ready production deploy in ~50s. Name 'OpenBroadcast' was inferred from the repo URL the user supplied, not chosen by them — they asked about it 2026-08-30 and did not rename. It appears in app/layout.tsx (metadata title + header wordmark) and README; renaming the Vercel project would change the subdomain and break the current link.",
+      "content": "OpenBroadcast (~/Documents/Projects/GitHub/openbroadcast): Next.js 16 App Router + TypeScript + Tailwind v4 + hls.js live-TV player over the iptv-org dataset. Statically prerenders ~7.6k channel pages from a committed data/channels.approved.json; never calls iptv-org at request time. Public repo github.com/myselfRaifMondal/openbroadcast connected to Vercel Hobby (prj_QvYbgDmBaZd4ktme2R5TENoFpE8u, openbroadcast.vercel.app): push to main auto-deploys production (~4 min for the full catalogue). Name was inferred from the repo URL, not chosen; it lives in app/layout.tsx metadata + header and README. Renaming the Vercel project would break the URL.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
     {
       "type": "decision",
-      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts: four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, no licensing or category filtering; INCLUDE_NSFW=1 also keeps adult channels. After pruning dead streams: curated 623 channels / 91 countries (this is what git tracks and the live site serves), open 7,648 / 174 countries.",
-      "added_at": "2026-08-30T15:06:10.451081",
-      "source": "consolidated"
-    },
-    {
-      "type": "preference",
-      "content": "User wants the full unfiltered catalogue INCLUDING sports and pay-TV — stated 2026-08-30: it is a private media player for personal use, 'don't need to be shy'. They reaffirmed this after I raised the licensing concern, so treat open mode as their standing decision; do not re-litigate it. They had earlier specified the strict public-only filter, so keep both modes working rather than deleting the curated policy.",
+      "content": "Two catalogue modes via POLICY_MODE, both still working. 'public' = curated allowlist in scripts/policy.ts (four grounds for inclusion, then hard exclusions) -> 623 channels / 91 countries after pruning. 'open' (npm run filter:open) = no licensing or category filtering -> 7,648 / 174 countries, 266 sports; INCLUDE_NSFW=1 also keeps adult channels. Open is what ships. The curated policy code is retained, not deleted.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
     {
       "type": "decision",
-      "content": "Open mode must stay honest and must never reach the public URL. Channels with no allow-rule match get basis 'unverified-open-mode' labelled 'No verified licensing basis' rather than inheriting a public-broadcaster justification; header shows an OPEN MODE badge; /policy leads with a banner saying the policy is not applied. CRITICAL now that git auto-deploys: data/channels.approved.json tracked on main is ALWAYS the curated build — committing the open catalogue over it publishes the unfiltered player. The open catalogue lives untracked at data/channels.open.local.json (gitignored); swap it in locally, never commit it. Two hardening options offered but not built: keep open mode on a 'personal' branch (previews are protected by default), or enable Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby; the MCP Vercel connector 404s on this project, so it must be done in the dashboard). Note: two early commits still contain the open snapshot in public history — user was told, declined nothing, no rewrite done.",
+      "content": "PUBLISHING DECISION (2026-08-30, user's explicit choice after I laid out the options): the public, unauthenticated site serves the FULL open catalogue — 7,648 channels including sports and pay-TV. main tracks the open snapshot. Do not re-litigate. The earlier open-mode honesty UI (unverified-basis labels, OPEN MODE badge, /policy banner) was then removed at the user's request — they asked to strip 'source and rules and regulations and everything'. Curated build is still one command away (npm run filter:channels, 623 channels). If they ever want the site gated: Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby); the MCP Vercel connector 404s on this project so it must be done in the dashboard.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -39,48 +33,18 @@
       "source": "consolidated"
     },
     {
-      "type": "feedback",
-      "content": "Verify player changes against a real stream before claiming they work — Playwright against a running build, reading video.readyState/currentTime/videoWidth, not just an HTTP 200. Why: a channel page returns 200 while the stream is geo-blocked or dead, so status codes prove nothing about playback. Confirmed working probes: ABC News AU, TVR 1, Red Bull TV. Known geo-fenced: Rai 1, TyC Sports.",
-      "added_at": "2026-08-30T15:06:10.451081",
+      "type": "decision",
+      "content": "UI is a broadcast-test-card design, rebuilt 2026-08-30 in the shape of a streaming front page (user asked for 'Twitch kind of UI'). Palette = desaturated SMPTE colour bars used as GENRE CODING, not decoration — categoryColor() in lib/channels.ts maps each genre to a bar colour used on card stripes, chips, and idents. Type: Archivo (display, uppercase tracked) + IBM Plex Sans (body) + IBM Plex Mono (data). Signature motif = the seven bars (.bars / .testcard in globals.css): logo mark, tuning state, and the test card shown for a dead feed. Structure: left rail (Sidebar.tsx, most-carried channels, localStorage via useSyncExternalStore), genre shelves (ChannelRow.tsx), full grid (ChannelBrowser.tsx), hero that opens on live TV and scans past dead feeds (HeroTuner.tsx). Keys: R surfs random, / focuses search.",
+      "added_at": "2026-08-30T16:22:52.664250",
       "source": "consolidated"
     },
     {
-      "type": "claude_response",
-      "content": "Memories consolidated: 11 → 7. The two questions this turn were lookups against facts already stored (channel counts, the URL), so nothing new to record there — I dropped those captures and added the ",
-      "added_at": "2026-08-30T15:24:09.571883",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "https://openbroadcast.vercel.app/ Just contains only 623 channels so far? Why so?",
-      "added_at": "2026-08-30T15:24:09.571907",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "**Live now — all 7,648.** https://openbroadcast.vercel.app\n\n```\n7,648 channels across 174 countries\n● Ready  Production  4m\n```\n\nAuto-deploy fired from the push, no manual deploy. Verified live: `OPEN",
-      "added_at": "2026-08-30T15:38:30.767030",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "I want you to remove the source and rules and regulations and everything and work on the UI and make it more look great.",
-      "added_at": "2026-08-30T15:38:30.767058",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "Mobile bug: the hero's absolutely-positioned copy overflows its fixed aspect box and the headline gets clipped. Restructuring so the box grows to fit its content.",
-      "added_at": "2026-08-30T15:58:42.239746",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "Can we make it like Twitch kind of UI, so that people can see the current live watchers or the recommended ones or something like that?",
-      "added_at": "2026-08-30T15:58:42.239828",
-      "source": "realtime_capture"
+      "type": "feedback",
+      "content": "NEVER fabricate metrics in this UI. User asked for Twitch-style live viewer counts; there is no analytics source for broadcasters' HLS feeds, so I built the layout without them and said why. Substitutes used instead, both real: 'Most carried' ranks by number of mirrored feeds (reach()), and recommendations are similarity-only (genre -> country -> reach), never claimed as personalised. Real per-site viewer counts would need an API route + Vercel KV and would mostly read 1. Related: verify player changes against a real stream via Playwright (video.readyState/currentTime/videoWidth), not an HTTP 200 — a channel page returns 200 while the stream is dead or geo-blocked. Confirmed live: BBC News, Red Bull TV, TVR 1, ABC News AU. Geo-fenced: Rai 1, TyC Sports. eslint here forbids setState-in-effect; use render-phase adjustment or useSyncExternalStore.",
+      "added_at": "2026-08-30T16:22:52.664250",
+      "source": "consolidated"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T15:58:42.239833"
+  "updated_at": "2026-08-30T16:22:52.664250"
 }
