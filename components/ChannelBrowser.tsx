@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { BrowseChannel } from '@/lib/channels';
 import { ChannelLogo } from './ChannelLogo';
 
@@ -42,8 +42,15 @@ export function ChannelBrowser({
     });
   }, [channels, query, country, category]);
 
+  // Reset paging when the filters change, adjusting state during render rather
+  // than in an effect so the new list never paints at the stale limit first.
   const [limit, setLimit] = useState(PAGE_SIZE);
-  useEffect(() => setLimit(PAGE_SIZE), [query, country, category, groupBy]);
+  const signature = `${query}|${country}|${category}|${groupBy}`;
+  const [prevSignature, setPrevSignature] = useState(signature);
+  if (signature !== prevSignature) {
+    setPrevSignature(signature);
+    setLimit(PAGE_SIZE);
+  }
 
   const visible = filtered.slice(0, limit);
 
