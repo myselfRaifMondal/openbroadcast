@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>OpenBroadcast — Instagram story</title><link rel="stylesheet" href="_base.css">
+<style>
+  .board { width: 1080px; height: 1920px; padding: 120px 88px 140px; }
+  /* The bars run the full height: the spine of the format. */
+  .spine { position: absolute; left: 0; top: 0; bottom: 0; width: 22px; }
+  .top { display: flex; align-items: center; gap: 22px; }
+  .mark { width: 44px; height: 52px; border-radius: 5px; }
+  .wordmark { font-size: 30px; letter-spacing: 0.16em; }
+  .onair { margin-top: auto; margin-bottom: 34px; }
+  .onair span { font-size: 24px; letter-spacing: 0.24em; color: var(--dim); }
+  h1 { font-size: 146px; }
+  p.sub { margin-top: 52px; font-size: 34px; line-height: 1.45; color: var(--dim); max-width: 760px; }
+  p.sub b { color: var(--text); font-weight: 600; }
+  .cta { margin-top: auto; }
+  .pill { display: inline-flex; align-items: center; gap: 20px; border: 2px solid var(--line);
+          border-radius: 99px; padding: 26px 42px; }
+  .pill .bars { width: 12px; height: 40px; border-radius: 99px; }
+  .pill span { font-size: 30px; letter-spacing: 0.06em; }
+</style></head><body>
+<div class="board scan">
+  <span class="spine bars-v" aria-hidden="true"></span>
+
+  <div class="top">
+    <span class="mark bars"></span>
+    <span class="wordmark">Openbroadcast</span>
+  </div>
+
+  <div class="onair"><span class="dot"></span><span class="mono">On air now</span></div>
+  <h1 class="display">7,648<br>channels.<br>One tab.</h1>
+
+  <p class="sub">Live television from <b>174 countries</b> — news, sport, culture, kids — playing straight in the browser. No app, no account, no fee.</p>
+
+  <div class="cta">
+    <div class="pill"><span class="bars"></span><span class="mono">openbroadcast.vercel.app</span></div>
+  </div>
+</div></body></html>

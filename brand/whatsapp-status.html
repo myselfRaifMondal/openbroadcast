@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>OpenBroadcast — WhatsApp status</title><link rel="stylesheet" href="_base.css">
+<style>
+  /* Status is glanced at for a couple of seconds, so it carries one idea and
+     the link, at the largest sizes in the set. */
+  .board { width: 1080px; height: 1920px; padding: 150px 92px 170px; align-items: flex-start; }
+  .top { display: flex; align-items: center; gap: 22px; }
+  .mark { width: 48px; height: 56px; border-radius: 6px; }
+  .wordmark { font-size: 32px; letter-spacing: 0.16em; }
+  .big { margin-top: auto; }
+  .big .bars { display: block; width: 100%; height: 30px; border-radius: 99px; }
+  h1 { font-size: 168px; margin-top: 60px; }
+  h1 em { font-style: normal; color: var(--bar-cyan); }
+  p.sub { margin-top: 56px; font-size: 40px; line-height: 1.4; color: var(--dim); }
+  .cta { margin-top: auto; width: 100%; }
+  .cta .line { height: 2px; background: var(--line); margin-bottom: 40px; }
+  .cta .url { font-size: 38px; letter-spacing: 0.04em; }
+  .cta .note { display: block; margin-top: 18px; font-size: 24px; letter-spacing: 0.16em; color: var(--faint); }
+</style></head><body>
+<div class="board scan">
+  <div class="top">
+    <span class="mark bars"></span>
+    <span class="wordmark">Openbroadcast</span>
+  </div>
+
+  <div class="big">
+    <span class="bars"></span>
+    <h1 class="display">Live TV.<br><em>7,648</em><br>channels.</h1>
+    <p class="sub">174 countries. Opens in your browser.<br>No app. No account. Free.</p>
+  </div>
+
+  <div class="cta">
+    <div class="line"></div>
+    <span class="mono url">openbroadcast.vercel.app</span>
+    <span class="mono note">Tap the link to start watching</span>
+  </div>
+</div></body></html>

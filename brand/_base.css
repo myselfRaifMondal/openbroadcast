@@ -1,0 +1,92 @@
+/* OpenBroadcast brand sheet — same tokens as app/globals.css so the
+   advertising and the product are demonstrably the same brand. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #0a0d10;
+  --panel: #12161b;
+  --raise: #1a1f26;
+  --line: #232a32;
+  --text: #e9edf0;
+  --dim: #8b959f;
+  --faint: #5b656e;
+  --bar-white: #d7dce0;
+  --bar-yellow: #cbbf4d;
+  --bar-cyan: #4dbdd0;
+  --bar-green: #55b871;
+  --bar-magenta: #b563ae;
+  --bar-red: #d15a4f;
+  --bar-blue: #4d74cd;
+  --live: #55b871;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: var(--ink); width: 100%; height: 100%; overflow: hidden; }
+
+body {
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.board {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.bars {
+  background: linear-gradient(to right,
+    var(--bar-white) 0 14.28%, var(--bar-yellow) 14.28% 28.56%,
+    var(--bar-cyan) 28.56% 42.84%, var(--bar-green) 42.84% 57.12%,
+    var(--bar-magenta) 57.12% 71.4%, var(--bar-red) 71.4% 85.68%,
+    var(--bar-blue) 85.68% 100%);
+}
+
+.bars-v {
+  background: linear-gradient(to bottom,
+    var(--bar-white) 0 14.28%, var(--bar-yellow) 14.28% 28.56%,
+    var(--bar-cyan) 28.56% 42.84%, var(--bar-green) 42.84% 57.12%,
+    var(--bar-magenta) 57.12% 71.4%, var(--bar-red) 71.4% 85.68%,
+    var(--bar-blue) 85.68% 100%);
+}
+
+/* Scanline wash: the picture-tube texture the product uses. */
+.scan::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom,
+    rgba(0,0,0,0) 0 3px, rgba(0,0,0,.30) 3px 5px);
+  pointer-events: none;
+}
+
+.display {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+
+.wordmark {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.onair { display: flex; align-items: center; gap: 16px; }
+.dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--live); box-shadow: 0 0 24px var(--live);
+}
+.stat b { font-family: 'Archivo', sans-serif; font-weight: 700; color: var(--text); }
+.stat { color: var(--dim); }

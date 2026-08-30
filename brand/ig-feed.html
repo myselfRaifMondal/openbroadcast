@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>OpenBroadcast — Instagram feed</title><link rel="stylesheet" href="_base.css">
+<style>
+  .board { width: 1080px; height: 1350px; padding: 84px; }
+  .top { display: flex; align-items: center; gap: 22px; }
+  .mark { width: 46px; height: 54px; border-radius: 5px; }
+  .wordmark { font-size: 32px; letter-spacing: 0.16em; }
+  h1 { font-size: 128px; margin-top: auto; }
+  .rule { height: 10px; border-radius: 99px; margin: 56px 0 44px; }
+  .stats { display: flex; gap: 84px; }
+  .stat b { font-size: 74px; display: block; line-height: 1; }
+  .stat span { font-size: 22px; letter-spacing: 0.14em; }
+  .foot { margin-top: 64px; display: flex; align-items: baseline; justify-content: space-between; }
+  .url { font-size: 26px; letter-spacing: 0.06em; color: var(--text); }
+  .kicker { font-size: 20px; letter-spacing: 0.2em; color: var(--faint); }
+  /* Abstract screens: channels as light, no broadcaster marks. */
+  .screens { position: absolute; inset: 214px -150px auto auto; display: grid;
+             grid-template-columns: repeat(3, 232px); gap: 20px; transform: rotate(-8deg);
+             opacity: .62;
+             -webkit-mask-image: linear-gradient(200deg, #000 34%, transparent 76%);
+             mask-image: linear-gradient(200deg, #000 34%, transparent 76%); }
+  .screen { height: 130px; border-radius: 11px; background: var(--panel); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .screen i { position: absolute; inset: 0; opacity: .5; }
+  h1 { position: relative; }
+</style></head><body>
+<div class="board scan">
+  <div class="screens" aria-hidden="true">
+    <div class="screen"><i style="background:var(--bar-red)"></i></div>
+    <div class="screen"><i style="background:var(--bar-cyan)"></i></div>
+    <div class="screen"><i style="background:var(--bar-yellow)"></i></div>
+    <div class="screen"><i style="background:var(--bar-blue)"></i></div>
+    <div class="screen"><i style="background:var(--bar-green)"></i></div>
+    <div class="screen"><i style="background:var(--bar-magenta)"></i></div>
+    <div class="screen"><i style="background:var(--bar-white)"></i></div>
+    <div class="screen"><i style="background:var(--bar-cyan)"></i></div>
+    <div class="screen"><i style="background:var(--bar-red)"></i></div>
+  </div>
+
+  <div class="top">
+    <span class="mark bars"></span>
+    <span class="wordmark">Openbroadcast</span>
+  </div>
+
+  <h1 class="display">Everything<br>that is on<br>right now.</h1>
+
+  <div class="rule bars"></div>
+
+  <div class="stats">
+    <div class="stat"><b>7,648</b><span class="mono">Live channels</span></div>
+    <div class="stat"><b>174</b><span class="mono">Countries</span></div>
+    <div class="stat"><b>Free</b><span class="mono">No account</span></div>
+  </div>
+
+  <div class="foot">
+    <span class="mono url">openbroadcast.vercel.app</span>
+    <span class="mono kicker">Live TV, in your browser</span>
+  </div>
+</div></body></html>

@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>OpenBroadcast — LinkedIn</title><link rel="stylesheet" href="_base.css">
+<style>
+  .board { width: 1200px; height: 627px; padding: 62px 68px; }
+  .top { display: flex; align-items: center; gap: 16px; }
+  .mark { width: 30px; height: 36px; border-radius: 4px; }
+  .wordmark { font-size: 22px; letter-spacing: 0.16em; }
+  h1 { font-size: 62px; margin-top: 42px; max-width: 660px; }
+  p.sub { margin-top: 24px; font-size: 21px; line-height: 1.5; color: var(--dim); max-width: 600px; }
+  .foot { margin-top: auto; display: flex; align-items: center; gap: 28px; }
+  .foot .rule { height: 6px; flex: 1; border-radius: 99px; opacity: .55; }
+  .url { font-size: 19px; letter-spacing: 0.06em; }
+  .built { font-size: 15px; letter-spacing: 0.16em; color: var(--faint); }
+  /* Right-hand panel reads as a wall of screens without borrowing any
+     broadcaster's marks. */
+  .wall { position: absolute; right: -40px; top: 0; bottom: 0; width: 470px;
+          display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 108px;
+          gap: 14px; align-content: center; transform: rotate(-6deg); opacity: .55; }
+  .cell { border-radius: 9px; background: var(--panel); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .cell i { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+  .cell u { position: absolute; left: 22px; right: 22px; top: 34px; height: 9px; border-radius: 99px; background: var(--raise); }
+  .cell u + u { top: 56px; right: 46%; }
+  .fade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--ink) 34%, rgba(10,13,16,0) 70%); }
+</style></head><body>
+<div class="board scan">
+  <div class="wall" aria-hidden="true">
+    <div class="cell"><i style="background:var(--bar-red)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-cyan)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-yellow)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-green)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-blue)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-magenta)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-white)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-red)"></i><u></u><u></u></div>
+    <div class="cell"><i style="background:var(--bar-cyan)"></i><u></u><u></u></div>
+  </div>
+  <span class="fade" aria-hidden="true"></span>
+
+  <div class="top" style="position:relative">
+    <span class="mark bars"></span>
+    <span class="wordmark">Openbroadcast</span>
+  </div>
+
+  <h1 class="display" style="position:relative">One tuner for<br>7,648 live channels.</h1>
+  <p class="sub" style="position:relative">Public television from 174 countries, playing in the browser over HLS. Built with Next.js and hls.js, statically rendered, deployed free.</p>
+
+  <div class="foot" style="position:relative">
+    <span class="mono url">openbroadcast.vercel.app</span>
+    <span class="rule bars"></span>
+    <span class="mono built">Built by Raif Mondal</span>
+  </div>
+</div></body></html>

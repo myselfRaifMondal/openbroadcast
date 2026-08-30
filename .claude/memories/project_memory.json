@@ -16,13 +16,13 @@
     },
     {
       "type": "decision",
-      "content": "PUBLISHING DECISION (2026-08-30, user's explicit choice after I laid out the options): the public, unauthenticated site serves the FULL open catalogue — 7,648 channels including sports and pay-TV. main tracks the open snapshot. Do not re-litigate. The earlier open-mode honesty UI (unverified-basis labels, OPEN MODE badge, /policy banner) was then removed at the user's request — they asked to strip 'source and rules and regulations and everything'. Curated build is still one command away (npm run filter:channels, 623 channels). If they ever want the site gated: Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby); the MCP Vercel connector 404s on this project so it must be done in the dashboard.",
+      "content": "PUBLISHING DECISION (2026-08-30, user's explicit choice after I laid out the options): the public, unauthenticated site serves the FULL open catalogue — 7,648 channels including sports and pay-TV. main tracks the open snapshot. Do not re-litigate. The earlier open-mode honesty UI (unverified-basis labels, OPEN MODE badge, /policy banner) was then removed at the user's request — they asked to strip 'source and rules and regulations and everything'. Curated build is still one command away (npm run filter:channels, 623 channels). If they ever want the site gated: Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby); the MCP Vercel connector 404s on this project so it must be done in the dashboard. The /policy route is deleted and returns 404 live.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
     {
       "type": "reference",
-      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full catalogue), audit:candidates [minChannels] (owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (two-pass stream probe, writes data/stream-health.json, records a streamHealth summary on the dataset, prunes only genuinely dead and never geo-blocked).",
+      "content": "Maintenance scripts: npm run filter:channels (curated build), filter:open (full catalogue), audit:candidates [minChannels] (owners clearing every hard exclusion but matching no allow rule — the allowlist review queue), check:streams [-- --prune] (two-pass stream probe, writes data/stream-health.json, records a streamHealth summary on the dataset, prunes only genuinely dead and never geo-blocked). Also: npm run build:search-index (and prebuild, which runs it automatically before next build).",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -34,7 +34,7 @@
     },
     {
       "type": "decision",
-      "content": "UI is a broadcast-test-card design, rebuilt 2026-08-30 in the shape of a streaming front page (user asked for 'Twitch kind of UI'). Palette = desaturated SMPTE colour bars used as GENRE CODING, not decoration — categoryColor() in lib/channels.ts maps each genre to a bar colour used on card stripes, chips, and idents. Type: Archivo (display, uppercase tracked) + IBM Plex Sans (body) + IBM Plex Mono (data). Signature motif = the seven bars (.bars / .testcard in globals.css): logo mark, tuning state, and the test card shown for a dead feed. Structure: left rail (Sidebar.tsx, most-carried channels, localStorage via useSyncExternalStore), genre shelves (ChannelRow.tsx), full grid (ChannelBrowser.tsx), hero that opens on live TV and scans past dead feeds (HeroTuner.tsx). Keys: R surfs random, / focuses search.",
+      "content": "UI is a broadcast-test-card design, rebuilt 2026-08-30 in the shape of a streaming front page (user asked for 'Twitch kind of UI'). Palette = desaturated SMPTE colour bars used as GENRE CODING, not decoration — categoryColor() in lib/channels.ts maps each genre to a bar colour used on card stripes, chips, and idents. Type: Archivo (display, uppercase tracked) + IBM Plex Sans (body) + IBM Plex Mono (data). Signature motif = the seven bars (.bars / .testcard in globals.css): logo mark, tuning state, and the test card shown for a dead feed. Structure: left rail (Sidebar.tsx, most-carried channels, localStorage via useSyncExternalStore), genre shelves (ChannelRow.tsx), full grid (ChannelBrowser.tsx), hero that opens on live TV and scans past dead feeds (HeroTuner.tsx). Keys: R surfs random, / focuses search. Search: a global command palette (SearchPalette.tsx) opens from any page with / or Cmd/Ctrl-K — the user specifically asked for search while watching, so it must stay reachable mid-programme; it fetches public/search-index.json (~470 KB, written by the prebuild script, gitignored) on first open rather than shipping 7.6k channels as page props. ChannelBrowser's own input is 'Filter this grid' and binds no key: one key, one meaning. Footer credits 'Raif Mondal' (their preferred short form — LICENSE still carries the full legal name 'Raif Salauddin Mondal', left deliberately).",
       "added_at": "2026-08-30T16:22:52.664250",
       "source": "consolidated"
     },
@@ -46,29 +46,17 @@
     },
     {
       "type": "claude_response",
-      "content": "Live and verified: https://openbroadcast.vercel.app\n\n```\n● Ready  Production  10m\n200  /\n200  /channel/BBCNews.uk\n\"Most carried\" present  ✓\n```\n\n**One thing I got wrong and have now fixed.** When I ch",
-      "added_at": "2026-08-30T16:44:04.991934",
+      "content": "Memories consolidated: 11 → 7. Dropped the transcript captures and folded the substance into existing entries — the search palette and its index-fetch rationale plus your short-form name into the UI m",
+      "added_at": "2026-08-30T17:43:13.566950",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "Why not have a search when a person is within a current video? Also add my name at the bottom or something.",
-      "added_at": "2026-08-30T16:44:04.991965",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "Search-and-jump works mid-programme, and the footer credit reads **BUILT BY RAIF SALAUDDIN MONDAL** with the bar rule running into \"End of transmission\". Shipping it.",
-      "added_at": "2026-08-30T16:49:35.299687",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "Make my name just Raif Mondal.",
-      "added_at": "2026-08-30T16:49:35.299716",
+      "content": "Let's now do one thing, create instagram, linkedin and whatsapp branding images, as if an advertisement branding content images for the same.",
+      "added_at": "2026-08-30T17:43:13.566974",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T16:49:35.299717"
+  "updated_at": "2026-08-30T17:43:13.566975"
 }
