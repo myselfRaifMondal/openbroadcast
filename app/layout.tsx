@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
+import { SearchPalette } from '@/components/SearchPalette';
 import { ShuffleButton } from '@/components/ShuffleButton';
 import { Sidebar } from '@/components/Sidebar';
 import { getRailChannels, getShuffleIds } from '@/lib/channels';
@@ -53,7 +54,8 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
               </span>
             </Link>
 
-            <div className="ml-auto">
+            <div className="ml-auto flex items-center gap-2">
+              <SearchPalette />
               <ShuffleButton ids={getShuffleIds()} />
             </div>
           </div>
@@ -65,8 +67,19 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         </div>
 
         <footer className="border-t border-line">
-          <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-5 py-5">
-            <span aria-hidden className="bars h-[3px] flex-1 rounded-full opacity-30" />
+          <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-4 gap-y-2 px-5 py-5">
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+              Built by{' '}
+              <a
+                href="https://github.com/myselfRaifMondal"
+                target="_blank"
+                rel="noreferrer"
+                className="text-dim transition-colors hover:text-text"
+              >
+                Raif Salauddin Mondal
+              </a>
+            </span>
+            <span aria-hidden className="bars h-[3px] min-w-16 flex-1 rounded-full opacity-30" />
             <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
               End of transmission
             </span>

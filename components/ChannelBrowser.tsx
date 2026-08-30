@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { categoryColor, type BrowseChannel } from '@/lib/channels';
 import { ChannelLogo } from './ChannelLogo';
 
@@ -23,21 +23,8 @@ export function ChannelBrowser({
   const [query, setQuery] = useState('');
   const [country, setCountry] = useState('');
   const [category, setCategory] = useState('');
-  const searchRef = useRef<HTMLInputElement>(null);
-
-  // "/" jumps to search, the convention for a list this long.
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      const el = e.target as HTMLElement | null;
-      if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
-      if (e.key === '/') {
-        e.preventDefault();
-        searchRef.current?.focus();
-      }
-    }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  // "/" opens the global palette instead: this input filters the grid in
+  // place, which is a different job from jumping to a channel.
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -92,17 +79,13 @@ export function ChannelBrowser({
               className="bars pointer-events-none absolute left-3 top-1/2 h-3.5 w-1 -translate-y-1/2 rounded-full"
             />
             <input
-              ref={searchRef}
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={`Search ${channels.length.toLocaleString()} channels`}
+              placeholder="Filter this grid"
               aria-label="Search channels"
               className="w-full rounded-lg border border-line bg-panel py-2.5 pl-7 pr-10 text-[14px] outline-none placeholder:text-faint focus:border-cyan/70"
             />
-            <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-faint sm:block">
-              /
-            </kbd>
           </div>
 
           <select
