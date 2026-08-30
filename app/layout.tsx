@@ -76,7 +76,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
                 rel="noreferrer"
                 className="text-dim transition-colors hover:text-text"
               >
-                Raif Salauddin Mondal
+                Raif Mondal
               </a>
             </span>
             <span aria-hidden className="bars h-[3px] min-w-16 flex-1 rounded-full opacity-30" />
