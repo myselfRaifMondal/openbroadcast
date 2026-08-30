@@ -9,8 +9,8 @@ dataset. It does **not** mirror that dataset. A build-time filter admits a
 channel only when a named, checkable rule says it is public-service,
 government, or civic, and every channel page states which rule applied.
 
-**Current snapshot: 623 channels across 91 countries, filtered from 40,834
-source entries and pruned to those whose streams still respond.**
+**Current snapshot: 7,648 channels across 174 countries — the open
+catalogue, pruned to those whose streams still respond.**
 
 OpenBroadcast hosts no video. Playback is a direct browser connection to the
 broadcaster's own HLS endpoint.
@@ -130,11 +130,12 @@ earned, the header carries an `OPEN MODE` badge, and `/policy` explains that
 the policy below it is not being applied.
 
 This is for a private, local catalogue. Nothing about a stream being reachable
-means it is licensed for redistribution, so an open-mode build should not be
-deployed to a public URL, and the open snapshot is **not** the one committed
-here — `data/channels.approved.json` in this repo is always the curated build.
-Keep a local open catalogue at `data/channels.open.local.json` (gitignored) and
-swap it in when you want it:
+means it is licensed for redistribution.
+
+**This repo currently tracks the open catalogue**, at the owner's explicit
+request, and the deployed site serves it publicly. Channels with no verified
+basis are labelled as such in the UI rather than being passed off as
+public-service. To switch the tracked snapshot back to the curated build:
 
 ```bash
 npm run filter:open && npm run check:streams -- --prune   # build it
@@ -220,8 +221,8 @@ npm run build             # static prerender of every channel page
 
 Deployed on Vercel's free Hobby tier. The repo is connected to the Vercel
 project, so a push to `main` deploys to production and any other branch gets a
-preview URL. Because the deployed site is public, `main` must always track the
-curated snapshot — see **Open mode** below.
+preview URL. The deployed site is public and unauthenticated, and currently
+serves the open catalogue — see **Open mode** below.
 
 ## Project layout
 

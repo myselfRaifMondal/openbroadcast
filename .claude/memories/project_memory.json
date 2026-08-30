@@ -4,13 +4,13 @@
   "realtime_memories": [
     {
       "type": "project",
-      "content": "OpenBroadcast (~/Documents/Projects/GitHub/openbroadcast): Next.js 16 App Router + TypeScript + Tailwind v4 + hls.js live-TV player over the iptv-org open dataset. Statically prerenders every channel page from a committed data/channels.approved.json snapshot; never calls iptv-org at request time. Deployed on Vercel Hobby at openbroadcast.vercel.app (project prj_QvYbgDmBaZd4ktme2R5TENoFpE8u). Local git only, 5 commits, no remote configured.",
+      "content": "OpenBroadcast (~/Documents/Projects/GitHub/openbroadcast): Next.js 16 App Router + TypeScript + Tailwind v4 + hls.js live-TV player over the iptv-org open dataset. Statically prerenders every channel page from a committed data/channels.approved.json snapshot; never calls iptv-org at request time. Pushed to github.com/myselfRaifMondal/openbroadcast (PUBLIC, main) and connected to the Vercel Hobby project (prj_QvYbgDmBaZd4ktme2R5TENoFpE8u, openbroadcast.vercel.app): push to main auto-deploys production, other branches get previews. Verified working — a push produced a Ready production deploy in ~50s. Name 'OpenBroadcast' was inferred from the repo URL the user supplied, not chosen by them — they asked about it 2026-08-30 and did not rename. It appears in app/layout.tsx (metadata title + header wordmark) and README; renaming the Vercel project would change the subdomain and break the current link.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
     {
       "type": "decision",
-      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts (781 channels / 104 countries): four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, 9,316 channels / 177 countries, no licensing or category filtering; INCLUDE_NSFW=1 additionally keeps adult channels. Current data/channels.approved.json holds the open catalogue, pruned to 7,648 live-or-geo-blocked channels.",
+      "content": "Two catalogue modes, switched by POLICY_MODE. Default 'public' = curated allowlist policy in scripts/policy.ts: four named grounds for inclusion (public + legislative iptv-org categories, reviewed exact-match public-broadcaster owner list, reviewed government-owner regexes), then hard exclusions that always win. 'open' (npm run filter:open) = full catalogue, no licensing or category filtering; INCLUDE_NSFW=1 also keeps adult channels. After pruning dead streams: curated 623 channels / 91 countries (this is what git tracks and the live site serves), open 7,648 / 174 countries.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -22,7 +22,7 @@
     },
     {
       "type": "decision",
-      "content": "Open mode must stay honest and unpublished. Channels with no allow-rule match get basis 'unverified-open-mode' labelled 'No verified licensing basis' rather than inheriting a public-broadcaster justification; header shows an OPEN MODE badge; /policy leads with a banner saying the policy is not being applied. The public Vercel URL still serves the curated 781 — an open-mode build was deliberately NOT deployed to a public address. To host it, enable Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby); the MCP Vercel connector 404s on this project so it cannot be set from the tool.",
+      "content": "Open mode must stay honest and must never reach the public URL. Channels with no allow-rule match get basis 'unverified-open-mode' labelled 'No verified licensing basis' rather than inheriting a public-broadcaster justification; header shows an OPEN MODE badge; /policy leads with a banner saying the policy is not applied. CRITICAL now that git auto-deploys: data/channels.approved.json tracked on main is ALWAYS the curated build — committing the open catalogue over it publishes the unfiltered player. The open catalogue lives untracked at data/channels.open.local.json (gitignored); swap it in locally, never commit it. Two hardening options offered but not built: keep open mode on a 'personal' branch (previews are protected by default), or enable Vercel Authentication under Project > Settings > Deployment Protection (free on Hobby; the MCP Vercel connector 404s on this project, so it must be done in the dashboard). Note: two early commits still contain the open snapshot in public history — user was told, declined nothing, no rewrite done.",
       "added_at": "2026-08-30T15:06:10.451081",
       "source": "consolidated"
     },
@@ -46,29 +46,17 @@
     },
     {
       "type": "claude_response",
-      "content": "Memories consolidated: 11 → 7. Dropped the four new transcript captures (my own reply openings, the task-notification echo, the one-line request) and folded their substance into the existing entries —",
-      "added_at": "2026-08-30T15:13:31.034397",
+      "content": "Memories consolidated: 11 → 7. The two questions this turn were lookups against facts already stored (channel counts, the URL), so nothing new to record there — I dropped those captures and added the ",
+      "added_at": "2026-08-30T15:24:09.571883",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "If everything's done, then push the code.",
-      "added_at": "2026-08-30T15:13:31.034431",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "**Pushed.** https://github.com/myselfRaifMondal/openbroadcast\n\n```\n6b70256..aa8cbf6  main -> main\n```\n\nRebased onto the remote's existing `Initial commit` rather than force-pushing, so their commit su",
-      "added_at": "2026-08-30T15:16:28.850989",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "connect the repo to vercel for auto-deploy",
-      "added_at": "2026-08-30T15:16:28.851021",
+      "content": "https://openbroadcast.vercel.app/ Just contains only 623 channels so far? Why so?",
+      "added_at": "2026-08-30T15:24:09.571907",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2026-08-30T14:33:04.066938",
-  "updated_at": "2026-08-30T15:16:28.851023"
+  "updated_at": "2026-08-30T15:24:09.571908"
 }
